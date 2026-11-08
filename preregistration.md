@@ -145,8 +145,16 @@ that the prefix does not drive the results.
 ## 5. Readout and outcome categories
 
 Answer readout:
-- Greedy generation, at most 4 new tokens.
-- Parse the integer at the start of the output. No integer: category X.
+- Greedy generation, at most 4 new tokens. The raw generated text is saved
+  for every prompt, so the parsing rule can be changed without a rerun.
+- Primary rule (lenient): skip whitespace at the start; if the next character
+  is a digit, read digits up to the first non-digit, and that is the answer.
+  Otherwise (or empty output): no answer, category X.
+  Examples: "95" -> 95, " 95" -> 95, "95+3" -> 95, "9 5" -> 9,
+  "abc95" -> X, "" -> X.
+- Sensitivity check (strict): the number must also be followed by a newline
+  or the end of the output, otherwise X. "95+3" -> X, "95\ncalc" -> 95.
+  Results are reported under both rules if they differ.
 
 Outcome categories, comparing the readout to the correct answer:
 - units = answer mod 10
