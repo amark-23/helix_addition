@@ -1,0 +1,12 @@
+{
+  "model": "meta-llama/Llama-3.2-1B",
+  "transcoders": "llama",
+  "dtype": "float16",
+  "prefix": "",
+  "max_new_tokens": 4,
+  "pairs": "all_pairs()",
+  "batch": 64,
+  "circuit_tracer": "0.5.3",
+  "transformers": "4.57.3",
+  "torch": "2.11.0+cu130"
+}

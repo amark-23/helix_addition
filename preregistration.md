@@ -97,9 +97,13 @@ that the prefix does not drive the results.
 ### Accuracy and wrong answers
 
 - Accuracy is measured on all prompts before any intervention.
-- Accuracy threshold for keeping the few-shot template: (open)
-- Prompts the model gets wrong in the clean run: (open, proposed: excluded
-  before any intervention, count reported)
+- Template decision (2026-11-08): few-shot kept as main. Clean accuracy is
+  99.75% few-shot and 99.77% zero-shot (results/clean_accuracy*/), so the
+  prefix is not needed for accuracy; it is kept because it fixes the output
+  format (answer, newline, "calc:").
+- Prompts the model gets wrong in the clean run are excluded before any
+  intervention, separately per template. The count and the excluded pairs are
+  reported.
 
 ---
 

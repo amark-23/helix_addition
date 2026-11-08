@@ -27,3 +27,17 @@ Done:
 Notes:
 - Kaggle offers 2 T4s (16 GB each, separate). The model must fit on one.
   The second GPU can run a parallel copy if something is slow (likely graphs).
+
+Clean accuracy (Kaggle T4, fp16, circuit-tracer v0.5.3):
+- Few-shot: 99.75%, 25 wrong. All 25 are exactly +10 (units right, upper +1),
+  true sums 127-143. Two prefix answers (138, 141) are in that range.
+- Zero-shot: 99.77%, 23 wrong. Only 1 pair wrong in both runs (74+58).
+  Errors cluster by operand (b = 64, b = 70), not by sum range.
+- Hypothesis (unchecked): the prefix decides which prompts fail.
+  To check: pred and diff for the zero-shot wrong rows.
+
+Next:
+1. Check zero-shot diffs (locally, from the saved CSV).
+2. Remaining Q1 decisions: label thresholds, number of random groups,
+   internal-test measure, graph subset size.
+3. Then: feature labels (operand plots).
