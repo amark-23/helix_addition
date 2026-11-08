@@ -16,3 +16,14 @@ Next:
 2. Remaining Q1 decisions: label thresholds, number of random groups,
    internal-test measure, accuracy threshold, graph subset size.
 3. model.py: load the model, measure clean accuracy on all prompts.
+
+## 2026-11-08
+
+Done:
+- tests/test_prompts.py (tokenization facts), pyproject.toml (package installable).
+- src/helixadd/readout.py + tests/test_readout.py (lenient rule, raw text saved).
+- src/helixadd/model.py: load_model (fp16), tokenize, generate (greedy, 4 tokens).
+
+Notes:
+- Kaggle offers 2 T4s (16 GB each, separate). The model must fit on one.
+  The second GPU can run a parallel copy if something is slow (likely graphs).

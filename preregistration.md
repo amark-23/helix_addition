@@ -36,7 +36,11 @@ linear term, T = 100 and above), and which specific periods each pathway reads.
 
 - Model: Llama-3.2-1B.
 - Transcoders: the public per-layer transcoders (one per layer, 16 total),
-  loaded through circuit-tracer. Exact repo id and version: (open)
+  `mntss/transcoder-Llama-3.2-1B` (circuit-tracer short name "llama").
+- Library: circuit-tracer v0.5.3, installed from the GitHub tag, TransformerLens
+  backend. All runs (clean and intervened) go through the same ReplacementModel.
+- dtype: float16 (float32 does not fit on one 16 GB T4).
+- Decoding: greedy (`do_sample=False`), exactly 4 new tokens.
 ### Main template (few-shot)
 
 A fixed prefix of 4 solved examples, identical in every prompt, then the
