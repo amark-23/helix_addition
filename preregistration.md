@@ -109,14 +109,53 @@ that the prefix does not drive the results.
 
 ## 3. Feature labels (Q1)
 
+Order (decided 2026-11-09): the groups and the label rule are NOT fixed yet.
+1. Collect the activations of all features at "=" on all prompts.
+2. Look at operand plots for a sample of features (and possibly cluster them)
+   to see which kinds of features Llama has. Anthropic's categories (last
+   digit, magnitude at different precisions, mod 100, lookup, add function)
+   are things to check for, not assumptions.
+3. Then fix the groups and the label rule below, and freeze.
+Looking at features before the freeze is allowed. No suppression runs before
+the freeze.
+
+Draft groups (to be revised after step 2):
+- Last digit: depends only on the units digits of a and b.
+- Magnitude: depends smoothly on size (possibly split by precision).
+- Mod 100: depends on the exact last two digits of the sum.
+- Other: everything else, incl. near-constant features. Reported, not in a
+  supernode.
+
+Planned coverage measures (descriptive, no pass/fail): share of graph
+influence through each group; suppressing "other" as its own group.
+
+The rest of this section is an earlier draft and will be rewritten:
+
 - Features are taken at the "=" token (the last position, where the answer is
   predicted).
 - Operand plot: for each feature, its activation at "=" on all 10,000 prompts
   a + b with a, b in 0..99.
 - For each candidate variable, fit the activations and record R².
-  Candidate variables (list to be finalized):
-  - last-digit family: a mod 10, b mod 10, (a + b) mod 10
-  - magnitude family: a, b, a + b in bins of 10
+  "Fit" means: group the prompts by the variable's value and predict each
+  activation by its group average. R² is the fraction of the activation's
+  variance explained by those averages.
+  Candidate variables:
+
+  |          | last-digit family | magnitude family   |
+  |----------|-------------------|--------------------|
+  | operand a | a mod 10         | floor(a / 10)      |
+  | operand b | b mod 10         | floor(b / 10)      |
+  | sum       | (a + b) mod 10   | floor((a + b) / 10)|
+
+  Magnitude is measured with the tens digit, never with the whole number:
+  the whole number contains the last digit, so it would score as high as
+  a mod 10 on every last-digit feature. On the full 100 x 100 grid, a mod 10
+  and floor(a / 10) are independent.
+  All variables have 10 groups except floor((a + b) / 10), which has 20
+  (0 to 19). With 10,000 prompts, the extra groups add about 0.001 to R² by
+  chance, which is negligible.
+  A feature's score for a family is its highest R² among that family's 3
+  variables.
 - Label rule: the feature gets the family with the highest R² if
   - R² >= R_min, and
   - it beats the best R² of the other family by at least D.

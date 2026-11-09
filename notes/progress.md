@@ -41,3 +41,17 @@ Next:
 2. Remaining Q1 decisions: label thresholds, number of random groups,
    internal-test measure, graph subset size.
 3. Then: feature labels (operand plots).
+
+## 2026-11-09
+
+Template comparison (scripts/compare_templates.py):
+- Few-shot: all 25 errors are +10.
+- Zero-shot: 15 of 23 are +-10 (both directions); the other 8 are copying an
+  operand (24+7 -> 24), dropping the hundreds (95+94 -> 89), and a few odd
+  ones. 5 zero-shot outputs start with a space (handled by parse_answer).
+- Conclusion: the prefix does not change how many prompts fail, it changes the
+  kind of error. Few-shot errors are clean magnitude errors, which supports it
+  as the main template.
+
+Design change: look at Llama's features before fixing the label groups
+(preregistration section 3). Next: collect activations at "=" for all prompts.
