@@ -7,5 +7,5 @@ def eq_activations(model,prompt):
     eq = acts[:, -1, :]                     #keep the "=" token activations
     layers, features = torch.nonzero(eq, as_tuple=True)
     values = eq[layers, features]
-    return layers.cpu(), features.cpu(), values.float().cpu #move to cpu from gpu 
+    return layers.cpu(), features.cpu(), values.float().cpu() #move to cpu from gpu 
     
