@@ -15,10 +15,11 @@ def eq_activations(model,prompt):
     return layers.cpu(), features.cpu(), values.float().cpu() #move to cpu from gpu 
 
 
-def collect(model, folder):
+def collect(model, folder, n=None):
     params = {
         "model": MODEL_NAME, "transcoders": TRANSCODER_SET, "dtype": "float16",
-        "prefix": PREFIX, "pairs": "all_pairs()", "position": "last",
+        "prefix": PREFIX, "pairs": "all_pairs()" if n is None else f"all_pairs()[:{n}]",
+        "position": "last",
         "circuit_tracer": md.version("circuit-tracer"),
         "transformers": md.version("transformers"),
         "torch": md.version("torch"),
@@ -27,7 +28,7 @@ def collect(model, folder):
     if data is not None:
         return data
 
-    pairs = all_pairs()
+    pairs = all_pairs() if n is None else all_pairs()[:n]
     all_prompt, all_layer, all_feature, all_value = [], [], [], []
     for i, (a, b) in enumerate(pairs):
         layers, features, values = eq_activations(model, make_prompt(a, b))
