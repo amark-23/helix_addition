@@ -1,0 +1,11 @@
+{
+  "model": "meta-llama/Llama-3.2-1B",
+  "transcoders": "llama",
+  "dtype": "float16",
+  "prefix": "calc: 31+45=76\ncalc: 17+29=46\ncalc: 52+86=138\ncalc: 63+78=141\n",
+  "pairs": "all_pairs()",
+  "position": "last",
+  "circuit_tracer": "0.5.3",
+  "transformers": "4.57.3",
+  "torch": "2.11.0+cu130"
+}

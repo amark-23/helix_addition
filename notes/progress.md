@@ -55,3 +55,19 @@ Template comparison (scripts/compare_templates.py):
 
 Design change: look at Llama's features before fixing the label groups
 (preregistration section 3). Next: collect activations at "=" for all prompts.
+
+Feature activations at "=" (notebooks/02_feature_activations.ipynb):
+- activations.eq_activations (one prompt) and activations.collect (all
+  prompts, sparse, saved as data.npz + params.json).
+- Full run done: 9,992 prompts, 7,546,419 entries, about 755 active features
+  per prompt (828 for 36+59; layers 12-14 have the most).
+- data.npz stays out of git (.gitignore). Copies: Kaggle notebook output
+  (attach with Add Input) and a local download in results/eq_activations/.
+  Only params.json is committed.
+- Notebook workflow: no editable install on Kaggle (sys.path), update() pulls
+  and reloads modules without a restart. Import modules, not functions.
+
+Next:
+1. Count distinct features that fire at "=" and how often (laptop).
+2. Operand plots for a sample of frequent features: which kinds exist?
+3. Then fix the label groups and rule (preregistration section 3).
