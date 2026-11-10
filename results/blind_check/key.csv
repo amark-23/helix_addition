@@ -1,0 +1,76 @@
+id,layer,feature,role,family,best_var,best_r2,best_basis
+1,3,14029,mostly active,magnitude,tens separate,0.69240505,value
+2,2,93313,mostly active,magnitude,tens separate,0.6360331,value
+3,13,54876,comparison,last digit,min mod 10,0.6543524,shape
+4,15,104666,sum,mod 100,sum mod 100,0.83408386,value
+5,13,85894,comparison,last digit,min mod 10,0.8449793,value
+6,13,31889,comparison,last digit,min mod 10,0.75084394,shape
+7,15,87682,sum,magnitude,sum range,0.6879403,shape
+8,10,88929,mostly active,mixed,a < b,0.9502455,shape
+9,14,28303,lookup table,magnitude,"tens (a, b)",0.88452905,value
+10,5,24026,add function,magnitude,b // 10,0.8762999,value
+11,6,105683,lookup table,magnitude,"tens (a, b)",0.7024318,value
+12,11,42551,mostly active,last digit,max mod 10,0.9336454,value
+13,14,62988,lookup table,magnitude,"tens (a, b)",0.81050444,value
+14,9,37083,lookup table,magnitude,"tens (a, b)",0.7074309,shape
+15,14,124723,lookup table,last digit,"units (a, b)",0.93803114,value
+16,15,102005,sum,mod 100,sum mod 100,0.64385504,value
+17,7,70453,comparison,comparison,a = b,0.7620827,value
+18,3,109274,mostly active,unclear,"tens (a, b)",0.3935417,value
+19,15,19091,sum,mod 100,sum mod 100,0.84571564,value
+20,15,7874,mostly active,unclear,"tens (a, b)",0.4045104,value
+21,5,89135,add function,magnitude,b range,0.82235235,shape
+22,1,114431,mostly active,magnitude,b // 10,0.8800191,value
+23,14,103718,sum,last digit,sum mod 10,0.6161299,shape
+24,7,111916,add function,magnitude,b // 10,0.80186164,value
+25,15,10443,sum,mod 100,sum mod 100,0.80845755,value
+26,4,74974,mostly active,unclear,"tens (a, b)",0.49962956,value
+27,6,17212,add function,magnitude,b // 10,0.7263787,value
+28,3,4361,mostly active,unclear,tens separate,0.32997245,value
+29,15,120358,sum,mod 100,sum mod 100,0.8657878,value
+30,6,49876,add function,magnitude,b // 10,0.627381,value
+31,12,84478,lookup table,last digit,"units (a, b)",0.83566177,value
+32,11,83309,add function,magnitude,a range,0.6140849,shape
+33,15,74637,sum,mixed,sum mod 100,0.8081735,value
+34,7,84114,add function,magnitude,tens separate,0.7529148,value
+35,7,22942,lookup table,magnitude,"tens (a, b)",0.7000654,value
+36,14,72340,lookup table,magnitude,"tens (a, b)",0.70719856,value
+37,8,4674,mostly active,magnitude,"tens (a, b)",0.6561444,value
+38,3,36122,add function,magnitude,b // 10,0.65724224,shape
+39,11,45563,lookup table,magnitude,"tens (a, b)",0.71060747,value
+40,15,79834,sum,mod 100,sum mod 100,0.90393656,value
+41,6,127543,add function,magnitude,b // 10,0.6085193,value
+42,14,51577,lookup table,last digit,"units (a, b)",0.87420356,value
+43,12,22015,comparison,last digit,min mod 10,0.81170624,shape
+44,12,40076,comparison,comparison,max range,0.74638855,shape
+45,15,80280,sum,mod 100,sum mod 100,0.8880143,value
+46,11,42390,lookup table,magnitude,"tens (a, b)",0.8422857,value
+47,14,42225,comparison,last digit,max mod 10,0.8904832,shape
+48,6,106657,add function,magnitude,b // 10,0.84359413,shape
+49,15,46614,sum,mod 100,sum mod 100,0.8020073,value
+50,12,38063,comparison,last digit,max mod 10,0.85204023,value
+51,8,82814,add function,magnitude,b range,0.62555593,value
+52,14,21200,mostly active,magnitude,"tens (a, b)",0.7233056,value
+53,11,79683,comparison,comparison,max // 10,0.8372143,value
+54,14,59425,mostly active,magnitude,"tens (a, b)",0.87455595,value
+55,13,71686,comparison,comparison,min // 10,0.77094495,value
+56,15,111555,sum,mod 100,sum mod 100,0.8319096,value
+57,4,23420,add function,magnitude,b // 10,0.7268263,value
+58,9,28615,add function,magnitude,a range,0.6265839,value
+59,12,7707,comparison,last digit,min mod 10,0.90961444,value
+60,13,124726,lookup table,magnitude,"tens (a, b)",0.66239816,value
+61,11,97798,comparison,last digit,min mod 10,0.7432027,shape
+62,13,55247,comparison,last digit,max mod 10,0.8225083,value
+63,12,76297,mostly active,magnitude,"tens (a, b)",0.8257464,value
+64,12,36999,comparison,comparison,max // 10,0.8497874,value
+65,13,34785,lookup table,magnitude,"tens (a, b)",0.7535737,value
+66,9,111871,mostly active,unclear,"tens (a, b)",0.58634657,value
+67,5,104301,add function,magnitude,b range,0.7265539,shape
+68,14,31722,lookup table,last digit,"units (a, b)",0.7893993,value
+69,13,42671,comparison,comparison,max range,0.77116823,value
+70,5,56795,add function,magnitude,tens separate,0.7494576,value
+71,15,115588,sum,mod 100,sum mod 100,0.783041,value
+72,15,3526,sum,mod 100,sum mod 100,0.8356045,value
+73,15,36940,sum,mod 100,sum mod 100,0.6333969,shape
+74,3,30369,mostly active,unclear,tens separate,0.38890398,value
+75,8,43645,lookup table,magnitude,"tens (a, b)",0.7783715,value

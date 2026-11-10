@@ -71,3 +71,27 @@ Next:
 1. Count distinct features that fire at "=" and how often (laptop).
 2. Operand plots for a sample of frequent features: which kinds exist?
 3. Then fix the label groups and rule (preregistration section 3).
+
+## 2026-11-10
+
+Feature labels (src/helixadd/labels.py, scripts/score_features.py):
+- 5,043 features fire at "=" on >= 20 prompts (of 10,839 that fire at all).
+- Each is scored (R^2) on a library of variables, on its values and on its
+  on/off pattern; nested and interaction rules; two labels: role (Anthropic's
+  add function / sum / lookup table, plus comparison) and family (last digit /
+  magnitude / mod 100 / comparison); mostly_active is a separate flag.
+- Thresholds favor precision (best R^2 >= 0.6, lead >= 0.15). 634 features
+  get a clear role; 274 mixed; 4,135 unclear.
+- The unclear pile (figures/unclear_gallery.png) holds clear shapes just under
+  the bar, two-condition features, dense textures and sparse specks; no clear
+  misclassifications seen.
+- Results: results/feature_scores/ (older versions deleted).
+- Blind check prepared (scripts/blind_check.py, notes/blind_check_guide.md),
+  not yet done.
+
+Next:
+1. Blind check: label figures/blind_check/ by hand, run scripts/blind_compare.py.
+2. Write the label method into preregistration section 3; settle the
+   remaining Q1 entries (random groups, internal-test measure, graph subset,
+   strict + relaxed threshold check). Freeze Q1.
+3. Suppression code (interventions) for Q1.
