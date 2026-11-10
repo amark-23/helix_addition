@@ -1,0 +1,73 @@
+category,layer,feature,role,family,best_var,best_r2
+add function / magnitude,7,3182,add function,magnitude,b // 10,0.86199516
+add function / magnitude,8,11682,add function,magnitude,tens separate,0.71060026
+add function / magnitude,4,125622,add function,magnitude,b // 10,0.74418896
+add function / magnitude,2,95239,add function,magnitude,a range,0.7003954
+sum / last digit,15,121799,sum,last digit,sum mod 10,0.8747674
+sum / last digit,15,78055,sum,last digit,sum mod 10,0.90079
+sum / last digit,15,70977,sum,last digit,sum mod 10,0.9607681
+sum / last digit,15,78496,sum,last digit,sum mod 10,0.74814945
+sum / last digit,15,56500,sum,last digit,sum mod 10,0.9228389
+sum / last digit,15,83584,sum,last digit,sum mod 10,0.9028167
+sum / mod 100,15,116763,sum,mod 100,sum mod 100,0.88969857
+sum / mod 100,15,60910,sum,mod 100,sum mod 100,0.82524467
+sum / mod 100,15,105354,sum,mod 100,sum mod 100,0.9206711
+sum / mod 100,15,123446,sum,mod 100,sum mod 100,0.86110854
+sum / mod 100,15,82941,sum,mod 100,sum mod 100,0.8865967
+sum / mod 100,15,71783,sum,mod 100,sum mod 100,0.8625854
+sum / mod 100,15,17771,sum,mod 100,sum mod 100,0.85169464
+sum / mod 100,15,114578,sum,mod 100,sum mod 100,0.8830036
+sum / magnitude,15,84911,sum,magnitude,sum // 10,0.8083195
+sum / magnitude,13,99054,sum,magnitude,sum range,0.64506036
+sum / magnitude,13,55055,sum,magnitude,sum range,0.61258477
+sum / magnitude,15,36229,sum,magnitude,sum range,0.7538888
+sum / magnitude,12,22987,sum,magnitude,sum range,0.68716663
+sum / magnitude,15,40327,sum,magnitude,sum range,0.80633765
+lookup table / last digit,12,70880,lookup table,last digit,"units (a, b)",0.7452932
+lookup table / last digit,13,39403,lookup table,last digit,"units (a, b)",0.6247714
+lookup table / last digit,14,12171,lookup table,last digit,"units (a, b)",0.7216241
+lookup table / last digit,14,16025,lookup table,last digit,"units (a, b)",0.71125513
+lookup table / last digit,14,93459,lookup table,last digit,"units (a, b)",0.66336906
+lookup table / last digit,13,31031,lookup table,last digit,"units (a, b)",0.6711794
+lookup table / last digit,13,17130,lookup table,last digit,"units (a, b)",0.69016933
+lookup table / last digit,14,97394,lookup table,last digit,"units (a, b)",0.78264034
+lookup table / magnitude,14,21956,lookup table,magnitude,"tens (a, b)",0.8412748
+lookup table / magnitude,12,94969,lookup table,magnitude,"tens (a, b)",0.7373622
+lookup table / magnitude,12,114743,lookup table,magnitude,"tens (a, b)",0.8221003
+lookup table / magnitude,12,20211,lookup table,magnitude,"tens (a, b)",0.777861
+lookup table / magnitude,12,104738,lookup table,magnitude,"tens (a, b)",0.7708865
+lookup table / magnitude,13,120804,lookup table,magnitude,"tens (a, b)",0.8057172
+lookup table / magnitude,12,102979,lookup table,magnitude,"tens (a, b)",0.7941111
+lookup table / magnitude,14,68647,lookup table,magnitude,"tens (a, b)",0.78818953
+comparison / comparison,8,42618,comparison,comparison,a = b,1.0000507
+comparison / comparison,11,58276,comparison,comparison,min range,0.79775417
+comparison / comparison,11,65788,comparison,comparison,max range,0.82912105
+comparison / comparison,11,97886,comparison,comparison,max range,0.8530964
+comparison / comparison,12,37614,comparison,comparison,max range,0.86773705
+comparison / comparison,11,8276,comparison,comparison,min // 10,0.88911396
+comparison / comparison,11,5020,comparison,comparison,min range,0.79657567
+comparison / comparison,12,39969,comparison,comparison,min // 10,0.79153824
+comparison / last digit,11,16678,comparison,last digit,max mod 10,0.9872934
+comparison / last digit,11,51909,comparison,last digit,max mod 10,0.97001773
+comparison / last digit,11,94069,comparison,last digit,max mod 10,0.93980813
+comparison / last digit,11,118296,comparison,last digit,max mod 10,0.9555561
+comparison / last digit,12,55831,comparison,last digit,min mod 10,0.82727253
+comparison / last digit,11,38730,comparison,last digit,max mod 10,0.96905714
+comparison / last digit,11,23431,comparison,last digit,max mod 10,0.9812602
+comparison / last digit,12,121346,comparison,last digit,max mod 10,0.91573304
+mostly active,2,25642,mostly active,magnitude,tens separate,0.9238135
+mostly active,8,43284,mostly active,magnitude,"tens (a, b)",0.7707121
+mostly active,14,17667,mostly active,magnitude,"tens (a, b)",0.90461665
+mostly active,13,119661,mostly active,unclear,tens separate,0.26998657
+mostly active,13,62403,mostly active,magnitude,"tens (a, b)",0.84405065
+mostly active,8,36924,mostly active,magnitude,"tens (a, b)",0.6686733
+mostly active,6,50450,mostly active,unclear,tens separate,0.42597634
+mostly active,4,3497,mostly active,unclear,tens separate,0.5312685
+unclear,13,103878,unclear,unclear,"units (a, b)",0.52338153
+unclear,12,24892,unclear,unclear,a range,0.13379677
+unclear,15,39441,unclear,unclear,sum mod 100,0.38991913
+unclear,10,120254,unclear,unclear,"tens (a, b)",0.5923974
+unclear,11,7293,unclear,unclear,min mod 10,0.120079465
+unclear,14,116099,unclear,unclear,"tens (a, b)",0.48424447
+unclear,14,43439,unclear,unclear,"tens (a, b)",0.4900025
+unclear,14,116442,unclear,unclear,"units (a, b)",0.20634164

@@ -89,8 +89,17 @@ Feature labels (src/helixadd/labels.py, scripts/score_features.py):
 - Blind check prepared (scripts/blind_check.py, notes/blind_check_guide.md),
   not yet done.
 
+- Dense features (active on > 50% of prompts) now get the role "mostly active";
+  add function dropped to 19 features, almost all "b is a single digit".
+- Codebook for the blind check: notes/taxonomy.md and figures/taxonomy/
+  (examples outside the blind set; 11 non-textbook candidates removed by hand,
+  most of them lookup tables). Practice round: figures/taxonomy/practice.png,
+  results/practice/.
+
 Next:
-1. Blind check: label figures/blind_check/ by hand, run scripts/blind_compare.py.
+1. Read notes/taxonomy.md, do the practice round
+   (python scripts/blind_compare.py practice), then the blind round
+   (python scripts/blind_compare.py).
 2. Write the label method into preregistration section 3; settle the
    remaining Q1 entries (random groups, internal-test measure, graph subset,
    strict + relaxed threshold check). Freeze Q1.

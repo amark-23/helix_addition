@@ -1,0 +1,21 @@
+id,layer,feature,role,family,best_var,best_r2,best_basis
+A,15,18824,unclear,unclear,sum mod 100,0.38674396,shape
+B,11,6192,comparison,comparison,max // 10,0.854747,value
+C,11,74427,unclear,unclear,a range,0.22804955,value
+D,5,110820,mostly active,unclear,tens separate,0.4915825,value
+E,6,60864,mostly active,unclear,tens separate,0.5342931,value
+F,12,88310,unclear,unclear,a range,0.14382686,value
+G,9,102440,lookup table,magnitude,"tens (a, b)",0.6662769,value
+H,15,47889,sum,mod 100,sum mod 100,0.87172943,value
+I,14,26100,lookup table,magnitude,"tens (a, b)",0.7710165,value
+J,12,15995,comparison,last digit,max mod 10,0.9417024,shape
+K,12,9431,lookup table,magnitude,"tens (a, b)",0.67736906,value
+L,15,24209,sum,mod 100,sum mod 100,0.8488855,value
+M,0,55993,mostly active,unclear,b // 10,0.29721552,value
+N,13,123390,lookup table,magnitude,"tens (a, b)",0.6554264,value
+O,15,125431,unclear,unclear,"units (a, b)",0.49141553,value
+P,8,8073,mostly active,magnitude,"tens (a, b)",0.64825964,value
+Q,12,27004,comparison,last digit,max mod 10,0.7457432,shape
+R,12,22470,comparison,last digit,max mod 10,0.63395077,shape
+S,15,81649,sum,mod 100,sum mod 100,0.7810384,value
+T,15,88225,sum,mod 100,sum mod 100,0.74329734,value

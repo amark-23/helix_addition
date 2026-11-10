@@ -1,8 +1,15 @@
-"""Compare your blind labels (sheet.csv) with the automatic ones (key.csv)."""
+"""Compare your labels (sheet.csv) with the automatic ones (key.csv).
+
+python scripts/blind_compare.py            -> the blind round (results/blind_check)
+python scripts/blind_compare.py practice   -> the practice round (results/practice)
+"""
+import sys
+
 import pandas as pd
 
-sheet = pd.read_csv("results/blind_check/sheet.csv")
-key = pd.read_csv("results/blind_check/key.csv")
+folder = "results/practice" if sys.argv[1:] == ["practice"] else "results/blind_check"
+sheet = pd.read_csv(f"{folder}/sheet.csv")
+key = pd.read_csv(f"{folder}/key.csv")
 m = key.merge(sheet, on="id")
 missing = m["my_role"].isna().sum()
 if missing:
