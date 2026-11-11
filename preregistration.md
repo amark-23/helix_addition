@@ -1,6 +1,6 @@
 # Preregistration
 
-Status: Q1 complete, ready to freeze. Q2 not designed yet (section 1 is a draft).
+Status: Q1 frozen 11-11-26. Q2 not designed yet (section 1 is a draft).
 Q1 freeze: the commit that sets this line to "Q1 frozen on <date>".
 Any change to Q1 after the freeze goes in "Deviations" at the bottom, with the reason.
 
@@ -226,7 +226,7 @@ role (add function, lookup table, sum). A feature with a clear family but a
 
 Not in any supernode: mostly active (315; their role comes from frequency,
 and switching off 315 always-on features would mostly break the model) and
-unclear (4,124).
+unclear (4,150).
 
 Coverage per prompt (active features at "="): last digit median 35 (min 12),
 magnitude median 18 (min 8).
