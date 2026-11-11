@@ -48,27 +48,56 @@ def make_hooks(model, group, store):
     return hooks
 
 
+def make_watch_hooks(model, watch, sums):
+    """Read-only hooks: the summed activation at EQ of each watched group.
+
+    watch: {name: group as {layer: feature ids}}. sums: dict filled with
+    {name: (batch,)} at every forward pass. Used for the internal test
+    (preregistration 7.2): how much a group changes when another is switched off.
+    """
+    layers = sorted({layer for g in watch.values() for layer in g})
+    hooks = []
+    for layer in layers:
+        here = {name: g[layer].to(model.cfg.device) for name, g in watch.items() if layer in g}
+
+        def read(x, hook, layer=layer, here=here):
+            acts = model.transcoders.encode_layer(x[:, EQ, :], layer)
+            for name, feats in here.items():
+                sums[name] = sums.get(name, 0) + acts[:, feats].float().sum(dim=1)
+            return x
+
+        hooks.append((f"blocks.{layer}.{model.feature_input_hook}", read))
+    return hooks
+
+
 @torch.no_grad()
-def suppress_generate(model, prompts, group, max_new_tokens=4):
+def suppress_generate(model, prompts, group, max_new_tokens=4, watch=None):
     """Greedy generation with the group switched off at "=", for a batch of prompts.
 
-    Returns the generated text of every prompt and the logits at the first
-    generated position (batch, vocab). An empty group gives the clean run.
+    Returns the generated text of every prompt, the logits at the first
+    generated position (batch, vocab), and, if `watch` is given, the summed
+    activation at "=" of each watched group during that first step
+    ({name: (batch,)}). An empty group gives the clean run.
     """
     from helixadd.model import tokenize
 
-    store = {}
+    store, sums, first_sums = {}, {}, {}
+    hooks = make_hooks(model, group, store) + (make_watch_hooks(model, watch, sums) if watch is not None else [])
     tokens = tokenize(model, prompts)                 # (batch, 44)
     n_prompt = tokens.shape[1]
     first_logits = None
-    with model.hooks(fwd_hooks=make_hooks(model, group, store)):
+    with model.hooks(fwd_hooks=hooks):
         for step in range(max_new_tokens):
+            sums.clear()
             logits = model(tokens)[:, -1, :]          # the prediction for the next token, (batch, vocab)
             if step == 0:
                 first_logits = logits.float().cpu()
+                first_sums = {name: v.cpu() for name, v in sums.items()}
             next_token = logits.argmax(dim=-1)                          # greedy: highest score, (batch,)
             tokens = torch.cat([tokens, next_token[:, None]], dim=1)    # append: (batch, n + 1)
     texts = [model.tokenizer.decode(row) for row in tokens[:, n_prompt:]]
+    if watch is not None:
+        return texts, first_logits, first_sums
     return texts, first_logits
 
 

@@ -432,3 +432,13 @@ Measured speed of the batched implementation: 46 ms per prompt on a T4
 (64-prompt batches), about 8 GPU hours for the full plan, so the compute rule
 in section 6 does not apply: 100 random groups per size, 1,000 prompts.
 
+
+### 8.3 Relaxed labels: exact definition (2026-11-11, before any suppression run)
+
+Clarifies section 4.2. The relaxed labels are the automatic labels with the
+R^2 bar at 0.5 instead of 0.6, every other rule unchanged, and no manual
+review applied (so every tens (a, b) lookup and every add function feature
+counts). Code: scripts/relaxed_labels.py, results/feature_labels_relaxed/.
+Every strict supernode feature is also in the relaxed one. Sizes: last digit
+145 (strict 108), magnitude 326 (strict 98; most of the difference is the
+unreviewed tens (a, b) lookups and add function features).

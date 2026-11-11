@@ -1,5 +1,5 @@
 import pytest
-from helixadd.readout import parse_answer
+from helixadd.readout import outcome, parse_answer
 
 
 @pytest.mark.parametrize("text, expected", [
@@ -18,3 +18,20 @@ from helixadd.readout import parse_answer
 ])
 def test_parse_answer(text, expected):
     assert parse_answer(text) == expected
+
+
+@pytest.mark.parametrize("pred, correct, expected", [
+    (95, 95, "N"),
+    (92, 95, "U"),            # units only
+    (85, 95, "M"),            # upper only
+    (82, 95, "B"),            # both: e.g. the carry lost with the units
+    (105, 95, "M"),           # 9 -> 10 in the upper part, units the same
+    (195, 95, "M"),
+    (9, 95, "B"),             # a single digit read as the answer
+    (None, 95, "X"),
+    (float("nan"), 95, "X"),
+    (7, 7, "N"),              # single-digit answers: upper part 0
+    (17, 7, "M"),
+])
+def test_outcome(pred, correct, expected):
+    assert outcome(pred, correct) == expected

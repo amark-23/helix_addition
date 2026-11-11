@@ -1,0 +1,13 @@
+{
+  "source": "results/eq_activations",
+  "settings": {
+    "min_prompts": 20,
+    "delta": 0.05,
+    "delta_int": 0.1,
+    "delta_flex": 0.2,
+    "mostly_active": 0.9,
+    "r2_min": 0.5,
+    "margin_min": 0.15
+  },
+  "manual_review": "none"
+}

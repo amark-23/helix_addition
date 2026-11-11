@@ -177,3 +177,10 @@ circuit-tracer's intervention, checked against the library (32/32, 32/32,
 31/32 same answer; the one difference is a float16 tie). Recorded as
 deviation 8.1 in the preregistration. Next: timing of the batched version,
 layer-matched random groups, outcome categories, then the runs.
+
+Q1 runner (2026-11-11): src/helixadd/groups.py (supernodes, layer-matched
+random groups; tests), readout.outcome (N/U/M/B/X; tests), relaxed labels
+(scripts/relaxed_labels.py; deviation 8.3), src/helixadd/q1.py (plan: 610
+runs on 998 evaluation prompts; one CSV per run, resumable; watched sums for
+the internal test), notebooks/03_q1_runs.ipynb. Next: commit, push, run 03 as
+Save & Run All (about 8 GPU hours).
