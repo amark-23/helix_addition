@@ -397,4 +397,38 @@ every suppression result, so a reader can judge the coverage.
 
 ## 8. Deviations
 
-(none)
+### 8.1 Suppression implementation (2026-11-11, before any suppression run)
+
+Section 4.4 names circuit-tracer's `feature_intervention` as the mechanism.
+It handles one prompt at a time (about 0.5 s per prompt on a T4), which makes
+the planned runs take 40-80 GPU hours. The same operation is implemented
+batched in `helixadd.intervene` (`suppress_generate`): at each layer with
+features in the group, the features' activations at position 43 are computed
+with the library's own encoder (`transcoders.encode_layer`), and
+(0 - activation) x decoder vector is added to the MLP output there; live
+attention; greedy generation of 4 tokens, rerunning the full sequence at
+every step (the library uses a KV cache).
+
+Check against the library (`check_against_library`, 32 prompts from
+`sample_pairs(32, seed=123)`, not the main sample; agreement only, no
+answers shown): same parsed answer on 32/32 prompts for the clean run, 32/32
+with the last-digit group off, 31/32 with the magnitude group off; largest
+difference in the correct answer's logit 0.031. The one disagreement is a
+tie: the top two tokens differ by 0.016 in both implementations, below
+float16 precision, so their order depends on the order of additions.
+
+Nothing else in the design changes.
+
+### 8.2 Random groups: which features they may contain (2026-11-11, before any suppression run)
+
+Clarifies section 6, which did not say this. A random group compared with a
+supernode never contains that supernode's own features (otherwise it is
+partly the group itself). It may contain features of the other groups (e.g.
+magnitude features in a random group for last digit): the null is "any
+non-dense features with the same layer profile", which a random draw could
+hit by chance.
+
+Measured speed of the batched implementation: 46 ms per prompt on a T4
+(64-prompt batches), about 8 GPU hours for the full plan, so the compute rule
+in section 6 does not apply: 100 random groups per size, 1,000 prompts.
+

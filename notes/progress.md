@@ -171,3 +171,9 @@ Manual review 2, add function (results/manual_review/add_functions.csv): 15
 keep, 26 drop; all 19 dense ones (50-90% of prompts) dropped, 6 of them for
 "add function mixed with a = b". Final labels rebuilt from both reviews;
 magnitude supernode 124 -> 98. Preregistration updated (3.5, 3.6, 4.1, 4.2, 7.5).
+
+Suppression code (src/helixadd/intervene.py): batched version of
+circuit-tracer's intervention, checked against the library (32/32, 32/32,
+31/32 same answer; the one difference is a float16 tie). Recorded as
+deviation 8.1 in the preregistration. Next: timing of the batched version,
+layer-matched random groups, outcome categories, then the runs.
