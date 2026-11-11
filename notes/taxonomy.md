@@ -4,8 +4,8 @@ Every plot is one feature at the "=" token. Vertical axis: a (first operand),
 horizontal axis: b (second operand), both 0 to 99. Color: how strongly the
 feature fires on the prompt a+b. White: it does not fire.
 
-Examples of every category: `figures/taxonomy/page_1.png` and `page_2.png`.
-None of them is in the blind set.
+Examples of every category: `figures/taxonomy/taxonomy.pdf`. None of them
+is in a blind check.
 
 ## Step 1: the role (what shape is it?)
 
@@ -38,7 +38,7 @@ Ask these in order and stop at the first yes.
   single thin diagonal line.
 - **comparison**: L-shapes, corners, the a = b diagonal, regions above or
   below that diagonal.
-- **unclear**: none of these, or for a mostly active feature when you cannot
+- **unclear**: none of these, or for a mostly active feature when it is not possible to
   tell what its value tracks.
 
 ## Confusions to watch for
@@ -53,19 +53,19 @@ Ask these in order and stop at the first yes.
 - **Grid vs nested squares.** A grid has dots in rows and columns. Nested
   squares are lines that turn a corner at the a = b diagonal.
 - **Mostly active with a shape.** If almost all of it is filled, it is
-  `mostly active` even if you see a diagonal inside it. About half filled:
+  `mostly active` even if a diagonal is visible inside it. About half filled:
   label the shape.
 - Lookup tables were the hardest category to find clean examples for (11
   candidates were removed from the examples as not textbook). Be strict there.
 
-## Procedure
+## Procedure for a blind check
 
-1. Read this note and look at both example pages.
-2. Practice: label `figures/taxonomy/practice.png` (letters A to T) in
-   `results/practice/sheet.csv`, then run `python scripts/blind_compare.py practice`.
-   Look at your disagreements. Here learning is allowed.
-3. Blind round 1 (done): `figures/blind_check/`, `results/blind_check/`.
-   Blind round 2: label `figures/blind_check_2/page_1.png` and `page_2.png` in
-   `results/blind_check_2/sheet.csv`. Do not open `results/blind_check_2/key.csv`.
-   Then run `python scripts/blind_compare.py 2`.
-4. When unsure: `unclear`, and write why in `note`.
+1. Read this note and `figures/taxonomy/taxonomy.pdf`.
+2. Prepare a round: `python scripts/checks/blind_check.py NAME`.
+3. Label `figures/blind_check_NAME/page_*.png` in
+   `results/blind_check_NAME/sheet.csv`, without opening `key.csv`.
+4. Compare: `python scripts/checks/blind_compare.py results/blind_check_NAME`.
+5. When unsure: `unclear`, with the reason in `note`.
+
+Rounds done so far: results/blind_check (75 features) and
+results/blind_check_2 (30 features); see preregistration section 3.5.

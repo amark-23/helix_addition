@@ -143,3 +143,31 @@ Blind check, round 2 (30 new features, results/blind_check_2/):
   ("equality for numbers > 50", "for numbers < 50"). Lookup via
   units (a, b): 2/2 (rounds 1+2: 6/6).
 - Magnitude family 5/11.
+
+Manual review of tens (a, b) lookups: 53 keep, 92 drop
+(results/manual_review/tens_lookups.csv, with notes). Final labels:
+results/feature_labels/ (scripts/final_labels.py).
+
+To check later (exploratory, after Q1):
+- L7 #13477 (spotted during the manual review): union of exact-value lines, b = 78 (41
+  prompts), b = 86, a = 63, a = 52. Anthropic's add-function form with exact
+  values instead of last digits, each line only partly lit. Labeled unclear
+  (R^2 0.06): the library has no exact-value variables. Idea: ranges of
+  width 1.
+
+Preregistration, Q1 complete (2026-11-11): section 3 (label method and
+checks), 4.1-4.3 (supernodes = families; robustness variants; predictions),
+6 (layer-matched random groups, 100 per size, 1,000 prompts, compute rule),
+7.2 (internal measure), 7.3 (200 graphs, influence share), 7.5 (scope).
+Next: freeze Q1 (commit), then the suppression code.
+
+Cleanup (2026-11-11): labeling code split into helixadd/scoring.py (R^2 math)
+and helixadd/labels.py (library, rules, score_features); recomputation gives
+identical labels. One-off exploration scripts removed (they remain in git
+history); checks moved to scripts/checks/. Page images of the checks removed
+(scripts/checks/ can redraw them). README added.
+
+Manual review 2, add function (results/manual_review/add_functions.csv): 15
+keep, 26 drop; all 19 dense ones (50-90% of prompts) dropped, 6 of them for
+"add function mixed with a = b". Final labels rebuilt from both reviews;
+magnitude supernode 124 -> 98. Preregistration updated (3.5, 3.6, 4.1, 4.2, 7.5).

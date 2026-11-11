@@ -119,7 +119,7 @@ PAGES = {
         confused="Blobs (lookup table). An L-shape whose corner lies on a = b is comparison."),
     "comparison / last digit": dict(
         math="v(a, b) = max(a, b) mod 10  or  min(a, b) mod 10",
-        means="The last digit of the larger (or smaller) operand. Your pilot found \"max(a, b) ends in d\". "
+        means="The last digit of the larger (or smaller) operand. The pilot found \"max(a, b) ends in d\". "
               "\"max(a, b) ends in 9\" = \"a ends in 9 and a is larger, or b ends in 9 and b is larger\": "
               "Anthropic's \"add 9\" lines cut off at the a = b diagonal (hypothesis: Llama's version of add function).",
         looks="Nested squares: lines that turn a corner at the a = b diagonal, one every 10.",

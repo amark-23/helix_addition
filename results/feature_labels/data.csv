@@ -97,7 +97,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 2,92370,6540,tens separate,0.510748,shape,unclear,unclear,,auto
 2,93313,9992,tens separate,0.6360331,value,mostly active,magnitude,,auto
 2,94260,9384,b // 10,0.5805749,value,mostly active,unclear,,auto
-2,95239,1433,a range,0.7003954,value,add function,magnitude,,auto
+2,95239,1433,a range,0.7003954,value,add function,magnitude,,manual keep
 2,95447,140,diff range,0.13445675,value,unclear,unclear,,auto
 2,95461,2356,b // 10,0.42296717,shape,unclear,unclear,,auto
 2,99111,9992,tens separate,0.32628936,value,mostly active,unclear,,auto
@@ -135,7 +135,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 3,4594,9992,tens separate,0.5987433,value,mostly active,unclear,,auto
 3,8579,9577,units separate,0.25866628,value,mostly active,unclear,,auto
 3,10422,1327,tens separate,0.17036253,shape,unclear,unclear,,auto
-3,10691,7633,b // 10,0.8166578,value,add function,magnitude,,auto
+3,10691,7633,b // 10,0.8166578,value,unclear,unclear,,manual drop
 3,13665,9992,tens separate,0.5249387,value,mostly active,unclear,,auto
 3,14029,9992,tens separate,0.69240505,value,mostly active,magnitude,,auto
 3,15332,811,min // 10,0.24849352,shape,unclear,unclear,,auto
@@ -151,7 +151,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 3,30369,9616,tens separate,0.38890398,value,mostly active,unclear,,auto
 3,31092,9992,tens separate,0.41612053,value,mostly active,unclear,,auto
 3,34895,9992,units separate,0.3096819,value,mostly active,unclear,,auto
-3,36122,1278,b // 10,0.65724224,shape,add function,magnitude,,auto
+3,36122,1278,b // 10,0.65724224,shape,add function,magnitude,,manual keep
 3,36402,9905,tens separate,0.77156687,value,mostly active,magnitude,,auto
 3,37085,9988,tens separate,0.5015325,value,mostly active,unclear,,auto
 3,37408,3944,tens separate,0.17044395,shape,unclear,unclear,,auto
@@ -244,7 +244,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 4,16439,33,min range,0.06256087,shape,unclear,unclear,,auto
 4,18675,9254,tens separate,0.38653213,value,mostly active,unclear,,auto
 4,22979,9896,tens separate,0.52610916,value,mostly active,unclear,,auto
-4,23420,1804,b // 10,0.7268263,value,add function,magnitude,,auto
+4,23420,1804,b // 10,0.7268263,value,add function,magnitude,,manual keep
 4,23809,276,b range,0.11470323,value,unclear,unclear,,auto
 4,24302,591,a // 10,0.061162524,shape,unclear,unclear,,auto
 4,26197,107,min // 10,0.040986344,shape,unclear,unclear,,auto
@@ -257,7 +257,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 4,35291,31,b range,0.026175138,value,unclear,unclear,,auto
 4,35996,21,max range,0.32086813,shape,unclear,unclear,,auto
 4,38193,57,min range,0.064693645,shape,unclear,unclear,,auto
-4,38499,8568,tens separate,0.6180161,value,add function,magnitude,,auto
+4,38499,8568,tens separate,0.6180161,value,unclear,unclear,,manual drop
 4,39573,5953,tens separate,0.60788536,value,mixed,mixed,,auto
 4,39855,1101,max range,0.1733544,shape,unclear,unclear,,auto
 4,41616,642,min // 10,0.28255495,value,unclear,unclear,,auto
@@ -287,7 +287,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 4,59177,8511,units separate,0.3406611,value,unclear,unclear,,auto
 4,59178,23,max range,0.3850288,shape,unclear,unclear,,auto
 4,60106,9858,tens separate,0.37228185,value,mostly active,unclear,,auto
-4,60315,5786,b // 10,0.8889451,value,add function,magnitude,,auto
+4,60315,5786,b // 10,0.8889451,value,unclear,unclear,"b < 55, plus faint a = b line",manual drop
 4,61243,307,min // 10,0.10912033,shape,unclear,unclear,,auto
 4,62300,9992,tens separate,0.55014634,value,mostly active,unclear,,auto
 4,63644,53,sum // 10,0.23473182,shape,unclear,unclear,,auto
@@ -335,7 +335,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 4,101082,9992,"tens (a, b)",0.72060996,value,mostly active,magnitude,,auto
 4,101476,100,b range,0.19192247,shape,unclear,unclear,,auto
 4,103421,9560,tens separate,0.59648097,value,mostly active,unclear,,auto
-4,106650,5935,tens separate,0.761596,value,add function,magnitude,,auto
+4,106650,5935,tens separate,0.761596,value,unclear,unclear,"b > 35, plus strong a = b line",manual drop
 4,108208,9992,"tens (a, b)",0.49676773,value,mostly active,unclear,,auto
 4,108275,9501,tens separate,0.32464868,value,mostly active,unclear,,auto
 4,111318,9202,tens separate,0.29304075,value,mostly active,unclear,,auto
@@ -351,7 +351,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 4,121548,26,diff range,0.38041815,value,unclear,unclear,,auto
 4,123700,372,a = b,0.08669929,value,unclear,unclear,,auto
 4,123719,276,b range,0.2325895,shape,unclear,unclear,,auto
-4,125622,907,b // 10,0.74418896,shape,add function,magnitude,,auto
+4,125622,907,b // 10,0.74418896,shape,add function,magnitude,,manual keep
 4,127525,128,b range,0.22260155,shape,unclear,unclear,,auto
 4,130701,158,b range,0.1847282,value,unclear,unclear,,auto
 5,153,3441,"tens (a, b)",0.5676997,shape,unclear,unclear,,auto
@@ -369,11 +369,11 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 5,19857,9992,tens separate,0.68009675,value,mostly active,magnitude,,auto
 5,20497,150,max // 10,0.65091795,shape,mixed,mixed,,auto
 5,22965,21,a range,0.012046162,shape,unclear,unclear,,auto
-5,24026,3755,b // 10,0.8762999,value,add function,magnitude,,auto
+5,24026,3755,b // 10,0.8762999,value,unclear,unclear,,manual drop
 5,26476,355,b range,0.104550816,shape,unclear,unclear,,auto
 5,27666,634,b // 10,0.17987782,shape,unclear,unclear,,auto
 5,28919,917,a range,0.39972207,value,unclear,unclear,,auto
-5,30762,6511,tens separate,0.8691544,value,add function,magnitude,,auto
+5,30762,6511,tens separate,0.8691544,value,unclear,unclear,,manual drop
 5,31326,9992,tens separate,0.6742752,value,mostly active,mixed,,auto
 5,31658,9988,tens separate,0.63329846,value,mostly active,magnitude,,auto
 5,34523,24,sum // 10,0.010386972,shape,unclear,unclear,,auto
@@ -387,11 +387,11 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 5,48314,6802,tens separate,0.48120582,value,unclear,unclear,,auto
 5,50283,8271,tens separate,0.4956907,value,unclear,unclear,,auto
 5,51132,23,b range,0.043795105,shape,unclear,unclear,,auto
-5,51418,7195,tens separate,0.704342,shape,add function,magnitude,,auto
+5,51418,7195,tens separate,0.704342,shape,unclear,unclear,,manual drop
 5,54023,264,b range,0.23060594,shape,unclear,unclear,,auto
 5,54427,3248,sum // 10,0.53821516,value,unclear,unclear,,auto
 5,56184,9992,"tens (a, b)",0.54116803,value,mostly active,unclear,,auto
-5,56795,3741,tens separate,0.7494576,value,add function,magnitude,,auto
+5,56795,3741,tens separate,0.7494576,value,unclear,unclear,,manual drop
 5,58098,387,"tens (a, b)",0.45194623,shape,unclear,unclear,,auto
 5,58552,106,b range,0.20352817,shape,unclear,unclear,,auto
 5,59590,9992,tens separate,0.4941193,value,mostly active,unclear,,auto
@@ -400,7 +400,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 5,64266,87,max // 10,0.79058737,shape,comparison,comparison,,auto
 5,65084,7382,tens separate,0.53647864,value,unclear,unclear,,auto
 5,69563,43,a range,0.03821712,shape,unclear,unclear,,auto
-5,70408,8935,tens separate,0.7060812,value,add function,magnitude,,auto
+5,70408,8935,tens separate,0.7060812,value,unclear,unclear,dense; brightest for a < 15; faint a = b line,manual drop
 5,72197,322,tens separate,0.13258874,shape,unclear,unclear,,auto
 5,72260,26,a range,0.049510576,shape,unclear,unclear,,auto
 5,72813,22,max range,0.4194129,shape,unclear,unclear,,auto
@@ -414,20 +414,20 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 5,83367,9992,tens separate,0.6724552,value,mostly active,mixed,,auto
 5,84798,9918,tens separate,0.7418279,value,mostly active,mixed,,auto
 5,84873,9992,tens separate,0.5016123,value,mostly active,unclear,,auto
-5,89135,909,b range,0.82235235,shape,add function,magnitude,,auto
+5,89135,909,b range,0.82235235,shape,add function,magnitude,,manual keep
 5,89640,55,sum range,0.16801636,value,unclear,unclear,,auto
 5,92642,9338,"tens (a, b)",0.8966921,value,mostly active,magnitude,,auto
 5,98319,3198,tens separate,0.30476165,shape,unclear,unclear,,auto
 5,101267,9953,"tens (a, b)",0.6156239,value,mostly active,magnitude,,auto
 5,101795,145,sum range,0.23014472,value,unclear,unclear,,auto
-5,104301,572,b range,0.7265539,shape,add function,magnitude,,auto
+5,104301,572,b range,0.7265539,shape,add function,magnitude,,manual keep
 5,104564,9992,tens separate,0.42958182,value,mostly active,unclear,,auto
 5,105485,2314,tens separate,0.3522079,shape,unclear,unclear,,auto
 5,106108,66,diff range,0.024461431,shape,unclear,unclear,,auto
 5,107657,1636,tens separate,0.23469573,shape,unclear,unclear,,auto
 5,109243,55,b range,0.105072476,shape,unclear,unclear,,auto
 5,109475,97,b range,0.1820984,shape,unclear,unclear,,auto
-5,109766,8427,tens separate,0.6638266,value,add function,magnitude,,auto
+5,109766,8427,tens separate,0.6638266,value,unclear,unclear,,manual drop
 5,109852,4680,sum // 10,0.67648,value,mixed,mixed,,auto
 5,110185,3238,tens separate,0.29328674,value,unclear,unclear,,auto
 5,110820,9992,tens separate,0.4915825,value,mostly active,unclear,,auto
@@ -470,7 +470,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 6,16295,109,a range,0.076557525,shape,unclear,unclear,,auto
 6,16502,62,b range,0.11454572,shape,unclear,unclear,,auto
 6,16809,1444,tens separate,0.14724559,shape,unclear,unclear,,auto
-6,17212,3686,b // 10,0.7263787,value,add function,magnitude,,auto
+6,17212,3686,b // 10,0.7263787,value,add function,magnitude,,manual keep
 6,18854,9992,tens separate,0.5045948,value,mostly active,unclear,,auto
 6,21344,4762,tens separate,0.5522192,value,unclear,unclear,,auto
 6,21376,73,min range,0.07420158,shape,unclear,unclear,,auto
@@ -479,10 +479,10 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 6,25225,4586,tens separate,0.47486097,value,unclear,unclear,,auto
 6,26327,1366,"tens (a, b)",0.6408415,value,mixed,mixed,,auto
 6,27929,116,max // 10,0.16217719,shape,unclear,unclear,,auto
-6,28507,5249,tens separate,0.6583185,value,add function,magnitude,,auto
+6,28507,5249,tens separate,0.6583185,value,unclear,unclear,,manual drop
 6,30220,9992,tens separate,0.56825215,value,mostly active,unclear,,auto
 6,30704,23,max range,0.057217605,shape,unclear,unclear,,auto
-6,30745,5246,tens separate,0.62682307,value,add function,magnitude,,auto
+6,30745,5246,tens separate,0.62682307,value,unclear,unclear,,manual drop
 6,31331,6147,tens separate,0.5139866,value,unclear,unclear,,auto
 6,31454,1202,b range,0.46632507,value,unclear,unclear,,auto
 6,31611,20,sum range,0.24017596,shape,unclear,unclear,,auto
@@ -492,14 +492,14 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 6,35475,24,b range,0.04570862,shape,unclear,unclear,,auto
 6,35930,258,a mod 10,0.06263313,shape,unclear,unclear,,auto
 6,36600,108,b range,0.027927464,shape,unclear,unclear,,auto
-6,37825,8630,tens separate,0.69898516,value,add function,magnitude,,auto
+6,37825,8630,tens separate,0.69898516,value,unclear,unclear,,manual drop
 6,38251,72,b range,0.066164024,shape,unclear,unclear,,auto
 6,38390,381,sum // 10,0.39035463,shape,unclear,unclear,,auto
 6,40487,1288,a = b,0.46917948,value,unclear,unclear,,auto
 6,41788,621,tens separate,0.1650142,shape,unclear,unclear,,auto
 6,41824,136,diff range,0.07433803,shape,unclear,unclear,,auto
 6,43130,47,min range,0.036060855,shape,unclear,unclear,,auto
-6,43317,8240,tens separate,0.6371664,value,add function,magnitude,,auto
+6,43317,8240,tens separate,0.6371664,value,unclear,unclear,,manual drop
 6,43591,5411,tens separate,0.42427254,shape,unclear,unclear,,auto
 6,43819,61,a range,0.11260107,shape,unclear,unclear,,auto
 6,44089,9546,b range,0.6826188,shape,mostly active,magnitude,,auto
@@ -507,7 +507,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 6,48074,106,b range,0.18767817,shape,unclear,unclear,,auto
 6,49083,9877,tens separate,0.67767376,value,mostly active,mixed,,auto
 6,49364,690,"tens (a, b)",0.43047696,shape,unclear,unclear,,auto
-6,49876,4050,b // 10,0.627381,value,add function,magnitude,,auto
+6,49876,4050,b // 10,0.627381,value,unclear,unclear,,manual drop
 6,50450,9992,tens separate,0.42597634,value,mostly active,unclear,,auto
 6,53045,178,b range,0.13798702,value,unclear,unclear,,auto
 6,53129,746,b // 10,0.5498697,shape,unclear,unclear,,auto
@@ -515,7 +515,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 6,53790,9971,"tens (a, b)",0.6366538,value,mostly active,magnitude,,auto
 6,54268,167,max // 10,0.14462976,shape,unclear,unclear,,auto
 6,54876,320,tens separate,0.14569634,shape,unclear,unclear,,auto
-6,55683,6467,tens separate,0.60621953,value,add function,magnitude,,auto
+6,55683,6467,tens separate,0.60621953,value,unclear,unclear,,manual drop
 6,58108,141,sum // 10,0.5363132,value,unclear,unclear,,auto
 6,59738,71,sum // 10,0.12818901,shape,unclear,unclear,,auto
 6,60864,9990,tens separate,0.5342931,value,mostly active,unclear,,auto
@@ -552,16 +552,16 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 6,88331,9888,tens separate,0.55507195,value,mostly active,unclear,,auto
 6,89238,25,sum range,0.32549953,value,unclear,unclear,,auto
 6,89504,9942,"tens (a, b)",0.5290778,value,mostly active,unclear,,auto
-6,91473,852,b // 10,0.7769408,shape,add function,magnitude,,auto
+6,91473,852,b // 10,0.7769408,shape,add function,magnitude,,manual keep
 6,92021,2541,tens separate,0.49444157,shape,unclear,unclear,,auto
 6,92297,358,b range,0.49573782,shape,unclear,unclear,,auto
 6,93574,2530,"tens (a, b)",0.4131339,value,unclear,unclear,,auto
-6,94387,6263,b // 10,0.73658574,value,add function,magnitude,,auto
+6,94387,6263,b // 10,0.73658574,value,unclear,unclear,,manual drop
 6,95117,244,diff range,0.068278626,shape,unclear,unclear,,auto
 6,97017,9959,tens separate,0.6118522,value,mostly active,magnitude,,auto
 6,97197,76,max range,0.02972664,shape,unclear,unclear,,auto
 6,97271,89,b range,0.093384035,shape,unclear,unclear,,auto
-6,97617,7053,tens separate,0.85038227,value,add function,magnitude,,auto
+6,97617,7053,tens separate,0.85038227,value,unclear,unclear,,manual drop
 6,97936,3255,tens separate,0.35966498,shape,unclear,unclear,,auto
 6,97978,25,b range,0.04762383,shape,unclear,unclear,,auto
 6,98187,85,b range,0.12861492,shape,unclear,unclear,,auto
@@ -579,7 +579,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 6,105683,1651,"tens (a, b)",0.7024318,value,unclear,unclear,"comparison: a < b, both < 50",manual drop
 6,106152,179,min range,0.13988617,shape,unclear,unclear,,auto
 6,106582,9991,tens separate,0.49205822,value,mostly active,unclear,,auto
-6,106657,859,b // 10,0.84359413,shape,add function,magnitude,,auto
+6,106657,859,b // 10,0.84359413,shape,add function,magnitude,,manual keep
 6,107359,119,b range,0.0302353,shape,unclear,unclear,,auto
 6,109548,24,b range,0.034544874,value,unclear,unclear,,auto
 6,110922,2634,tens separate,0.4777726,value,unclear,unclear,,auto
@@ -603,7 +603,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 6,126079,9992,tens separate,0.35273367,value,mostly active,unclear,,auto
 6,127260,341,b range,0.10833873,shape,unclear,unclear,,auto
 6,127411,324,b range,0.49977574,shape,unclear,unclear,,auto
-6,127543,1946,b // 10,0.6085193,value,add function,magnitude,,auto
+6,127543,1946,b // 10,0.6085193,value,unclear,unclear,add function mixed with a = b,manual drop
 6,127941,9125,max // 10,0.41110238,value,mostly active,unclear,,auto
 6,128027,7488,tens separate,0.57124317,value,unclear,unclear,,auto
 6,128264,997,min // 10,0.31773436,value,unclear,unclear,,auto
@@ -616,10 +616,10 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 7,993,21,sum range,0.25559074,value,unclear,unclear,,auto
 7,3129,27,b range,0.051433757,shape,unclear,unclear,,auto
 7,3171,1512,min // 10,0.7005153,shape,mixed,mixed,,auto
-7,3182,1955,b // 10,0.86199516,value,add function,magnitude,,auto
+7,3182,1955,b // 10,0.86199516,value,add function,magnitude,,manual keep
 7,4016,223,max range,0.08371875,shape,unclear,unclear,,auto
 7,5441,4742,tens separate,0.3490147,value,unclear,unclear,,auto
-7,5838,3884,tens separate,0.6933582,value,add function,magnitude,,auto
+7,5838,3884,tens separate,0.6933582,value,unclear,unclear,add function mixed with a = b,manual drop
 7,7408,1943,tens separate,0.28403628,shape,unclear,unclear,,auto
 7,8057,350,b range,0.19645323,value,unclear,unclear,,auto
 7,9805,70,b range,0.13422054,shape,unclear,unclear,,auto
@@ -636,7 +636,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 7,22776,404,a // 10,0.08507804,shape,unclear,unclear,,auto
 7,22942,4234,"tens (a, b)",0.7000654,value,unclear,unclear,,manual drop
 7,27409,22,sum range,0.2919293,value,unclear,unclear,,auto
-7,27414,6449,b // 10,0.73617625,value,add function,magnitude,,auto
+7,27414,6449,b // 10,0.73617625,value,unclear,unclear,add function mixed with a = b,manual drop
 7,27593,3675,tens separate,0.37459219,value,unclear,unclear,,auto
 7,27689,4104,"tens (a, b)",0.697011,value,unclear,unclear,,manual drop
 7,27806,7427,tens separate,0.76204115,value,mixed,mixed,,auto
@@ -706,7 +706,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 7,78508,91,sum range,0.15018858,value,unclear,unclear,,auto
 7,80819,1356,tens separate,0.50231063,shape,unclear,unclear,,auto
 7,83118,127,max range,0.4219423,value,unclear,unclear,,auto
-7,84114,4826,tens separate,0.7529148,value,add function,magnitude,,auto
+7,84114,4826,tens separate,0.7529148,value,unclear,unclear,add function mixed with a = b,manual drop
 7,84840,379,a range,0.15384741,shape,unclear,unclear,,auto
 7,85188,6952,tens separate,0.56149185,value,unclear,unclear,,auto
 7,88203,1705,min // 10,0.5613884,value,unclear,unclear,,auto
@@ -714,7 +714,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 7,88957,9992,"tens (a, b)",0.6897816,value,mostly active,magnitude,,auto
 7,89932,2500,tens separate,0.48073494,shape,unclear,unclear,,auto
 7,91373,30,sum range,0.57601315,value,unclear,unclear,,auto
-7,91589,6902,b // 10,0.66811705,value,add function,magnitude,,auto
+7,91589,6902,b // 10,0.66811705,value,unclear,unclear,add function mixed with a = b,manual drop
 7,92172,7642,"tens (a, b)",0.8443124,value,unclear,unclear,,manual drop
 7,92531,39,max // 10,0.2332686,shape,unclear,unclear,,auto
 7,93231,31,b range,0.028550413,shape,unclear,unclear,,auto
@@ -731,7 +731,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 7,106505,59,diff range,0.037721716,shape,unclear,unclear,,auto
 7,109379,454,sum // 10,0.42486376,value,unclear,unclear,,auto
 7,111616,43,max range,0.13283297,value,unclear,unclear,,auto
-7,111916,1313,b // 10,0.80186164,value,add function,magnitude,,auto
+7,111916,1313,b // 10,0.80186164,value,add function,magnitude,,manual keep
 7,112979,305,a range,0.13549864,value,unclear,unclear,,auto
 7,113578,144,a = b,0.28865567,value,unclear,unclear,,auto
 7,117129,1441,diff range,0.42902967,shape,unclear,unclear,,auto
@@ -757,7 +757,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 8,10188,44,a mod 10,0.020278726,shape,unclear,unclear,,auto
 8,10591,9992,"tens (a, b)",0.59472054,value,mostly active,unclear,,auto
 8,11458,47,a range,0.08970371,shape,unclear,unclear,,auto
-8,11682,3761,tens separate,0.71060026,value,add function,magnitude,,auto
+8,11682,3761,tens separate,0.71060026,value,unclear,unclear,add function mixed with a = b,manual drop
 8,12097,9985,tens separate,0.8129302,value,mostly active,mixed,,auto
 8,12561,9818,"tens (a, b)",0.5822426,value,mostly active,unclear,,auto
 8,17655,5184,tens separate,0.45224625,value,unclear,unclear,,auto
@@ -768,7 +768,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 8,26566,1215,b range,0.614591,value,mixed,mixed,,auto
 8,28627,430,"tens (a, b)",0.59152764,shape,unclear,unclear,,auto
 8,29472,179,a range,0.09949883,shape,unclear,unclear,,auto
-8,30130,2964,b // 10,0.8335639,value,add function,magnitude,,auto
+8,30130,2964,b // 10,0.8335639,value,add function,magnitude,,manual keep
 8,32661,467,a range,0.519978,shape,unclear,unclear,,auto
 8,33198,4750,"tens (a, b)",0.69322646,value,unclear,unclear,,manual drop
 8,33528,9929,max // 10,0.6399036,value,mostly active,mixed,,auto
@@ -783,7 +783,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 8,42299,9991,"tens (a, b)",0.7276553,value,mostly active,magnitude,,auto
 8,42618,100,a = b,1.0000507,shape,comparison,comparison,,auto
 8,42620,91,a range,0.15869135,shape,unclear,unclear,,auto
-8,43215,6819,tens separate,0.61690855,value,add function,magnitude,,auto
+8,43215,6819,tens separate,0.61690855,value,unclear,unclear,,manual drop
 8,43284,8181,"tens (a, b)",0.7707121,value,unclear,unclear,,manual drop
 8,43645,3159,"tens (a, b)",0.7783715,value,unclear,unclear,,manual drop
 8,44927,1047,"tens (a, b)",0.45382717,value,unclear,unclear,,auto
@@ -825,7 +825,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 8,73712,8136,tens separate,0.53261703,shape,unclear,unclear,,auto
 8,74478,1878,"tens (a, b)",0.6047344,value,unclear,unclear,,manual drop
 8,75515,22,a range,0.03424308,shape,unclear,unclear,,auto
-8,82814,1507,b range,0.62555593,value,add function,magnitude,,auto
+8,82814,1507,b range,0.62555593,value,add function,magnitude,,manual keep
 8,83469,634,"tens (a, b)",0.46017653,shape,unclear,unclear,,auto
 8,85994,61,min // 10,0.162866,shape,unclear,unclear,,auto
 8,86534,3824,"tens (a, b)",0.76051414,value,unclear,unclear,,manual drop
@@ -877,7 +877,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 9,12519,9428,"tens (a, b)",0.5950312,value,mostly active,unclear,,auto
 9,13449,9390,"tens (a, b)",0.79684013,value,mostly active,magnitude,,auto
 9,13640,28,b range,0.038593844,shape,unclear,unclear,,auto
-9,13862,6237,tens separate,0.6981118,value,add function,magnitude,,auto
+9,13862,6237,tens separate,0.6981118,value,unclear,unclear,,manual drop
 9,15670,1044,tens separate,0.28089505,shape,unclear,unclear,,auto
 9,17250,2928,"tens (a, b)",0.85999775,value,unclear,unclear,"add function: a or b large, corner empty",manual drop
 9,20266,370,diff range,0.5440475,shape,unclear,unclear,,auto
@@ -886,7 +886,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 9,23755,4645,diff range,0.68069416,value,comparison,comparison,,auto
 9,25805,94,diff range,0.05834973,shape,unclear,unclear,,auto
 9,27696,538,b range,0.49823675,shape,unclear,unclear,,auto
-9,28615,858,a range,0.6265839,value,add function,magnitude,,auto
+9,28615,858,a range,0.6265839,value,add function,magnitude,,manual keep
 9,29319,9992,"tens (a, b)",0.66677547,value,mostly active,magnitude,,auto
 9,29595,26,min // 10,0.047773004,shape,unclear,unclear,,auto
 9,31033,1397,diff range,0.4918868,shape,unclear,unclear,,auto
@@ -1448,7 +1448,7 @@ layer,feature,n_prompts,best_var,best_r2,best_basis,role,family,note,source
 11,82842,21,a range,0.032372616,shape,unclear,unclear,,auto
 11,82917,48,min range,0.08837689,shape,unclear,unclear,,auto
 11,83273,33,min range,0.0542636,shape,unclear,unclear,,auto
-11,83309,463,a range,0.6140849,shape,add function,magnitude,,auto
+11,83309,463,a range,0.6140849,shape,add function,magnitude,,manual keep
 11,83495,4336,min mod 10,0.8673881,shape,comparison,last digit,,auto
 11,83571,70,max range,0.044059876,shape,unclear,unclear,,auto
 11,83668,25,a range,0.026601758,shape,unclear,unclear,,auto

@@ -1,8 +1,8 @@
 # Preregistration
 
-Status: draft, not frozen.
-Freeze date: (set when complete)
-Any change after the freeze goes in "Deviations" at the bottom, with the reason.
+Status: Q1 complete, ready to freeze. Q2 not designed yet (section 1 is a draft).
+Q1 freeze: the commit that sets this line to "Q1 frozen on <date>".
+Any change to Q1 after the freeze goes in "Deviations" at the bottom, with the reason.
 
 Learning notes are in `notes/`. This file holds decisions only.
 
@@ -80,9 +80,12 @@ that the prefix does not drive the results.
   reported with and without them.
 - Carry: (a mod 10) + (b mod 10) >= 10. 45% of pairs. Every result is reported
   separately for carry and no-carry prompts.
-- Subsets (e.g. for graphs) are sampled half carry, half no-carry. Size: (open)
+- Subsets are sampled half carry, half no-carry, with `sample_pairs`:
+  - suppression runs: 1,000 prompts (`sample_pairs(1000, seed=0)`), minus the
+    ones the model answers wrongly in the clean run;
+  - attribution graphs: 200 of those 1,000 (100 carry, 100 no-carry).
 
-### Tokenization (verified 2026-11-06, `scripts/explore_tokens.py`)
+### Tokenization (verified 2026-11-06, `tests/test_prompts.py`)
 
 - Zero-shot: `[<|begin_of_text|>, calc, :, Ġ, 36, +, 59, =]`, 8 tokens.
   `Ġ` is the space, as its own token.
@@ -109,67 +112,142 @@ that the prefix does not drive the results.
 
 ## 3. Feature labels (Q1)
 
-Order (decided 2026-11-09): the groups and the label rule are NOT fixed yet.
-1. Collect the activations of all features at "=" on all prompts.
-2. Look at operand plots for a sample of features (and possibly cluster them)
-   to see which kinds of features Llama has. Anthropic's categories (last
-   digit, magnitude at different precisions, mod 100, lookup, add function)
-   are things to check for, not assumptions.
-3. Then fix the groups and the label rule below, and freeze.
-Looking at features before the freeze is allowed. No suppression runs before
-the freeze.
+Done before the freeze and before any suppression (2026-11-09 to 2026-11-11).
+Looking at features is allowed before the freeze; outcomes are not.
 
-Draft groups (to be revised after step 2):
-- Last digit: depends only on the units digits of a and b.
-- Magnitude: depends smoothly on size (possibly split by precision).
-- Mod 100: depends on the exact last two digits of the sum.
-- Other: everything else, incl. near-constant features. Reported, not in a
-  supernode.
+### 3.1 Which features
 
-Planned coverage measures (descriptive, no pass/fail): share of graph
-influence through each group; suppressing "other" as its own group.
+- Every transcoder feature's activation at the question's "=" (position -1),
+  on all 9,992 prompts (`activations.collect`, results/eq_activations/).
+  10,839 features fire there at least once.
+- Scored: the 5,043 that fire on at least 20 prompts. 20 keeps exact-sum
+  features (every sum from 19 to 179 has at least 20 prompts) and is enough
+  points to see a pattern. Features below it are counted, not labeled.
 
-The rest of this section is an earlier draft and will be rewritten:
+### 3.2 Score
 
-- Features are taken at the "=" token (the last position, where the answer is
-  predicted).
-- Operand plot: for each feature, its activation at "=" on all 10,000 prompts
-  a + b with a, b in 0..99.
-- For each candidate variable, fit the activations and record R².
-  "Fit" means: group the prompts by the variable's value and predict each
-  activation by its group average. R² is the fraction of the activation's
-  variance explained by those averages.
-  Candidate variables:
+For a candidate variable v(a, b), R^2 = 1 - SS_within / SS_tot, where each
+prompt is predicted by the average activation of its group under v
+(eta squared). Computed twice per feature and variable, on the activation
+values and on the on/off pattern (1 where the feature fires); the higher
+counts. Code: `helixadd.labels` (r2_all, range_r2, r2_additive), tested
+against the plain definition (tests/test_labels.py).
 
-  |          | last-digit family | magnitude family   |
-  |----------|-------------------|--------------------|
-  | operand a | a mod 10         | floor(a / 10)      |
-  | operand b | b mod 10         | floor(b / 10)      |
-  | sum       | (a + b) mod 10   | floor((a + b) / 10)|
+### 3.3 Variable library
 
-  Magnitude is measured with the tens digit, never with the whole number:
-  the whole number contains the last digit, so it would score as high as
-  a mod 10 on every last-digit feature. On the full 100 x 100 grid, a mod 10
-  and floor(a / 10) are independent.
-  All variables have 10 groups except floor((a + b) / 10), which has 20
-  (0 to 19). With 10,000 prompts, the extra groups add about 0.001 to R² by
-  chance, which is negligible.
-  A feature's score for a family is its highest R² among that family's 3
-  variables.
-- Label rule: the feature gets the family with the highest R² if
-  - R² >= R_min, and
-  - it beats the best R² of the other family by at least D.
-  Otherwise the label is "mixed".
-  R_min = (open), D = (open)
-- Mixed features go in no supernode. Their count is reported.
-- Visual check: a random sample of each label is inspected by eye.
-  Sample size: (open)
+Each variable has a role (Anthropic's kinds, from the operand-plot shape) and
+a family (the kind of condition).
+
+| variable | role | family |
+|---|---|---|
+| a mod 10, b mod 10 | add function | last digit |
+| a // 10, b // 10, a range, b range | add function | magnitude |
+| units separate (g1(a mod 10) + g2(b mod 10)) | add function | last digit |
+| tens separate (g1(a // 10) + g2(b // 10)) | add function | magnitude |
+| sum mod 10 | sum | last digit |
+| sum // 10, sum range | sum | magnitude |
+| sum mod 100 | sum | mod 100 |
+| units (a, b) jointly, carry | lookup table | last digit |
+| tens (a, b) jointly | lookup table | magnitude |
+| min // 10, max // 10, min range, max range, diff range, a < b, a = b | comparison | comparison |
+| max mod 10, min mod 10 | comparison | last digit |
+
+Ranges: every interval [lo, lo + L) with L in {5, 10, 20, 40}, scored as a
+2-group variable; the best one counts.
+
+### 3.4 Rules
+
+- Nested: a variable that contains another (knowing it tells you the other;
+  checked on the grid by `contains`, listed in NESTED and tested) counts only
+  if it beats what it contains by 0.05.
+- Interaction: a joint lookup (units (a, b), tens (a, b)) counts only if it
+  beats its additive model by 0.1.
+- tens (a, b) must also beat every other variable by 0.2.
+- Label: the role and family of the best remaining variable, if its R^2 is at
+  least 0.6 and it leads every other role (family) by at least 0.15.
+  Otherwise "unclear" (R^2 too low) or "mixed" (no clear lead).
+- Mostly active: features firing on more than 90% of prompts get the role
+  "mostly active" (Anthropic's frequency rule), whatever their shape.
+- Thresholds favor precision: a wrong label in a supernode is worse than a
+  missing one.
+
+### 3.5 Checks by hand
+
+- Blind check 1 (75 features, labeled by hand without seeing the
+  automatic labels): role agreement 77%; comparison 15/15, add function
+  14/15, sum 14/15, lookup 8/15, mostly active 7/15 (then at a 50% rule).
+- Two fixes from it: mostly active 50% -> 90%; the 0.2 rule for tens (a, b).
+- Blind check 2 (30 new features, weighted toward the hard cases): role
+  agreement 73%; of the 10 features the fixes changed, 7 agree (1 with the
+  old labels). Lookups via tens (a, b) still 11/24 over both rounds.
+- Manual review: every lookup found through tens (a, b) (145) was reviewed by
+  hand against written criteria (notes/manual_review.md; pages drawn by
+  scripts/checks/review_sheet.py):
+  53 kept, 92 dropped. Dropped features become "unclear".
+- Manual review 2: every add function feature (41) was reviewed by hand, since
+  the 19 that fire on 50-90% of prompts were never blind-checked: 15 kept, 26
+  dropped (all 19 dense ones dropped, mostly for an a = b structure).
+
+### 3.6 Final labels
+
+results/feature_labels/ (`scripts/final_labels.py`): automatic labels, with
+the tens (a, b) lookups and the add function features replaced by the manual
+reviews. 145 comparison, 233 sum, 81 lookup table (53 of them hand-confirmed
+magnitude lookups), 15 add function (all hand-confirmed), 315 mostly active,
+104 mixed, 4,150 unclear.
+
+### 3.7 Known limits
+
+- Precision is favored over coverage: many real features are "unclear"
+  (clear shapes just under the bar, two conditions at once).
+- Llama at "=" has no clean Anthropic-style "add 9" features; its add
+  function features are mostly "b is a single digit".
+- The magnitude lookups and the add function features depend on a manual
+  step; Q1 is also run without the hand-confirmed lookups (section 4.2).
 
 ---
 
 ## 4. Supernodes and suppression
 
-- Supernode: all features at "=" with the same label.
+### 4.1 Supernodes
+
+A supernode is all features of one family (final labels, results/feature_labels/),
+whatever their role: a pathway carries one kind of information through every
+role (add function, lookup table, sum). A feature with a clear family but a
+"mixed" role belongs to its family. Features at "=" only.
+
+| group | features | made of | use |
+|---|---|---|---|
+| last digit | 108 | 56 comparison (max/min mod 10), 28 lookup, 14 sum, 10 mixed role | primary test |
+| magnitude | 98 | 53 lookup (hand-confirmed), 27 sum, 15 add function (hand-confirmed), 3 mixed role | primary test |
+| mod 100 | 151 | 151 sum | secondary, reported |
+| comparison | 89 | 89 comparison | secondary, reported |
+| mixed family | 132 | 91 mixed role, 41 sum with an unclear family | secondary, reported |
+
+Not in any supernode: mostly active (315; their role comes from frequency,
+and switching off 315 always-on features would mostly break the model) and
+unclear (4,124).
+
+Coverage per prompt (active features at "="): last digit median 35 (min 12),
+magnitude median 18 (min 8).
+
+### 4.2 Robustness variants (same tests, reported next to the main ones)
+
+- Last digit without the 56 max/min mod 10 features (52 left).
+- Magnitude without the 53 hand-confirmed lookups (45 left).
+- Relaxed groups: labels with R^2 >= 0.5 instead of 0.6 and every tens (a, b)
+  lookup counted without manual review. If the effects grow with the groups,
+  the unlabeled features are likely more of the same.
+
+### 4.3 Predictions for the secondary groups
+
+- mod 100: these features know the last two digits of the sum, so suppressing
+  them should change both digits: mostly category B (not U or M alone).
+- mixed family: carries more than one kind of information; expected B or a
+  spread over U, M and B. No pass/fail.
+
+### 4.4 Suppression method
+
 - Mechanism (circuit-tracer `feature_intervention`): at each layer, the
   transcoder reads the current MLP input and computes the feature's
   activation a. The code adds (v - a) x the feature's decoder vector to the
@@ -227,7 +305,17 @@ Secondary measure:
 ## 6. Controls
 
 - Random feature groups of the same size as each supernode, drawn from the
-  features at "=". Number of groups: (open)
+  scored features that are not mostly active (5,043 minus 315), matched on
+  layer: each random group has as many features in each layer as the
+  supernode it is compared with. Drawing from all features would mostly pick
+  features that rarely fire and make the comparison too easy.
+- 100 random groups per primary supernode (last digit, magnitude); 100 per
+  robustness variant size as well. Same 1,000 prompts, same method.
+- Compute rule, fixed now: if a timing run (no supernode involved) shows the
+  plan does not fit the available GPU time, the number of random groups is
+  cut to 50 before the number of prompts is reduced.
+- Uncertainty: bootstrap over prompts (1,000 resamples), 95% intervals for
+  every rate.
 - The X rate under random groups is the baseline for "the model was broken
   rather than a pathway removed".
 
@@ -261,12 +349,19 @@ The primary rule passes only if both supernodes pass.
   features at "=".
 - Passes if the change is no larger than the p95 of the change caused by
   random groups, in both directions.
-- Exact measure of "change": (open)
+- Measure of "change": for each prompt, |S_after - S_before| / S_before,
+  where S is the summed activation of the other group's features at "=";
+  averaged over prompts. The same measure is computed for every random group
+  (of the suppressed group's size) to give the p95.
 
 ### 7.3 Descriptive: graph structure (no pass/fail)
 
-- Edge weight between the two supernodes, compared to edge weight within each.
-- Reported as evidence from the replacement model, not as a test.
+- On the 200 attribution graphs: edge weight between the two supernodes,
+  compared to edge weight within each.
+- Share of the influence on the answer that flows through each group (and
+  through mixed, unclear, mostly active and error nodes). Reported next to
+  every suppression result as the coverage of the labels.
+- Evidence from the replacement model, not a test.
 
 ### 7.4 Prediction about the carry
 
@@ -281,7 +376,17 @@ The primary rule passes only if both supernodes pass.
 |---------|-----------|-------|
 | pass    | pass      | separate pathways |
 | pass    | fail      | the supernodes affect different digits, and interact internally |
-| fail    | any       | no evidence of separate pathways |
+| fail    | any       | no evidence of separate pathways in the labeled features |
+
+Scope: the five groups hold the clearly labeled features only (about 43% of
+the activation at "="; mostly active about a third, unclear the rest). So:
+- a pass is meaningful despite partial coverage (each group is compared with
+  random groups of the same size), but the claim is about these features, not
+  about Llama's complete pathways;
+- a fail is ambiguous: no separate pathways, or the labeled features are too
+  small a part of them. It is not read as "Llama has no pathways".
+The share of graph influence through each group (7.3) is reported next to
+every suppression result, so a reader can judge the coverage.
 
 ### 7.6 Exploratory (not part of the decision)
 

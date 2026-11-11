@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
-from helixadd.labels import FAMILY, NESTED, ROLE, assign_label, contains, is_mostly_active, r2_additive, r2_all, r2_groups, range_r2, variables
+from helixadd.labels import FAMILY, NESTED, ROLE, assign_label, contains, is_mostly_active, variables
+from helixadd.scoring import r2_additive, r2_all, r2_groups, range_r2
 
 
 def test_example():

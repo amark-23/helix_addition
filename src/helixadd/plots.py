@@ -1,6 +1,6 @@
 import numpy as np
 
-from helixadd.labels import N_FEATURES
+from helixadd.scoring import N_FEATURES
 
 
 def operand_grid(data, layer, feature):
