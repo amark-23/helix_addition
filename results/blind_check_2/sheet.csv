@@ -1,0 +1,31 @@
+id,my_role,my_family,note
+1,mostly active,none,
+2,comparison,last digit,
+3,mostly active,none,
+4,mostly active,none,
+5,mostly active,none,
+6,sum,mod 100,very fuzzy; would not call it unclear
+7,sum,mod 100,"like 6, very fuzzy"
+8,lookup table,last digit,"same pattern again (like 6, 7)"
+9,sum,magnitude,sum > 100
+10,comparison,last digit,
+11,mostly active,none,or unclear
+12,comparison,comparison,"equality, for numbers > 50"
+13,comparison,comparison,for numbers < 50
+14,comparison,comparison,magnitude comparison
+15,comparison,comparison,equality AND a < b
+16,sum,magnitude,not sure; looks like sum > 25; not mostly active
+17,mostly active,none,
+18,lookup table,magnitude,
+19,comparison,comparison,magnitude comparison
+20,lookup table,magnitude,
+21,comparison,comparison,not clear; activation darker on one side of the diagonal
+22,lookup table,magnitude,
+23,mostly active,none,
+24,comparison,last digit,definitely
+25,unclear,unclear,combination: comparison + magnitude add function (?)
+26,lookup table,magnitude,
+27,lookup table,last digit,
+28,mostly active,none,
+29,mostly active,none,
+30,lookup table,magnitude,unsure (?)

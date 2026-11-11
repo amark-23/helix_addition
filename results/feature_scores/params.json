@@ -82,7 +82,8 @@
     "units (a, b)": "units separate"
   },
   "delta_int": 0.1,
-  "mostly_active": 0.5,
+  "delta_flex": 0.2,
+  "mostly_active": 0.9,
   "r2_min": 0.6,
   "margin_min": 0.15,
   "bases": [

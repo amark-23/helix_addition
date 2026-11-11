@@ -11,12 +11,17 @@ None of them is in the blind set.
 
 Ask these in order and stop at the first yes.
 
-1. **Is a large part of the plot filled (more than half)?** -> `mostly active`.
+1. **Is almost the whole plot filled (more than 90%)?** -> `mostly active`.
    Shape does not matter here (Anthropic's rule: active on most prompts).
+   A plot filled on about half, e.g. one side of the a = b diagonal, is not
+   mostly active: label its shape.
 2. **Diagonal lines or bands from top-left to bottom-right?** -> `sum`.
    Along such a line a + b is constant, so the feature depends on the sum.
-3. **Only vertical bars, or only horizontal bars?** -> `add function`.
-   It depends on one operand alone. (In Llama these are mostly "b is a single digit".)
+3. **Full-length vertical and/or horizontal lines or bars?** -> `add function`.
+   A condition on one operand, or a union of conditions on each (Anthropic's
+   "add 9": a or b ends in 9, lines every 10 in both directions). At "=" in
+   Llama we found none of that kind; the ones we found are "b is a single
+   digit" (one thick bar at the left edge).
 4. **L-shapes, corners, nested squares, or the a = b diagonal (bottom-left to
    top-right)?** -> `comparison`. These depend on min(a, b), max(a, b) or a - b.
 5. **A regular grid of dots or blobs, or a few separate blobs?** -> `lookup table`.
@@ -42,10 +47,14 @@ Ask these in order and stop at the first yes.
   (min or max). Blobs that sit anywhere are `lookup table`.
 - **Sum lines every 10 vs 100 apart.** Count the gap between lines: 10 ->
   `last digit`, 100 -> `mod 100`.
+- **Full lines vs nested squares.** Lines every 10 that run the full length ->
+  `add function`. Lines that turn a corner at the a = b diagonal ->
+  `comparison` / `last digit` (max or min ends in d).
 - **Grid vs nested squares.** A grid has dots in rows and columns. Nested
   squares are lines that turn a corner at the a = b diagonal.
-- **Mostly active with a shape.** If more than half is filled, it is
-  `mostly active` even if you see a diagonal inside it.
+- **Mostly active with a shape.** If almost all of it is filled, it is
+  `mostly active` even if you see a diagonal inside it. About half filled:
+  label the shape.
 - Lookup tables were the hardest category to find clean examples for (11
   candidates were removed from the examples as not textbook). Be strict there.
 
@@ -55,7 +64,8 @@ Ask these in order and stop at the first yes.
 2. Practice: label `figures/taxonomy/practice.png` (letters A to T) in
    `results/practice/sheet.csv`, then run `python scripts/blind_compare.py practice`.
    Look at your disagreements. Here learning is allowed.
-3. Blind round: label `figures/blind_check/page_1.png` to `page_4.png` in
-   `results/blind_check/sheet.csv`. Do not open `results/blind_check/key.csv`.
-   Then run `python scripts/blind_compare.py`.
+3. Blind round 1 (done): `figures/blind_check/`, `results/blind_check/`.
+   Blind round 2: label `figures/blind_check_2/page_1.png` and `page_2.png` in
+   `results/blind_check_2/sheet.csv`. Do not open `results/blind_check_2/key.csv`.
+   Then run `python scripts/blind_compare.py 2`.
 4. When unsure: `unclear`, and write why in `note`.

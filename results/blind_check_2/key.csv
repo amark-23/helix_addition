@@ -1,0 +1,31 @@
+id,layer,feature,role,old_role,family,best_var,best_r2,best_basis,n_prompts
+1,3,13665,mostly active,mostly active,unclear,tens separate,0.5249387,value,9992
+2,13,93920,comparison,mostly active,last digit,min mod 10,0.9364495,value,5803
+3,13,46248,mostly active,mostly active,unclear,min // 10,0.40399656,value,9816
+4,5,82110,mostly active,mostly active,unclear,tens separate,0.4773057,value,9972
+5,3,111744,mostly active,mostly active,unclear,tens separate,0.31149065,value,9385
+6,14,7411,lookup table,mostly active,magnitude,"tens (a, b)",0.80256236,value,6248
+7,13,74068,sum,mixed,magnitude,sum // 10,0.66428435,value,2877
+8,14,24399,lookup table,lookup table,last digit,"units (a, b)",0.9994265,shape,2497
+9,14,1587,sum,mostly active,mixed,sum // 10,0.7277633,value,6065
+10,11,81487,comparison,mostly active,last digit,min mod 10,0.9735306,shape,5104
+11,14,23966,lookup table,mostly active,magnitude,"tens (a, b)",0.6079346,value,7658
+12,7,101501,lookup table,lookup table,magnitude,"tens (a, b)",0.60339814,shape,637
+13,10,87688,lookup table,lookup table,magnitude,"tens (a, b)",0.6642059,value,2661
+14,12,83673,comparison,mixed,comparison,max // 10,0.6563437,shape,1530
+15,9,119405,lookup table,lookup table,magnitude,"tens (a, b)",0.68097264,value,3038
+16,13,63204,mostly active,mostly active,mixed,min // 10,0.75420004,value,9215
+17,8,12561,mostly active,mostly active,unclear,"tens (a, b)",0.5822426,value,9818
+18,9,17250,lookup table,lookup table,magnitude,"tens (a, b)",0.85999775,value,2928
+19,11,81035,comparison,mixed,comparison,max // 10,0.6849844,shape,1347
+20,12,15945,lookup table,lookup table,magnitude,"tens (a, b)",0.6082485,value,988
+21,4,78078,mostly active,mostly active,mixed,tens separate,0.8371916,value,9299
+22,12,36058,lookup table,lookup table,magnitude,"tens (a, b)",0.8207586,value,1001
+23,7,57582,mostly active,mostly active,unclear,tens separate,0.5184306,value,9992
+24,11,113488,comparison,mostly active,last digit,min mod 10,0.99796474,shape,5049
+25,11,7258,lookup table,mostly active,magnitude,"tens (a, b)",0.886781,value,6793
+26,12,100772,lookup table,lookup table,magnitude,"tens (a, b)",0.68503195,value,591
+27,12,16765,lookup table,lookup table,last digit,"units (a, b)",0.7599539,value,4222
+28,5,31326,mostly active,mostly active,mixed,tens separate,0.6742752,value,9992
+29,9,117149,mostly active,mostly active,magnitude,"tens (a, b)",0.6162758,value,9942
+30,13,4588,lookup table,lookup table,magnitude,"tens (a, b)",0.9215015,value,4667

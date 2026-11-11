@@ -20,13 +20,14 @@ from helixadd.results import load_if_exists, save
 MIN_PROMPTS = 20
 DELTA = 0.05          # nested rule: a finer variable must beat what it contains by this much
 DELTA_INT = 0.1       # a joint (lookup) variable must beat its additive model by this much
-MOSTLY_ACTIVE = 0.5   # fires on more than this share of prompts -> mostly_active flag
+DELTA_FLEX = 0.2      # tens (a, b) must beat every other variable by this much (blind check 1: 4/11 agreement)
+MOSTLY_ACTIVE = 0.9   # fires on more than this share of prompts -> "mostly active" (blind check 1: 0.5 hid clear shapes)
 R2_MIN = 0.6          # below this, the evidence is too weak -> "unclear"
 MARGIN_MIN = 0.15     # best role/family must lead the next one by this much, else "mixed"
 FOLDER = "results/feature_scores"
 params = {"source": "results/eq_activations", "min_prompts": MIN_PROMPTS,
           "family": FAMILY, "role": ROLE, "range_lengths": list(RANGE_LENGTHS),
-          "nested": NESTED, "delta": DELTA, "interaction": INTERACTION, "delta_int": DELTA_INT,
+          "nested": NESTED, "delta": DELTA, "interaction": INTERACTION, "delta_int": DELTA_INT, "delta_flex": DELTA_FLEX,
           "mostly_active": MOSTLY_ACTIVE, "r2_min": R2_MIN, "margin_min": MARGIN_MIN,
           "bases": ["value", "shape"], "dense_role": "mostly active"}
 
@@ -59,6 +60,10 @@ def effective(r):
         eff[name] = eff[name].where(r[name] - r[[v1, v2]].max(axis=1) >= DELTA, 0.0)
     for joint, additive in INTERACTION.items():
         eff[joint] = eff[joint].where(r[joint] - r[additive] >= DELTA_INT, 0.0)
+    # tens (a, b) has 100 cells and fits almost any pattern at decade resolution:
+    # it only counts if it clearly beats every other variable
+    others = eff.drop(columns="tens (a, b)").max(axis=1)
+    eff["tens (a, b)"] = eff["tens (a, b)"].where(r["tens (a, b)"] - others >= DELTA_FLEX, 0.0)
     return eff
 
 

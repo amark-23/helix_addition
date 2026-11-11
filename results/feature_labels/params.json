@@ -1,0 +1,5 @@
+{
+  "scores": "results/feature_scores",
+  "review": "results/manual_review/tens_lookups.csv",
+  "rule": "tens (a, b) lookup tables count only if kept in the manual review"
+}

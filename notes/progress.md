@@ -96,6 +96,12 @@ Feature labels (src/helixadd/labels.py, scripts/score_features.py):
   most of them lookup tables). Practice round: figures/taxonomy/practice.png,
   results/practice/.
 
+- No Anthropic-style add function features ("add 9": a or b ends in 9, full
+  lines) at "=": the method detects a synthetic one (additive R^2 0.95), no
+  real feature has it. Hypothesis: max/min mod 10 features (nested squares)
+  are Llama's version, the same lines cut off at a = b. To check later.
+- Taxonomy reference as a PDF: figures/taxonomy/taxonomy.pdf.
+
 Next:
 1. Read notes/taxonomy.md, do the practice round
    (python scripts/blind_compare.py practice), then the blind round
@@ -104,3 +110,36 @@ Next:
    remaining Q1 entries (random groups, internal-test measure, graph subset,
    strict + relaxed threshold check). Freeze Q1.
 3. Suppression code (interventions) for Q1.
+
+## 2026-11-11
+
+Blind check, round 1 (75 features, results/blind_check/):
+- Role agreement 77% (58/75). Per automatic label: comparison 15/15,
+  add function 14/15, sum 14/15, lookup table 8/15, mostly active 7/15.
+- Family agreement 81% (55/68, mostly active left out). last digit 15/15,
+  mod 100 11/12, magnitude 22/31.
+- Lookup via units (a, b): 4/4 agree. Lookup via tens (a, b): 4/11.
+  tens (a, b) is the best variable in 12 of the 17 role disagreements.
+- Mostly active disagreements are features firing on 50-75% of prompts with a
+  clear shape (a < b at 50.4%, max mod 10 at 62%, sum >= 100). Features firing
+  on >= 96% of prompts were all agreed on.
+
+Fixes after round 1 (scripts/score_features.py):
+- mostly active: share 0.5 -> 0.9.
+- tens (a, b) must beat every other variable by 0.2 (DELTA_FLEX).
+- New labels in results/feature_scores/; round-1 labels kept in
+  results/feature_scores_round1/ (they are what round 1 measured).
+- Round 2 prepared (scripts/blind_check_2.py): 30 new features, 10 lookup,
+  10 mostly active, 10 whose role changed. Taxonomy PDF and notes updated to
+  the 90% rule.
+
+Blind check, round 2 (30 new features, results/blind_check_2/):
+- Role agreement 73% (22/30); sample weighted toward the hard categories.
+- Features whose role changed because of the fixes: 7/10 agree now; their
+  round-1 labels would have agreed on 1/10. The fixes helped.
+- mostly active (90% rule): 8/10. comparison 5/5, sum 2/2.
+- Lookup via tens (a, b) still weak: 7/13 (rounds 1+2: 11/24). The
+  disagreements are mostly comparison shapes restricted to a range
+  ("equality for numbers > 50", "for numbers < 50"). Lookup via
+  units (a, b): 2/2 (rounds 1+2: 6/6).
+- Magnitude family 5/11.
