@@ -1,0 +1,992 @@
+layer,feature,n_prompts,kind,value,share
+1,69695,100,exact operand value,0,1.0
+2,63737,31,exact operand value,93,0.935
+2,66294,25,exact operand value,1,0.4
+2,74285,38,exact operand value,0,0.553
+2,78083,21,exact operand value,43,0.905
+2,102995,25,exact operand value,1,0.4
+2,118241,51,exact operand value,45,0.412
+2,118506,232,exact operand value,1,0.431
+2,128107,46,exact operand value,32,0.5
+2,128169,55,exact operand value,37,0.455
+2,130304,32,exact operand value,0,1.0
+3,3761,119,exact operand value,0,0.874
+3,26125,22,exact operand value,0,1.0
+3,27691,59,exact operand value,31,0.559
+3,41981,25,exact operand value,0,1.0
+3,48084,48,exact operand value,0,1.0
+3,51183,100,exact operand value,0,1.0
+3,63003,30,exact operand value,2,0.467
+3,97825,21,exact operand value,2,0.476
+3,99329,44,exact difference,-1,0.455
+3,108235,141,exact operand value,0,0.702
+3,117725,128,exact difference,0,0.438
+3,124942,60,exact operand value,77,0.583
+3,126042,176,exact operand value,99,0.523
+3,130297,45,exact difference,0,0.489
+4,943,40,exact operand value,37,0.7
+4,8493,47,exact operand value,96,0.681
+4,9482,40,exact operand value,78,0.775
+4,16439,33,exact operand value,86,0.636
+4,26661,136,exact operand value,1,0.61
+4,35280,38,exact operand value,0,1.0
+4,35291,31,exact operand value,82,0.677
+4,35996,21,exact operand value,2,0.619
+4,38193,57,exact operand value,79,0.526
+4,44360,75,exact operand value,2,0.6
+4,47678,127,exact operand value,1,0.504
+4,48575,71,exact operand value,0,0.535
+4,55006,89,exact operand value,0,0.955
+4,58915,28,exact operand value,30,0.75
+4,63644,53,exact operand value,1,0.491
+4,69215,172,exact operand value,45,0.442
+4,72400,53,exact operand value,73,0.698
+4,72812,41,exact difference,0,0.537
+4,74923,167,exact operand value,78,0.581
+4,78385,64,exact operand value,27,0.406
+4,82041,59,exact operand value,47,0.831
+4,82149,20,exact operand value,1,0.7
+4,82993,59,exact operand value,0,1.0
+4,85353,408,exact operand value,0,0.463
+4,88732,45,exact operand value,0,0.711
+4,90055,217,exact operand value,0,0.636
+4,92641,119,exact operand value,90,0.412
+4,93630,116,exact operand value,0,0.724
+4,101476,100,exact operand value,0,1.0
+4,114019,35,exact operand value,0,0.514
+4,118048,23,exact operand value,3,0.435
+4,118944,23,exact operand value,1,1.0
+4,121548,26,exact operand value,2,0.5
+4,127525,128,exact operand value,1,0.797
+4,130701,158,exact operand value,0,0.633
+5,22965,21,exact operand value,1,0.476
+5,34523,24,exact operand value,66,0.417
+5,45755,67,exact operand value,99,0.851
+5,46394,31,exact operand value,63,0.613
+5,51132,23,exact operand value,1,0.696
+5,58552,106,exact operand value,0,0.887
+5,69563,43,exact operand value,54,0.419
+5,72260,26,exact operand value,0,1.0
+5,72813,22,exact operand value,1,0.636
+5,81441,54,exact operand value,99,0.944
+5,89640,55,exact operand value,0,1.0
+5,101795,145,exact operand value,0,0.745
+5,106108,66,exact operand value,0,0.47
+5,109243,55,exact operand value,2,0.527
+5,109475,97,exact operand value,1,0.979
+5,116582,73,exact operand value,0,0.74
+5,120107,99,exact operand value,97,0.596
+5,121404,91,exact operand value,78,0.835
+5,121601,135,exact operand value,0,0.985
+5,123721,86,exact operand value,1,0.686
+6,2354,21,exact operand value,53,0.429
+6,10048,27,exact operand value,99,0.667
+6,15818,65,exact operand value,0,0.892
+6,16295,109,exact operand value,63,0.55
+6,16502,62,exact operand value,0,1.0
+6,30704,23,exact operand value,29,0.783
+6,31611,20,exact operand value,3,0.4
+6,35475,24,exact operand value,1,0.792
+6,43130,47,exact operand value,78,0.489
+6,43819,61,exact operand value,0,0.508
+6,48074,106,exact operand value,0,0.877
+6,53045,178,exact operand value,0,0.815
+6,58108,141,exact operand value,0,0.518
+6,59738,71,exact operand value,1,0.493
+6,64895,58,exact difference,0,0.914
+6,66835,299,exact operand value,0,0.666
+6,71226,246,exact operand value,0,0.439
+6,76991,95,exact operand value,78,0.632
+6,79780,36,exact operand value,32,0.444
+6,84321,59,exact operand value,0,0.78
+6,87634,51,exact operand value,0,1.0
+6,89238,25,exact operand value,0,0.48
+6,97271,89,exact operand value,0,0.618
+6,98187,85,exact operand value,0,1.0
+6,99494,178,exact operand value,0,0.607
+6,103483,124,exact operand value,1,0.677
+6,109548,24,exact operand value,63,0.875
+6,117980,91,exact operand value,86,0.495
+6,122060,86,exact operand value,63,0.407
+6,129010,203,exact operand value,0,0.596
+6,129407,25,exact difference,0,0.92
+7,993,21,exact operand value,0,0.619
+7,3129,27,exact operand value,0,0.963
+7,9805,70,exact operand value,78,1.0
+7,11397,27,exact operand value,87,0.63
+7,13477,96,exact operand value,78,0.427
+7,21296,21,exact operand value,63,0.81
+7,27409,22,exact operand value,1,0.682
+7,28534,39,exact operand value,1,0.769
+7,30116,143,exact operand value,63,0.566
+7,31871,37,exact operand value,1,0.865
+7,34559,53,exact operand value,78,0.453
+7,37148,36,exact operand value,45,0.611
+7,40264,28,exact operand value,63,0.607
+7,41155,177,exact operand value,0,0.684
+7,43579,156,exact operand value,0,0.897
+7,46154,22,exact operand value,0,0.955
+7,46430,50,exact operand value,99,0.4
+7,49923,33,exact operand value,86,0.515
+7,54673,98,exact operand value,0,1.0
+7,56359,88,exact operand value,1,0.523
+7,71801,182,exact operand value,0,0.879
+7,72408,104,exact operand value,0,0.673
+7,74112,37,exact difference,0,0.865
+7,78508,91,exact operand value,0,0.835
+7,91373,30,exact operand value,0,0.833
+7,93231,31,exact operand value,64,0.484
+7,95780,23,exact operand value,45,0.522
+7,97330,421,exact operand value,0,0.461
+7,103572,421,exact operand value,1,0.463
+7,113578,144,exact difference,0,0.417
+7,120793,29,exact operand value,0,0.517
+7,121769,47,exact operand value,78,0.489
+8,11458,47,exact operand value,0,1.0
+8,24059,34,exact operand value,1,0.912
+8,29472,179,exact operand value,63,0.419
+8,32661,467,exact operand value,0,0.426
+8,36594,33,exact operand value,86,0.485
+8,38771,94,exact operand value,0,1.0
+8,41351,127,exact operand value,0,0.748
+8,42620,91,exact operand value,0,0.89
+8,49787,178,exact operand value,1,0.579
+8,61727,215,exact operand value,1,0.423
+8,68780,51,exact operand value,0,0.941
+8,69125,147,exact difference,0,0.483
+8,69565,41,exact operand value,1,0.683
+8,75515,22,exact operand value,1,0.909
+8,87177,35,exact operand value,76,0.629
+8,88334,25,exact operand value,0,0.96
+8,107260,26,exact operand value,64,0.538
+8,111343,34,exact operand value,64,0.412
+8,112362,166,exact operand value,0,0.657
+8,123154,100,exact operand value,0,0.79
+9,439,144,exact difference,0,0.549
+9,13640,28,exact operand value,77,0.5
+9,29595,26,exact difference,-2,0.462
+9,74395,125,exact operand value,0,0.736
+9,88854,30,exact operand value,1,1.0
+9,90805,40,exact operand value,86,0.85
+9,93633,162,exact operand value,0,0.716
+9,94293,64,exact operand value,0,0.953
+9,101141,20,exact difference,-4,0.45
+9,103307,44,exact difference,-1,0.545
+9,104040,34,exact operand value,0,0.735
+9,109796,154,exact difference,0,0.519
+10,12502,215,exact operand value,1,0.488
+10,18203,100,exact difference,0,0.52
+10,21524,43,exact difference,0,0.535
+10,28051,28,exact difference,-1,0.5
+10,43018,129,exact operand value,0,1.0
+10,46494,69,exact difference,-1,0.449
+10,69911,29,exact operand value,63,0.621
+10,119161,41,exact difference,0,0.878
+11,1380,252,exact operand value,91,0.532
+11,1924,33,exact operand value,5,0.545
+11,2037,23,exact operand value,50,0.478
+11,3879,92,exact operand value,1,0.641
+11,4453,52,exact operand value,5,0.596
+11,4948,30,exact operand value,49,0.533
+11,5043,53,exact operand value,37,0.509
+11,5271,24,exact operand value,9,0.833
+11,5732,45,exact operand value,20,0.511
+11,6191,37,exact operand value,82,0.622
+11,7687,41,exact operand value,68,0.415
+11,9125,26,exact operand value,7,0.577
+11,9833,28,exact operand value,10,0.75
+11,9940,64,exact operand value,3,1.0
+11,10734,62,exact operand value,0,0.613
+11,11232,32,exact operand value,96,0.469
+11,11561,49,exact operand value,99,0.694
+11,13201,23,exact operand value,87,0.652
+11,14252,77,exact operand value,0,0.61
+11,15190,53,exact operand value,19,0.434
+11,15825,227,exact operand value,64,0.458
+11,16365,255,exact operand value,8,0.478
+11,16738,36,exact operand value,25,0.528
+11,16805,67,exact operand value,29,0.448
+11,18170,20,exact operand value,24,0.45
+11,19560,26,exact operand value,43,0.692
+11,20756,158,exact operand value,1,0.785
+11,20803,58,exact operand value,51,0.534
+11,22599,20,exact operand value,75,0.45
+11,23121,29,exact operand value,0,1.0
+11,23632,23,exact operand value,21,0.739
+11,25076,27,exact operand value,15,0.444
+11,25323,28,exact operand value,38,0.464
+11,25407,121,exact operand value,0,0.512
+11,25892,50,exact operand value,1,0.94
+11,26144,110,exact operand value,4,0.727
+11,26394,26,exact operand value,80,0.423
+11,27762,29,exact operand value,2,0.931
+11,29686,21,exact operand value,44,0.429
+11,29688,28,exact operand value,14,0.607
+11,29809,21,exact operand value,7,0.476
+11,30101,113,exact operand value,1,0.991
+11,31272,362,exact operand value,0,0.522
+11,33032,56,exact operand value,2,0.696
+11,33088,51,exact operand value,0,1.0
+11,33123,26,exact operand value,65,0.962
+11,33917,57,exact operand value,22,0.509
+11,34568,70,exact operand value,0,0.486
+11,34760,25,exact operand value,2,0.56
+11,34802,257,exact operand value,0,0.529
+11,35195,32,exact operand value,15,0.406
+11,35624,216,exact operand value,1,0.921
+11,37079,284,exact operand value,30,0.412
+11,37234,26,exact operand value,95,0.846
+11,37275,35,exact operand value,0,0.829
+11,37723,50,exact operand value,25,0.44
+11,37953,130,exact operand value,97,0.485
+11,38380,88,exact operand value,10,0.614
+11,39415,39,exact operand value,34,1.0
+11,39765,21,exact operand value,0,0.857
+11,40177,34,exact operand value,97,0.441
+11,42765,34,exact operand value,24,0.471
+11,43005,68,exact operand value,74,0.632
+11,43764,25,exact operand value,2,0.6
+11,45332,32,exact operand value,0,1.0
+11,45991,21,exact operand value,4,0.714
+11,46106,37,exact operand value,12,0.405
+11,46803,102,exact operand value,1,0.657
+11,47064,67,exact operand value,5,0.552
+11,48283,20,exact operand value,95,0.5
+11,48811,48,exact operand value,1,0.5
+11,49469,23,exact operand value,5,0.522
+11,49471,75,exact operand value,41,0.453
+11,50915,74,exact operand value,29,0.541
+11,51997,33,exact operand value,52,0.485
+11,52574,149,exact operand value,55,0.463
+11,53220,128,exact operand value,38,0.484
+11,53345,35,exact operand value,7,0.429
+11,53536,25,exact operand value,48,0.44
+11,53786,23,exact operand value,3,0.478
+11,54049,22,exact operand value,76,0.5
+11,54065,29,exact operand value,84,0.414
+11,54117,65,exact operand value,6,0.769
+11,55002,34,exact operand value,96,0.412
+11,55097,92,exact operand value,2,0.457
+11,55728,35,exact operand value,76,0.571
+11,57203,43,exact operand value,15,0.465
+11,57773,49,exact operand value,37,0.612
+11,60166,116,exact operand value,2,1.0
+11,61366,115,exact operand value,0,0.522
+11,63298,22,exact operand value,55,0.409
+11,64167,43,exact operand value,40,0.535
+11,64992,285,exact operand value,0,0.6
+11,65489,29,exact operand value,1,1.0
+11,65514,46,exact operand value,17,0.457
+11,67840,49,exact operand value,37,0.531
+11,70059,24,exact operand value,85,0.458
+11,71277,43,exact operand value,3,0.907
+11,72230,151,exact operand value,3,0.536
+11,72585,27,exact operand value,5,0.593
+11,73420,29,exact operand value,0,0.483
+11,73564,45,exact operand value,39,0.6
+11,73741,102,exact operand value,2,1.0
+11,74043,22,exact operand value,1,1.0
+11,74531,40,exact operand value,40,0.575
+11,74557,46,exact operand value,42,0.413
+11,76127,418,exact operand value,4,0.476
+11,76380,24,exact operand value,7,0.708
+11,76564,24,exact operand value,0,0.667
+11,77080,35,exact operand value,83,0.6
+11,79848,239,exact operand value,4,0.506
+11,80293,213,exact operand value,4,0.474
+11,80347,61,exact operand value,60,0.426
+11,80415,45,exact operand value,36,0.467
+11,80463,22,exact operand value,19,0.455
+11,82842,21,exact operand value,41,0.571
+11,83273,33,exact operand value,41,0.545
+11,83668,25,exact operand value,3,0.76
+11,83816,23,exact operand value,7,0.435
+11,84398,42,exact operand value,20,0.405
+11,84413,24,exact operand value,3,0.792
+11,84556,24,exact operand value,56,0.75
+11,85195,68,exact operand value,28,0.544
+11,85601,42,exact operand value,4,0.5
+11,85657,49,exact operand value,15,0.551
+11,86105,31,exact operand value,38,0.548
+11,86208,20,exact operand value,66,0.9
+11,86236,36,exact operand value,1,0.639
+11,89865,29,exact operand value,10,0.586
+11,91451,178,exact operand value,5,0.511
+11,94291,44,exact operand value,12,0.432
+11,94525,224,exact operand value,3,0.509
+11,94582,27,exact operand value,38,1.0
+11,95333,52,exact operand value,0,0.981
+11,95375,49,exact operand value,50,0.469
+11,96142,25,exact operand value,18,0.44
+11,98234,43,exact operand value,32,0.419
+11,98276,22,exact operand value,2,0.955
+11,101667,27,exact operand value,64,0.444
+11,101871,78,exact operand value,0,0.987
+11,102881,22,exact operand value,99,0.682
+11,103416,25,exact operand value,89,0.48
+11,103962,86,exact operand value,9,0.593
+11,104814,47,exact operand value,80,0.766
+11,104943,88,exact operand value,0,0.523
+11,105181,32,exact operand value,13,0.5
+11,105685,23,exact operand value,29,0.87
+11,106036,32,exact operand value,54,0.406
+11,107071,114,exact operand value,5,0.474
+11,108003,94,exact operand value,3,0.596
+11,108672,60,exact operand value,65,0.833
+11,109522,154,exact operand value,0,0.994
+11,109532,143,exact operand value,0,0.762
+11,109665,41,exact operand value,1,0.976
+11,109795,85,exact operand value,25,0.553
+11,109898,63,exact operand value,37,0.492
+11,110010,27,exact operand value,16,0.481
+11,110079,47,exact operand value,4,0.957
+11,110129,28,exact operand value,31,0.5
+11,110301,86,exact operand value,3,0.43
+11,110791,39,exact operand value,65,0.487
+11,110978,30,exact operand value,3,0.7
+11,111093,27,exact operand value,86,0.667
+11,111908,65,exact operand value,30,0.631
+11,111952,135,exact operand value,1,0.896
+11,112250,113,exact operand value,1,0.602
+11,113223,22,exact operand value,92,0.409
+11,117225,36,exact operand value,10,0.417
+11,117566,23,exact operand value,24,0.652
+11,117660,25,exact operand value,26,0.6
+11,117975,221,exact operand value,37,0.516
+11,118495,23,exact operand value,29,0.609
+11,119176,44,exact operand value,28,1.0
+11,119510,234,exact operand value,0,0.85
+11,119539,59,exact operand value,68,0.424
+11,119969,21,exact operand value,17,0.571
+11,120016,25,exact operand value,41,0.72
+11,120033,31,exact operand value,5,0.516
+11,121407,50,exact operand value,17,0.6
+11,121445,145,exact operand value,18,0.531
+11,121448,41,exact operand value,0,0.537
+11,123138,31,exact operand value,15,0.71
+11,123322,36,exact operand value,51,0.583
+11,124198,29,exact operand value,24,0.414
+11,124511,51,exact operand value,3,0.725
+11,124545,21,exact operand value,64,0.429
+11,124917,29,exact operand value,2,1.0
+11,125672,60,exact operand value,29,0.417
+11,127053,88,exact operand value,27,0.5
+11,127267,25,exact operand value,64,0.4
+11,128358,166,exact operand value,3,0.446
+11,128654,29,exact operand value,27,0.414
+12,1270,103,exact operand value,96,0.408
+12,1509,24,exact operand value,2,0.458
+12,2213,22,exact operand value,33,0.682
+12,2496,82,exact operand value,51,0.451
+12,4504,22,exact operand value,45,0.864
+12,6360,21,exact operand value,37,0.667
+12,8673,65,exact operand value,2,0.569
+12,8974,30,exact operand value,91,0.933
+12,8980,162,exact operand value,2,1.0
+12,9251,247,exact operand value,90,0.478
+12,10468,32,exact operand value,87,0.406
+12,10585,52,exact operand value,19,0.404
+12,11224,60,exact operand value,55,0.417
+12,11249,23,exact operand value,20,0.913
+12,11396,33,exact operand value,90,0.455
+12,11707,28,exact operand value,29,0.464
+12,13428,33,exact operand value,81,0.515
+12,13908,24,exact operand value,27,0.5
+12,14539,51,exact operand value,32,0.451
+12,14928,26,exact operand value,24,0.615
+12,14959,40,exact operand value,1,0.625
+12,15000,32,exact operand value,0,0.562
+12,17466,22,exact operand value,59,0.455
+12,21625,38,exact operand value,50,0.789
+12,22299,24,exact operand value,60,0.417
+12,22455,58,exact operand value,81,0.414
+12,22976,38,exact operand value,37,0.605
+12,23267,20,exact operand value,3,0.55
+12,25269,20,exact operand value,16,0.45
+12,26831,33,exact operand value,7,0.909
+12,28886,22,exact operand value,1,0.864
+12,29796,199,exact operand value,3,0.563
+12,29882,36,exact operand value,50,0.556
+12,30479,265,exact operand value,16,0.449
+12,31466,59,exact operand value,50,0.915
+12,32558,61,exact operand value,12,0.607
+12,33007,51,exact operand value,16,0.667
+12,34788,24,exact operand value,18,0.958
+12,35511,26,exact operand value,41,0.5
+12,36129,257,exact operand value,9,0.401
+12,37361,20,exact operand value,41,0.95
+12,38152,82,exact operand value,25,0.707
+12,38603,37,exact operand value,38,0.568
+12,38841,65,exact operand value,6,0.8
+12,39132,96,exact operand value,61,0.469
+12,39156,39,exact operand value,97,0.564
+12,40182,20,exact operand value,96,0.9
+12,41255,50,exact operand value,44,0.68
+12,41421,30,exact operand value,38,0.467
+12,41764,44,exact operand value,10,0.636
+12,42696,54,exact operand value,79,0.444
+12,42797,120,exact operand value,21,0.467
+12,43222,54,exact operand value,2,0.444
+12,44105,92,exact operand value,65,0.467
+12,44441,389,exact operand value,3,0.427
+12,46613,48,exact operand value,24,0.688
+12,46874,54,exact operand value,51,0.519
+12,49202,32,exact operand value,62,0.438
+12,49405,26,exact operand value,2,0.654
+12,50597,45,exact operand value,19,0.6
+12,51233,33,exact operand value,68,0.818
+12,51648,20,exact operand value,8,0.5
+12,52061,37,exact difference,0,0.405
+12,52386,32,exact operand value,42,0.5
+12,53106,64,exact operand value,3,0.641
+12,53728,22,exact operand value,90,0.5
+12,54054,23,exact operand value,20,0.565
+12,54084,22,exact operand value,98,0.455
+12,54093,39,exact operand value,82,0.436
+12,54371,23,exact operand value,12,0.609
+12,54638,25,exact operand value,2,1.0
+12,54831,27,exact operand value,71,0.519
+12,55067,22,exact operand value,70,0.636
+12,55149,87,exact operand value,1,0.713
+12,55476,21,exact operand value,27,0.619
+12,57391,48,exact operand value,12,0.479
+12,57526,29,exact operand value,91,0.552
+12,57761,336,exact operand value,2,0.524
+12,57794,30,exact operand value,1,0.9
+12,58732,47,exact operand value,55,0.723
+12,59458,24,exact operand value,17,0.5
+12,59913,23,exact operand value,16,0.87
+12,60250,47,exact operand value,4,0.574
+12,61873,65,exact operand value,11,0.446
+12,61937,60,exact operand value,0,0.983
+12,64322,76,exact operand value,45,0.434
+12,65664,27,exact operand value,18,0.519
+12,67007,29,exact operand value,53,0.621
+12,67945,20,exact operand value,38,0.55
+12,68263,51,exact operand value,69,0.412
+12,69995,28,exact operand value,48,0.464
+12,70183,28,exact operand value,97,0.571
+12,71150,116,exact operand value,1,0.836
+12,72451,26,exact operand value,10,0.577
+12,72471,28,exact operand value,7,0.893
+12,72582,97,exact operand value,0,0.412
+12,74341,30,exact operand value,34,0.4
+12,74747,49,exact operand value,20,0.592
+12,75106,22,exact operand value,10,0.455
+12,75350,26,exact operand value,4,0.692
+12,76107,29,exact operand value,0,0.897
+12,76196,33,exact operand value,91,0.485
+12,78291,26,exact operand value,51,0.462
+12,79654,120,exact operand value,23,0.508
+12,80016,68,exact operand value,32,0.471
+12,81359,84,exact operand value,95,0.571
+12,81415,64,exact operand value,0,0.75
+12,81936,485,exact operand value,10,0.408
+12,83970,132,exact operand value,95,0.545
+12,83998,73,exact operand value,2,0.658
+12,84332,150,exact operand value,45,0.573
+12,85713,67,exact operand value,3,1.0
+12,86039,21,exact operand value,2,0.429
+12,87476,189,exact operand value,1,0.571
+12,88142,43,exact operand value,23,0.512
+12,88692,48,exact operand value,18,0.5
+12,89774,102,exact operand value,0,0.824
+12,90144,98,exact operand value,0,0.99
+12,90383,417,exact operand value,1,0.436
+12,91234,32,exact operand value,13,0.406
+12,93230,88,exact operand value,37,0.773
+12,94548,51,exact operand value,38,0.51
+12,95415,28,exact operand value,18,1.0
+12,96271,29,exact operand value,58,0.552
+12,97360,22,exact operand value,12,0.682
+12,97720,119,exact operand value,3,0.563
+12,99546,125,exact operand value,50,0.68
+12,101084,34,exact operand value,22,0.559
+12,101116,22,exact operand value,12,0.864
+12,101977,35,exact operand value,5,0.486
+12,102020,28,exact operand value,20,0.429
+12,102228,21,exact operand value,23,0.429
+12,102444,39,exact operand value,65,0.872
+12,102862,27,exact operand value,71,0.481
+12,103633,29,exact operand value,6,0.517
+12,103686,30,exact operand value,14,0.467
+12,104161,153,exact operand value,20,0.516
+12,104310,31,exact operand value,95,0.452
+12,104405,66,exact operand value,6,0.712
+12,104633,55,exact operand value,20,0.618
+12,104666,20,exact operand value,38,0.4
+12,105219,79,exact operand value,0,1.0
+12,105953,49,exact operand value,6,0.633
+12,106234,25,exact operand value,0,0.72
+12,106625,91,exact operand value,0,0.637
+12,109138,24,exact operand value,95,0.458
+12,109305,38,exact operand value,96,0.474
+12,112205,42,exact operand value,11,0.571
+12,114929,22,exact operand value,79,0.455
+12,115517,39,exact operand value,28,0.821
+12,115698,44,exact operand value,10,0.818
+12,115856,24,exact operand value,30,0.875
+12,116163,23,exact operand value,50,0.696
+12,119393,36,exact operand value,26,0.611
+12,119424,23,exact operand value,2,0.957
+12,119702,25,exact operand value,98,0.52
+12,120182,20,exact operand value,35,0.85
+12,121109,34,exact operand value,12,0.824
+12,122546,30,exact operand value,69,0.533
+12,123123,77,exact operand value,11,0.494
+12,124596,82,exact operand value,99,0.463
+12,124799,20,exact operand value,48,0.55
+12,126427,46,exact operand value,1,0.957
+12,126747,29,exact operand value,40,0.448
+12,127046,73,exact operand value,6,0.411
+12,127149,34,exact operand value,60,0.5
+12,127886,113,exact operand value,0,0.779
+12,129224,39,exact operand value,3,0.718
+12,129355,147,exact operand value,12,0.422
+12,129444,116,exact operand value,9,0.569
+12,130383,94,exact operand value,1,0.66
+13,500,92,exact operand value,0,0.663
+13,510,24,exact operand value,57,0.417
+13,1954,136,exact operand value,8,0.426
+13,3601,42,exact operand value,11,0.405
+13,3612,23,exact operand value,40,0.478
+13,3684,32,exact operand value,7,0.5
+13,4519,20,exact operand value,24,0.4
+13,4974,25,exact operand value,20,0.4
+13,5597,33,exact operand value,48,0.545
+13,5656,21,exact operand value,17,0.429
+13,5997,78,exact operand value,99,0.462
+13,6377,60,exact operand value,99,0.55
+13,7890,31,exact operand value,0,0.839
+13,8004,30,exact operand value,2,1.0
+13,10393,46,exact operand value,43,0.609
+13,10400,34,exact operand value,6,0.559
+13,11367,109,exact operand value,7,0.651
+13,15060,27,exact operand value,94,0.556
+13,15590,43,exact operand value,31,0.488
+13,15644,40,exact operand value,67,0.425
+13,16041,23,exact operand value,17,0.522
+13,16228,23,exact operand value,12,0.609
+13,16345,102,exact operand value,12,0.716
+13,16841,50,exact operand value,0,0.42
+13,17935,34,exact operand value,97,0.5
+13,19208,26,exact operand value,54,0.538
+13,19432,30,exact operand value,27,0.467
+13,19934,21,exact operand value,2,0.429
+13,20484,46,exact operand value,71,0.413
+13,21047,59,exact operand value,2,0.949
+13,21484,29,exact operand value,40,0.69
+13,23748,25,exact operand value,2,0.68
+13,25012,37,exact operand value,30,0.405
+13,25417,27,exact operand value,91,0.407
+13,25444,54,exact operand value,35,0.537
+13,25465,27,exact operand value,14,0.481
+13,27386,20,exact operand value,69,0.4
+13,27773,30,exact operand value,37,0.433
+13,27820,106,exact operand value,17,0.651
+13,29595,31,exact operand value,8,0.677
+13,30097,23,exact operand value,0,0.609
+13,30505,21,exact operand value,0,0.524
+13,30596,46,exact operand value,3,0.543
+13,32512,24,exact operand value,87,0.458
+13,33020,26,exact operand value,2,1.0
+13,34306,47,exact operand value,12,0.426
+13,35431,23,exact operand value,13,0.522
+13,36837,112,exact operand value,99,0.455
+13,37510,42,exact operand value,0,1.0
+13,38918,20,exact operand value,0,1.0
+13,43257,21,exact operand value,0,0.762
+13,44592,21,exact operand value,83,0.571
+13,44839,41,exact operand value,18,0.512
+13,45959,29,exact operand value,40,0.414
+13,46835,42,exact operand value,80,0.405
+13,47057,22,exact operand value,41,0.5
+13,47080,220,exact operand value,1,0.473
+13,48278,23,exact operand value,83,0.478
+13,49211,31,exact operand value,0,0.419
+13,50201,25,exact operand value,0,0.44
+13,50281,84,exact operand value,36,0.417
+13,50358,30,exact operand value,67,0.4
+13,52022,41,exact operand value,32,0.463
+13,52890,26,exact operand value,0,0.923
+13,53960,51,exact operand value,1,0.647
+13,55349,30,exact operand value,27,0.4
+13,55351,43,exact operand value,17,0.465
+13,55518,42,exact operand value,96,0.405
+13,55626,64,exact operand value,7,0.672
+13,55902,24,exact operand value,12,0.792
+13,56123,34,exact operand value,37,0.471
+13,56197,20,exact operand value,69,0.4
+13,56372,97,exact operand value,80,0.433
+13,57788,23,exact operand value,21,0.478
+13,57895,23,exact operand value,60,0.565
+13,58110,42,exact operand value,93,0.571
+13,59343,21,exact operand value,39,0.429
+13,61099,22,exact operand value,0,0.591
+13,61211,21,exact operand value,0,0.952
+13,61612,37,exact operand value,24,0.405
+13,62160,69,exact operand value,99,0.551
+13,63067,47,exact operand value,30,0.532
+13,63087,23,exact operand value,16,0.522
+13,63440,27,exact operand value,0,0.444
+13,63879,155,exact operand value,0,0.897
+13,64359,41,exact operand value,10,0.756
+13,67078,28,exact operand value,43,0.429
+13,67673,54,exact operand value,40,0.556
+13,69137,22,exact operand value,41,0.636
+13,69325,23,exact operand value,2,0.478
+13,69707,42,exact operand value,98,0.714
+13,69909,124,exact operand value,0,0.855
+13,70566,22,exact operand value,10,0.5
+13,70827,21,exact operand value,38,0.429
+13,71199,32,exact operand value,53,0.594
+13,71587,52,exact operand value,4,0.615
+13,72122,35,exact operand value,28,0.457
+13,75351,24,exact operand value,37,0.417
+13,76343,23,exact operand value,35,0.435
+13,76579,20,exact operand value,2,0.45
+13,77046,188,exact operand value,0,1.0
+13,77544,53,exact operand value,0,0.736
+13,77670,27,exact operand value,40,0.444
+13,78501,20,exact operand value,85,0.45
+13,78962,31,exact operand value,88,0.484
+13,79825,27,exact operand value,14,0.481
+13,80500,23,exact operand value,36,0.565
+13,80658,34,exact operand value,4,0.5
+13,81363,42,exact operand value,40,0.595
+13,81492,22,exact operand value,0,0.636
+13,84509,75,exact operand value,3,0.4
+13,84973,20,exact operand value,42,0.4
+13,88671,29,exact operand value,48,0.414
+13,89699,35,exact operand value,97,0.429
+13,90970,29,exact operand value,13,0.69
+13,91311,26,exact operand value,4,0.769
+13,92230,25,exact operand value,8,0.4
+13,94578,41,exact operand value,28,0.439
+13,94943,434,exact operand value,0,0.44
+13,96971,40,exact operand value,80,0.425
+13,97324,20,exact operand value,93,0.45
+13,98057,24,exact operand value,25,0.458
+13,98616,21,exact operand value,49,0.429
+13,98989,60,exact operand value,18,0.917
+13,100268,20,exact operand value,7,0.45
+13,101063,23,exact operand value,16,0.522
+13,101163,28,exact operand value,9,0.536
+13,102845,51,exact operand value,63,0.549
+13,103645,37,exact operand value,7,0.892
+13,103901,31,exact operand value,16,0.645
+13,104849,39,exact operand value,18,0.872
+13,105023,24,exact operand value,81,0.625
+13,105272,20,exact operand value,38,0.45
+13,105688,39,exact operand value,14,0.667
+13,106551,20,exact operand value,18,0.45
+13,106981,49,exact operand value,61,0.408
+13,107011,74,exact operand value,0,0.851
+13,107312,68,exact operand value,99,0.618
+13,107453,21,exact operand value,5,0.524
+13,108613,27,exact operand value,26,0.444
+13,109256,156,exact operand value,0,1.0
+13,111228,32,exact operand value,7,0.875
+13,111390,39,exact operand value,81,0.436
+13,111455,31,exact operand value,12,0.484
+13,112035,30,exact operand value,29,0.5
+13,112328,38,exact operand value,41,0.816
+13,112335,27,exact operand value,74,0.444
+13,114012,70,exact operand value,1,0.671
+13,114020,59,exact operand value,14,0.407
+13,114378,25,exact operand value,60,0.48
+13,115431,25,exact operand value,61,0.44
+13,116431,35,exact operand value,1,0.714
+13,116583,48,exact operand value,15,0.562
+13,118587,21,exact operand value,90,0.524
+13,118813,41,exact operand value,32,0.634
+13,119742,49,exact operand value,16,0.49
+13,124242,29,exact operand value,87,0.448
+13,124456,94,exact operand value,30,0.532
+13,124492,244,exact operand value,0,0.775
+13,124608,36,exact operand value,2,0.556
+13,124724,45,exact operand value,44,0.689
+13,126380,30,exact operand value,59,0.4
+13,126661,23,exact operand value,31,0.435
+13,127636,30,exact operand value,72,0.467
+13,130210,36,exact operand value,29,0.528
+14,612,22,exact operand value,30,0.864
+14,2051,25,exact operand value,53,0.4
+14,2186,90,exact operand value,3,0.489
+14,2271,28,exact operand value,7,0.464
+14,3334,28,exact operand value,1,0.643
+14,3694,57,exact operand value,0,0.579
+14,4861,53,exact operand value,0,0.509
+14,4911,29,exact operand value,76,0.414
+14,5655,34,exact operand value,71,0.412
+14,7666,48,exact operand value,26,0.562
+14,8365,57,exact operand value,54,0.632
+14,8881,27,exact operand value,54,0.444
+14,9680,27,exact operand value,39,0.63
+14,9735,50,exact operand value,13,0.52
+14,9788,31,exact operand value,3,0.452
+14,10355,44,exact operand value,55,0.409
+14,10710,37,exact operand value,0,0.459
+14,12142,23,exact operand value,99,0.913
+14,12401,22,exact operand value,1,0.455
+14,12438,21,exact operand value,34,1.0
+14,14332,63,exact operand value,0,0.603
+14,14506,47,exact operand value,2,0.404
+14,14818,43,exact operand value,36,0.488
+14,15329,36,exact operand value,2,0.472
+14,15453,24,exact operand value,0,0.75
+14,15559,21,exact operand value,99,0.429
+14,17473,29,exact operand value,7,0.483
+14,18613,34,exact operand value,11,0.5
+14,19871,43,exact operand value,0,0.628
+14,20540,24,exact operand value,6,0.417
+14,20609,22,exact operand value,16,0.455
+14,22575,55,exact operand value,30,0.436
+14,23555,41,exact operand value,27,0.488
+14,24159,28,exact operand value,24,0.5
+14,25143,31,exact operand value,48,0.419
+14,25407,23,exact operand value,5,0.87
+14,25450,74,exact operand value,0,0.878
+14,25772,46,exact operand value,23,0.413
+14,27341,206,exact operand value,0,0.777
+14,27647,25,exact operand value,3,0.4
+14,28808,35,exact operand value,14,0.4
+14,28873,44,exact operand value,18,0.636
+14,33150,34,exact operand value,1,0.676
+14,33163,35,exact operand value,11,0.6
+14,34174,245,exact operand value,0,0.429
+14,34597,74,exact operand value,42,0.568
+14,34884,21,exact operand value,10,0.952
+14,37626,60,exact operand value,16,0.45
+14,38005,74,exact operand value,1,0.703
+14,41371,22,exact operand value,94,0.818
+14,44614,28,exact operand value,45,0.786
+14,45617,31,exact operand value,42,0.452
+14,47733,20,exact operand value,90,0.45
+14,50177,35,exact operand value,99,0.429
+14,50467,55,exact operand value,4,0.436
+14,51352,25,exact operand value,44,0.4
+14,51608,38,exact operand value,8,0.5
+14,52260,82,exact operand value,58,0.512
+14,53822,20,exact operand value,83,0.6
+14,54121,58,exact operand value,33,0.466
+14,54795,29,exact operand value,0,0.966
+14,55156,84,exact operand value,6,0.679
+14,57184,33,exact operand value,7,0.515
+14,57466,67,exact operand value,97,0.597
+14,57912,46,exact operand value,98,0.5
+14,58986,26,exact operand value,75,0.423
+14,59628,28,exact operand value,39,0.464
+14,60916,20,exact operand value,11,1.0
+14,62009,52,exact operand value,9,0.404
+14,63832,20,exact operand value,56,0.4
+14,65203,62,exact operand value,43,0.419
+14,66636,26,exact operand value,0,0.5
+14,66925,111,exact operand value,15,0.73
+14,67059,22,exact operand value,8,0.591
+14,67098,58,exact operand value,54,0.414
+14,67124,173,exact operand value,0,0.861
+14,72086,23,exact operand value,43,0.435
+14,73548,29,exact operand value,89,0.414
+14,75592,22,exact operand value,45,0.636
+14,75617,32,exact operand value,7,0.406
+14,77902,28,exact operand value,41,0.5
+14,80705,21,exact operand value,30,1.0
+14,81064,72,exact operand value,12,0.722
+14,81241,26,exact operand value,0,0.654
+14,81554,151,exact operand value,0,0.483
+14,82094,73,exact operand value,50,1.0
+14,83264,37,exact operand value,88,0.486
+14,83274,61,exact operand value,50,0.623
+14,83387,34,exact operand value,56,0.412
+14,83858,36,exact operand value,28,0.583
+14,84767,36,exact operand value,9,0.444
+14,87050,24,exact operand value,15,1.0
+14,87150,37,exact operand value,43,0.568
+14,87712,25,exact operand value,1,0.64
+14,89657,24,exact operand value,0,0.833
+14,89836,25,exact operand value,22,0.56
+14,92492,55,exact operand value,41,0.564
+14,93295,24,exact operand value,68,0.5
+14,93368,261,exact operand value,0,0.563
+14,96478,178,exact operand value,0,0.966
+14,97274,24,exact operand value,22,0.542
+14,99578,103,exact operand value,1,0.476
+14,101055,40,exact operand value,34,0.95
+14,101465,23,exact operand value,5,0.565
+14,102046,35,exact operand value,3,0.429
+14,102369,21,exact operand value,99,0.429
+14,103371,22,exact operand value,7,0.545
+14,103722,38,exact operand value,2,0.474
+14,104905,136,exact operand value,24,0.404
+14,105130,40,exact operand value,2,0.825
+14,105558,20,exact operand value,37,0.5
+14,105836,65,exact operand value,1,0.4
+14,107028,21,exact operand value,95,0.476
+14,108177,81,exact operand value,24,0.481
+14,108226,37,exact operand value,33,0.622
+14,110043,30,exact operand value,7,0.4
+14,110149,45,exact operand value,40,0.4
+14,111197,109,exact operand value,0,0.954
+14,111683,35,exact operand value,54,0.686
+14,112828,168,exact operand value,50,0.417
+14,113256,38,exact operand value,1,0.526
+14,114474,30,exact operand value,30,0.567
+14,115003,329,exact operand value,3,0.468
+14,115617,21,exact operand value,99,0.524
+14,116848,25,exact operand value,75,0.44
+14,117536,24,exact operand value,21,0.542
+14,117554,22,exact operand value,85,0.455
+14,117964,98,exact operand value,25,0.449
+14,119965,119,exact operand value,73,0.513
+14,120907,32,exact operand value,2,0.906
+14,121526,32,exact operand value,2,0.406
+14,122243,49,exact operand value,49,0.469
+14,122540,27,exact operand value,37,0.481
+14,124317,43,exact operand value,75,0.628
+14,124408,128,exact operand value,1,0.641
+14,125444,34,exact operand value,75,0.441
+14,126881,245,exact operand value,3,0.518
+14,128218,84,exact operand value,18,0.405
+14,129213,62,exact operand value,6,0.516
+15,597,37,exact sum,62,0.541
+15,3135,55,exact sum,107,0.782
+15,4842,46,exact sum,107,0.565
+15,5027,46,exact sum,19,0.413
+15,6475,25,exact operand value,14,0.44
+15,7286,21,exact operand value,19,0.429
+15,7534,22,exact sum,43,0.773
+15,7833,73,exact sum,111,0.466
+15,7928,22,exact sum,102,0.864
+15,9251,21,exact operand value,69,0.571
+15,9636,53,exact operand value,0,0.585
+15,10328,69,exact sum,111,0.667
+15,12377,94,exact sum,99,0.67
+15,12417,76,exact sum,65,0.408
+15,12669,84,exact sum,101,0.488
+15,14088,62,exact sum,98,0.694
+15,16844,59,exact sum,39,0.407
+15,17361,42,exact sum,101,0.429
+15,17684,99,exact sum,105,0.657
+15,19660,31,exact sum,119,0.452
+15,20451,111,exact sum,120,0.459
+15,21620,57,exact operand value,0,0.86
+15,21741,41,exact operand value,34,0.439
+15,25152,137,exact sum,105,0.453
+15,25645,20,exact sum,101,0.4
+15,26209,32,exact sum,103,0.562
+15,26260,63,exact sum,101,0.46
+15,26717,51,exact sum,27,0.49
+15,29143,21,exact sum,18,0.571
+15,30294,24,exact sum,101,0.458
+15,30576,24,exact sum,74,0.417
+15,31424,20,exact sum,130,0.45
+15,32936,20,exact sum,63,0.45
+15,35173,24,exact sum,74,0.625
+15,38993,68,exact sum,95,0.441
+15,39315,39,exact sum,101,0.974
+15,39659,28,exact sum,105,0.571
+15,40422,52,exact operand value,0,0.769
+15,41073,21,exact sum,12,0.476
+15,42730,20,exact sum,95,0.85
+15,43411,29,exact sum,102,0.517
+15,43772,20,exact sum,25,0.6
+15,43785,40,exact sum,23,0.475
+15,44789,48,exact sum,44,0.792
+15,45298,76,exact sum,150,0.618
+15,45516,21,exact sum,114,0.429
+15,46856,23,exact sum,26,0.783
+15,49842,50,exact sum,160,0.42
+15,50595,27,exact operand value,52,0.407
+15,51036,21,exact sum,65,0.81
+15,52953,36,exact sum,31,0.472
+15,53567,29,exact sum,105,0.483
+15,54291,27,exact sum,29,0.407
+15,54304,36,exact sum,103,0.556
+15,55779,27,exact operand value,48,0.593
+15,57288,48,exact sum,106,0.438
+15,57869,194,exact sum,100,0.428
+15,58125,67,exact sum,60,0.642
+15,59433,33,exact sum,134,0.848
+15,60069,22,exact operand value,1,0.455
+15,60903,72,exact sum,107,0.514
+15,61318,41,exact sum,124,0.488
+15,62129,36,exact sum,78,0.472
+15,63286,77,exact sum,98,0.481
+15,64135,43,exact sum,77,0.535
+15,65724,42,exact sum,112,0.5
+15,65796,22,exact operand value,33,0.545
+15,66701,36,exact operand value,0,0.472
+15,67081,32,exact sum,67,0.5
+15,68207,24,exact sum,19,0.583
+15,68571,30,exact sum,27,0.467
+15,68784,21,exact sum,100,0.952
+15,69094,51,exact operand value,0,0.882
+15,69576,22,exact sum,100,0.591
+15,69873,56,exact sum,104,0.411
+15,70992,24,exact sum,103,0.792
+15,71520,27,exact sum,103,1.0
+15,71792,68,exact sum,125,0.662
+15,71806,28,exact sum,100,0.929
+15,71955,47,exact operand value,1,0.404
+15,72057,51,exact sum,125,0.412
+15,72685,23,exact operand value,20,0.739
+15,73335,21,exact sum,119,0.619
+15,73594,47,exact sum,122,0.426
+15,73947,22,exact operand value,99,0.455
+15,74426,21,exact sum,22,0.619
+15,75421,171,exact sum,100,0.415
+15,76209,22,exact sum,31,0.545
+15,77489,27,exact sum,149,0.444
+15,78154,44,exact sum,84,0.568
+15,78245,59,exact sum,100,0.508
+15,78501,23,exact sum,34,0.522
+15,78861,21,exact operand value,0,0.619
+15,80654,108,exact sum,84,0.528
+15,82137,28,exact sum,97,0.571
+15,82139,35,exact sum,100,0.714
+15,83071,47,exact sum,120,0.404
+15,83272,24,exact sum,100,0.5
+15,83576,44,exact sum,40,0.477
+15,85183,281,exact operand value,0,0.573
+15,85573,33,exact sum,44,0.788
+15,85649,30,exact sum,99,0.533
+15,86130,97,exact sum,113,0.474
+15,87393,82,exact sum,73,0.439
+15,88393,24,exact sum,50,0.708
+15,88702,44,exact sum,80,0.568
+15,89010,127,exact operand value,0,0.717
+15,90327,28,exact sum,107,0.5
+15,90968,27,exact operand value,9,0.593
+15,91881,38,exact sum,50,0.605
+15,93202,24,exact sum,78,0.667
+15,93832,46,exact sum,27,0.457
+15,95046,28,exact sum,119,0.714
+15,95191,27,exact sum,40,0.519
+15,95589,21,exact sum,88,0.81
+15,96258,46,exact sum,98,0.543
+15,99418,156,exact sum,90,0.564
+15,100195,39,exact sum,83,0.846
+15,105624,48,exact sum,96,0.542
+15,107412,42,exact sum,111,0.5
+15,110442,27,exact sum,104,0.778
+15,110686,29,exact operand value,13,0.414
+15,112503,135,exact sum,54,0.407
+15,114149,23,exact sum,129,0.435
+15,114273,26,exact sum,89,0.538
+15,114406,59,exact sum,89,0.407
+15,114899,68,exact sum,105,0.426
+15,115318,22,exact operand value,85,0.409
+15,116873,24,exact sum,120,0.458
+15,117267,23,exact operand value,0,0.826
+15,117576,26,exact sum,18,0.538
+15,118867,29,exact sum,60,0.69
+15,119631,24,exact sum,103,0.792
+15,121576,46,exact sum,106,0.913
+15,123550,21,exact operand value,91,0.429
+15,125328,23,exact sum,110,1.0
+15,127176,50,exact sum,153,0.54
+15,128233,32,exact sum,97,0.438
+15,128367,20,exact operand value,10,0.55
+15,130243,38,exact sum,94,0.5
+15,130470,57,exact sum,104,0.474

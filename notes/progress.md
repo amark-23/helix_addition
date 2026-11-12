@@ -209,3 +209,26 @@ strict readout give identical decisions.
 7.3 prepared: src/helixadd/graphs.py (influence share per group, edges
 between the primary groups, replacement and completeness scores per graph),
 notebooks/04_graphs.ipynb (200 prompts, resumable).
+
+To check later (exploratory), found while looking at the label examples:
+- L11 #64992: "one operand is zero" (a = 0: 98 prompts, b = 0: 73), unclear
+  (a range [0, 5) only 0.17). Same gap as L7 #13477: exact-value variables.
+- Period-2 (parity) features at "=": L14 #76111 and #103718 "sum is odd"
+  (sum / last digit), L14 #3767 and L12 #112333 "a and b both even", L14
+  #24399 "both odd" (lookup / last digit). Relevant for Q2 (T = 2).
+- L12 #11335 and similar: "max(a, b) about X" (single L-shapes): the
+  magnitude counterpart of "max ends in d"; both sit where Haiku has add
+  function features.
+- Three kinds among the unclear features (figures/unclear_kinds.png; found by
+  where each unclear feature fires most):
+  1. Exact operand value, as a union of a horizontal and a vertical line:
+     "a or b is 10" (L12 #81936), 0 (L8 #32661), 1 (L7 #103572), 4 (L11
+     #76127), 2 (L12 #57761). These are Anthropic-style add function features
+     for exact small values; the claim "no Anthropic-style add function at '='"
+     holds only for periodic ones like "add 9".
+  2. Exact sum, layer 15: "the answer is 100" (L15 #57869, #75421), 90, 105,
+     84. Single diagonal lines, partly lit.
+  3. a = b exactly (layers 6-10): identical operands ("doubling"), some only
+     for large numbers (L9 #109796, #439).
+  All are rare (one value = at most 2% of prompts) and partly lit, so R^2 stays
+  low; the library has no exact-value variables.
