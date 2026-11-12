@@ -1,0 +1,22 @@
+{
+  "n_prompts": 1000,
+  "prompt_seed": 0,
+  "n_eval": 998,
+  "n_random": 100,
+  "compared": [
+    "last digit",
+    "magnitude",
+    "last digit without max-min mod 10",
+    "magnitude without hand lookups",
+    "relaxed last digit",
+    "relaxed magnitude"
+  ],
+  "watched": [
+    "last digit",
+    "magnitude"
+  ],
+  "position": 43,
+  "value": 0.0,
+  "labels": "results/feature_labels",
+  "relaxed": "results/feature_labels_relaxed"
+}

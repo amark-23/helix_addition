@@ -1,0 +1,611 @@
+run,n_features
+clean,0
+last digit,108
+magnitude,98
+last digit without max-min mod 10,52
+magnitude without hand lookups,45
+relaxed last digit,145
+relaxed magnitude,326
+mod 100,151
+comparison,89
+mixed family,132
+random | last digit | 000,108
+random | last digit | 001,108
+random | last digit | 002,108
+random | last digit | 003,108
+random | last digit | 004,108
+random | last digit | 005,108
+random | last digit | 006,108
+random | last digit | 007,108
+random | last digit | 008,108
+random | last digit | 009,108
+random | last digit | 010,108
+random | last digit | 011,108
+random | last digit | 012,108
+random | last digit | 013,108
+random | last digit | 014,108
+random | last digit | 015,108
+random | last digit | 016,108
+random | last digit | 017,108
+random | last digit | 018,108
+random | last digit | 019,108
+random | last digit | 020,108
+random | last digit | 021,108
+random | last digit | 022,108
+random | last digit | 023,108
+random | last digit | 024,108
+random | last digit | 025,108
+random | last digit | 026,108
+random | last digit | 027,108
+random | last digit | 028,108
+random | last digit | 029,108
+random | last digit | 030,108
+random | last digit | 031,108
+random | last digit | 032,108
+random | last digit | 033,108
+random | last digit | 034,108
+random | last digit | 035,108
+random | last digit | 036,108
+random | last digit | 037,108
+random | last digit | 038,108
+random | last digit | 039,108
+random | last digit | 040,108
+random | last digit | 041,108
+random | last digit | 042,108
+random | last digit | 043,108
+random | last digit | 044,108
+random | last digit | 045,108
+random | last digit | 046,108
+random | last digit | 047,108
+random | last digit | 048,108
+random | last digit | 049,108
+random | last digit | 050,108
+random | last digit | 051,108
+random | last digit | 052,108
+random | last digit | 053,108
+random | last digit | 054,108
+random | last digit | 055,108
+random | last digit | 056,108
+random | last digit | 057,108
+random | last digit | 058,108
+random | last digit | 059,108
+random | last digit | 060,108
+random | last digit | 061,108
+random | last digit | 062,108
+random | last digit | 063,108
+random | last digit | 064,108
+random | last digit | 065,108
+random | last digit | 066,108
+random | last digit | 067,108
+random | last digit | 068,108
+random | last digit | 069,108
+random | last digit | 070,108
+random | last digit | 071,108
+random | last digit | 072,108
+random | last digit | 073,108
+random | last digit | 074,108
+random | last digit | 075,108
+random | last digit | 076,108
+random | last digit | 077,108
+random | last digit | 078,108
+random | last digit | 079,108
+random | last digit | 080,108
+random | last digit | 081,108
+random | last digit | 082,108
+random | last digit | 083,108
+random | last digit | 084,108
+random | last digit | 085,108
+random | last digit | 086,108
+random | last digit | 087,108
+random | last digit | 088,108
+random | last digit | 089,108
+random | last digit | 090,108
+random | last digit | 091,108
+random | last digit | 092,108
+random | last digit | 093,108
+random | last digit | 094,108
+random | last digit | 095,108
+random | last digit | 096,108
+random | last digit | 097,108
+random | last digit | 098,108
+random | last digit | 099,108
+random | magnitude | 000,98
+random | magnitude | 001,98
+random | magnitude | 002,98
+random | magnitude | 003,98
+random | magnitude | 004,98
+random | magnitude | 005,98
+random | magnitude | 006,98
+random | magnitude | 007,98
+random | magnitude | 008,98
+random | magnitude | 009,98
+random | magnitude | 010,98
+random | magnitude | 011,98
+random | magnitude | 012,98
+random | magnitude | 013,98
+random | magnitude | 014,98
+random | magnitude | 015,98
+random | magnitude | 016,98
+random | magnitude | 017,98
+random | magnitude | 018,98
+random | magnitude | 019,98
+random | magnitude | 020,98
+random | magnitude | 021,98
+random | magnitude | 022,98
+random | magnitude | 023,98
+random | magnitude | 024,98
+random | magnitude | 025,98
+random | magnitude | 026,98
+random | magnitude | 027,98
+random | magnitude | 028,98
+random | magnitude | 029,98
+random | magnitude | 030,98
+random | magnitude | 031,98
+random | magnitude | 032,98
+random | magnitude | 033,98
+random | magnitude | 034,98
+random | magnitude | 035,98
+random | magnitude | 036,98
+random | magnitude | 037,98
+random | magnitude | 038,98
+random | magnitude | 039,98
+random | magnitude | 040,98
+random | magnitude | 041,98
+random | magnitude | 042,98
+random | magnitude | 043,98
+random | magnitude | 044,98
+random | magnitude | 045,98
+random | magnitude | 046,98
+random | magnitude | 047,98
+random | magnitude | 048,98
+random | magnitude | 049,98
+random | magnitude | 050,98
+random | magnitude | 051,98
+random | magnitude | 052,98
+random | magnitude | 053,98
+random | magnitude | 054,98
+random | magnitude | 055,98
+random | magnitude | 056,98
+random | magnitude | 057,98
+random | magnitude | 058,98
+random | magnitude | 059,98
+random | magnitude | 060,98
+random | magnitude | 061,98
+random | magnitude | 062,98
+random | magnitude | 063,98
+random | magnitude | 064,98
+random | magnitude | 065,98
+random | magnitude | 066,98
+random | magnitude | 067,98
+random | magnitude | 068,98
+random | magnitude | 069,98
+random | magnitude | 070,98
+random | magnitude | 071,98
+random | magnitude | 072,98
+random | magnitude | 073,98
+random | magnitude | 074,98
+random | magnitude | 075,98
+random | magnitude | 076,98
+random | magnitude | 077,98
+random | magnitude | 078,98
+random | magnitude | 079,98
+random | magnitude | 080,98
+random | magnitude | 081,98
+random | magnitude | 082,98
+random | magnitude | 083,98
+random | magnitude | 084,98
+random | magnitude | 085,98
+random | magnitude | 086,98
+random | magnitude | 087,98
+random | magnitude | 088,98
+random | magnitude | 089,98
+random | magnitude | 090,98
+random | magnitude | 091,98
+random | magnitude | 092,98
+random | magnitude | 093,98
+random | magnitude | 094,98
+random | magnitude | 095,98
+random | magnitude | 096,98
+random | magnitude | 097,98
+random | magnitude | 098,98
+random | magnitude | 099,98
+random | last digit without max-min mod 10 | 000,52
+random | last digit without max-min mod 10 | 001,52
+random | last digit without max-min mod 10 | 002,52
+random | last digit without max-min mod 10 | 003,52
+random | last digit without max-min mod 10 | 004,52
+random | last digit without max-min mod 10 | 005,52
+random | last digit without max-min mod 10 | 006,52
+random | last digit without max-min mod 10 | 007,52
+random | last digit without max-min mod 10 | 008,52
+random | last digit without max-min mod 10 | 009,52
+random | last digit without max-min mod 10 | 010,52
+random | last digit without max-min mod 10 | 011,52
+random | last digit without max-min mod 10 | 012,52
+random | last digit without max-min mod 10 | 013,52
+random | last digit without max-min mod 10 | 014,52
+random | last digit without max-min mod 10 | 015,52
+random | last digit without max-min mod 10 | 016,52
+random | last digit without max-min mod 10 | 017,52
+random | last digit without max-min mod 10 | 018,52
+random | last digit without max-min mod 10 | 019,52
+random | last digit without max-min mod 10 | 020,52
+random | last digit without max-min mod 10 | 021,52
+random | last digit without max-min mod 10 | 022,52
+random | last digit without max-min mod 10 | 023,52
+random | last digit without max-min mod 10 | 024,52
+random | last digit without max-min mod 10 | 025,52
+random | last digit without max-min mod 10 | 026,52
+random | last digit without max-min mod 10 | 027,52
+random | last digit without max-min mod 10 | 028,52
+random | last digit without max-min mod 10 | 029,52
+random | last digit without max-min mod 10 | 030,52
+random | last digit without max-min mod 10 | 031,52
+random | last digit without max-min mod 10 | 032,52
+random | last digit without max-min mod 10 | 033,52
+random | last digit without max-min mod 10 | 034,52
+random | last digit without max-min mod 10 | 035,52
+random | last digit without max-min mod 10 | 036,52
+random | last digit without max-min mod 10 | 037,52
+random | last digit without max-min mod 10 | 038,52
+random | last digit without max-min mod 10 | 039,52
+random | last digit without max-min mod 10 | 040,52
+random | last digit without max-min mod 10 | 041,52
+random | last digit without max-min mod 10 | 042,52
+random | last digit without max-min mod 10 | 043,52
+random | last digit without max-min mod 10 | 044,52
+random | last digit without max-min mod 10 | 045,52
+random | last digit without max-min mod 10 | 046,52
+random | last digit without max-min mod 10 | 047,52
+random | last digit without max-min mod 10 | 048,52
+random | last digit without max-min mod 10 | 049,52
+random | last digit without max-min mod 10 | 050,52
+random | last digit without max-min mod 10 | 051,52
+random | last digit without max-min mod 10 | 052,52
+random | last digit without max-min mod 10 | 053,52
+random | last digit without max-min mod 10 | 054,52
+random | last digit without max-min mod 10 | 055,52
+random | last digit without max-min mod 10 | 056,52
+random | last digit without max-min mod 10 | 057,52
+random | last digit without max-min mod 10 | 058,52
+random | last digit without max-min mod 10 | 059,52
+random | last digit without max-min mod 10 | 060,52
+random | last digit without max-min mod 10 | 061,52
+random | last digit without max-min mod 10 | 062,52
+random | last digit without max-min mod 10 | 063,52
+random | last digit without max-min mod 10 | 064,52
+random | last digit without max-min mod 10 | 065,52
+random | last digit without max-min mod 10 | 066,52
+random | last digit without max-min mod 10 | 067,52
+random | last digit without max-min mod 10 | 068,52
+random | last digit without max-min mod 10 | 069,52
+random | last digit without max-min mod 10 | 070,52
+random | last digit without max-min mod 10 | 071,52
+random | last digit without max-min mod 10 | 072,52
+random | last digit without max-min mod 10 | 073,52
+random | last digit without max-min mod 10 | 074,52
+random | last digit without max-min mod 10 | 075,52
+random | last digit without max-min mod 10 | 076,52
+random | last digit without max-min mod 10 | 077,52
+random | last digit without max-min mod 10 | 078,52
+random | last digit without max-min mod 10 | 079,52
+random | last digit without max-min mod 10 | 080,52
+random | last digit without max-min mod 10 | 081,52
+random | last digit without max-min mod 10 | 082,52
+random | last digit without max-min mod 10 | 083,52
+random | last digit without max-min mod 10 | 084,52
+random | last digit without max-min mod 10 | 085,52
+random | last digit without max-min mod 10 | 086,52
+random | last digit without max-min mod 10 | 087,52
+random | last digit without max-min mod 10 | 088,52
+random | last digit without max-min mod 10 | 089,52
+random | last digit without max-min mod 10 | 090,52
+random | last digit without max-min mod 10 | 091,52
+random | last digit without max-min mod 10 | 092,52
+random | last digit without max-min mod 10 | 093,52
+random | last digit without max-min mod 10 | 094,52
+random | last digit without max-min mod 10 | 095,52
+random | last digit without max-min mod 10 | 096,52
+random | last digit without max-min mod 10 | 097,52
+random | last digit without max-min mod 10 | 098,52
+random | last digit without max-min mod 10 | 099,52
+random | magnitude without hand lookups | 000,45
+random | magnitude without hand lookups | 001,45
+random | magnitude without hand lookups | 002,45
+random | magnitude without hand lookups | 003,45
+random | magnitude without hand lookups | 004,45
+random | magnitude without hand lookups | 005,45
+random | magnitude without hand lookups | 006,45
+random | magnitude without hand lookups | 007,45
+random | magnitude without hand lookups | 008,45
+random | magnitude without hand lookups | 009,45
+random | magnitude without hand lookups | 010,45
+random | magnitude without hand lookups | 011,45
+random | magnitude without hand lookups | 012,45
+random | magnitude without hand lookups | 013,45
+random | magnitude without hand lookups | 014,45
+random | magnitude without hand lookups | 015,45
+random | magnitude without hand lookups | 016,45
+random | magnitude without hand lookups | 017,45
+random | magnitude without hand lookups | 018,45
+random | magnitude without hand lookups | 019,45
+random | magnitude without hand lookups | 020,45
+random | magnitude without hand lookups | 021,45
+random | magnitude without hand lookups | 022,45
+random | magnitude without hand lookups | 023,45
+random | magnitude without hand lookups | 024,45
+random | magnitude without hand lookups | 025,45
+random | magnitude without hand lookups | 026,45
+random | magnitude without hand lookups | 027,45
+random | magnitude without hand lookups | 028,45
+random | magnitude without hand lookups | 029,45
+random | magnitude without hand lookups | 030,45
+random | magnitude without hand lookups | 031,45
+random | magnitude without hand lookups | 032,45
+random | magnitude without hand lookups | 033,45
+random | magnitude without hand lookups | 034,45
+random | magnitude without hand lookups | 035,45
+random | magnitude without hand lookups | 036,45
+random | magnitude without hand lookups | 037,45
+random | magnitude without hand lookups | 038,45
+random | magnitude without hand lookups | 039,45
+random | magnitude without hand lookups | 040,45
+random | magnitude without hand lookups | 041,45
+random | magnitude without hand lookups | 042,45
+random | magnitude without hand lookups | 043,45
+random | magnitude without hand lookups | 044,45
+random | magnitude without hand lookups | 045,45
+random | magnitude without hand lookups | 046,45
+random | magnitude without hand lookups | 047,45
+random | magnitude without hand lookups | 048,45
+random | magnitude without hand lookups | 049,45
+random | magnitude without hand lookups | 050,45
+random | magnitude without hand lookups | 051,45
+random | magnitude without hand lookups | 052,45
+random | magnitude without hand lookups | 053,45
+random | magnitude without hand lookups | 054,45
+random | magnitude without hand lookups | 055,45
+random | magnitude without hand lookups | 056,45
+random | magnitude without hand lookups | 057,45
+random | magnitude without hand lookups | 058,45
+random | magnitude without hand lookups | 059,45
+random | magnitude without hand lookups | 060,45
+random | magnitude without hand lookups | 061,45
+random | magnitude without hand lookups | 062,45
+random | magnitude without hand lookups | 063,45
+random | magnitude without hand lookups | 064,45
+random | magnitude without hand lookups | 065,45
+random | magnitude without hand lookups | 066,45
+random | magnitude without hand lookups | 067,45
+random | magnitude without hand lookups | 068,45
+random | magnitude without hand lookups | 069,45
+random | magnitude without hand lookups | 070,45
+random | magnitude without hand lookups | 071,45
+random | magnitude without hand lookups | 072,45
+random | magnitude without hand lookups | 073,45
+random | magnitude without hand lookups | 074,45
+random | magnitude without hand lookups | 075,45
+random | magnitude without hand lookups | 076,45
+random | magnitude without hand lookups | 077,45
+random | magnitude without hand lookups | 078,45
+random | magnitude without hand lookups | 079,45
+random | magnitude without hand lookups | 080,45
+random | magnitude without hand lookups | 081,45
+random | magnitude without hand lookups | 082,45
+random | magnitude without hand lookups | 083,45
+random | magnitude without hand lookups | 084,45
+random | magnitude without hand lookups | 085,45
+random | magnitude without hand lookups | 086,45
+random | magnitude without hand lookups | 087,45
+random | magnitude without hand lookups | 088,45
+random | magnitude without hand lookups | 089,45
+random | magnitude without hand lookups | 090,45
+random | magnitude without hand lookups | 091,45
+random | magnitude without hand lookups | 092,45
+random | magnitude without hand lookups | 093,45
+random | magnitude without hand lookups | 094,45
+random | magnitude without hand lookups | 095,45
+random | magnitude without hand lookups | 096,45
+random | magnitude without hand lookups | 097,45
+random | magnitude without hand lookups | 098,45
+random | magnitude without hand lookups | 099,45
+random | relaxed last digit | 000,145
+random | relaxed last digit | 001,145
+random | relaxed last digit | 002,145
+random | relaxed last digit | 003,145
+random | relaxed last digit | 004,145
+random | relaxed last digit | 005,145
+random | relaxed last digit | 006,145
+random | relaxed last digit | 007,145
+random | relaxed last digit | 008,145
+random | relaxed last digit | 009,145
+random | relaxed last digit | 010,145
+random | relaxed last digit | 011,145
+random | relaxed last digit | 012,145
+random | relaxed last digit | 013,145
+random | relaxed last digit | 014,145
+random | relaxed last digit | 015,145
+random | relaxed last digit | 016,145
+random | relaxed last digit | 017,145
+random | relaxed last digit | 018,145
+random | relaxed last digit | 019,145
+random | relaxed last digit | 020,145
+random | relaxed last digit | 021,145
+random | relaxed last digit | 022,145
+random | relaxed last digit | 023,145
+random | relaxed last digit | 024,145
+random | relaxed last digit | 025,145
+random | relaxed last digit | 026,145
+random | relaxed last digit | 027,145
+random | relaxed last digit | 028,145
+random | relaxed last digit | 029,145
+random | relaxed last digit | 030,145
+random | relaxed last digit | 031,145
+random | relaxed last digit | 032,145
+random | relaxed last digit | 033,145
+random | relaxed last digit | 034,145
+random | relaxed last digit | 035,145
+random | relaxed last digit | 036,145
+random | relaxed last digit | 037,145
+random | relaxed last digit | 038,145
+random | relaxed last digit | 039,145
+random | relaxed last digit | 040,145
+random | relaxed last digit | 041,145
+random | relaxed last digit | 042,145
+random | relaxed last digit | 043,145
+random | relaxed last digit | 044,145
+random | relaxed last digit | 045,145
+random | relaxed last digit | 046,145
+random | relaxed last digit | 047,145
+random | relaxed last digit | 048,145
+random | relaxed last digit | 049,145
+random | relaxed last digit | 050,145
+random | relaxed last digit | 051,145
+random | relaxed last digit | 052,145
+random | relaxed last digit | 053,145
+random | relaxed last digit | 054,145
+random | relaxed last digit | 055,145
+random | relaxed last digit | 056,145
+random | relaxed last digit | 057,145
+random | relaxed last digit | 058,145
+random | relaxed last digit | 059,145
+random | relaxed last digit | 060,145
+random | relaxed last digit | 061,145
+random | relaxed last digit | 062,145
+random | relaxed last digit | 063,145
+random | relaxed last digit | 064,145
+random | relaxed last digit | 065,145
+random | relaxed last digit | 066,145
+random | relaxed last digit | 067,145
+random | relaxed last digit | 068,145
+random | relaxed last digit | 069,145
+random | relaxed last digit | 070,145
+random | relaxed last digit | 071,145
+random | relaxed last digit | 072,145
+random | relaxed last digit | 073,145
+random | relaxed last digit | 074,145
+random | relaxed last digit | 075,145
+random | relaxed last digit | 076,145
+random | relaxed last digit | 077,145
+random | relaxed last digit | 078,145
+random | relaxed last digit | 079,145
+random | relaxed last digit | 080,145
+random | relaxed last digit | 081,145
+random | relaxed last digit | 082,145
+random | relaxed last digit | 083,145
+random | relaxed last digit | 084,145
+random | relaxed last digit | 085,145
+random | relaxed last digit | 086,145
+random | relaxed last digit | 087,145
+random | relaxed last digit | 088,145
+random | relaxed last digit | 089,145
+random | relaxed last digit | 090,145
+random | relaxed last digit | 091,145
+random | relaxed last digit | 092,145
+random | relaxed last digit | 093,145
+random | relaxed last digit | 094,145
+random | relaxed last digit | 095,145
+random | relaxed last digit | 096,145
+random | relaxed last digit | 097,145
+random | relaxed last digit | 098,145
+random | relaxed last digit | 099,145
+random | relaxed magnitude | 000,326
+random | relaxed magnitude | 001,326
+random | relaxed magnitude | 002,326
+random | relaxed magnitude | 003,326
+random | relaxed magnitude | 004,326
+random | relaxed magnitude | 005,326
+random | relaxed magnitude | 006,326
+random | relaxed magnitude | 007,326
+random | relaxed magnitude | 008,326
+random | relaxed magnitude | 009,326
+random | relaxed magnitude | 010,326
+random | relaxed magnitude | 011,326
+random | relaxed magnitude | 012,326
+random | relaxed magnitude | 013,326
+random | relaxed magnitude | 014,326
+random | relaxed magnitude | 015,326
+random | relaxed magnitude | 016,326
+random | relaxed magnitude | 017,326
+random | relaxed magnitude | 018,326
+random | relaxed magnitude | 019,326
+random | relaxed magnitude | 020,326
+random | relaxed magnitude | 021,326
+random | relaxed magnitude | 022,326
+random | relaxed magnitude | 023,326
+random | relaxed magnitude | 024,326
+random | relaxed magnitude | 025,326
+random | relaxed magnitude | 026,326
+random | relaxed magnitude | 027,326
+random | relaxed magnitude | 028,326
+random | relaxed magnitude | 029,326
+random | relaxed magnitude | 030,326
+random | relaxed magnitude | 031,326
+random | relaxed magnitude | 032,326
+random | relaxed magnitude | 033,326
+random | relaxed magnitude | 034,326
+random | relaxed magnitude | 035,326
+random | relaxed magnitude | 036,326
+random | relaxed magnitude | 037,326
+random | relaxed magnitude | 038,326
+random | relaxed magnitude | 039,326
+random | relaxed magnitude | 040,326
+random | relaxed magnitude | 041,326
+random | relaxed magnitude | 042,326
+random | relaxed magnitude | 043,326
+random | relaxed magnitude | 044,326
+random | relaxed magnitude | 045,326
+random | relaxed magnitude | 046,326
+random | relaxed magnitude | 047,326
+random | relaxed magnitude | 048,326
+random | relaxed magnitude | 049,326
+random | relaxed magnitude | 050,326
+random | relaxed magnitude | 051,326
+random | relaxed magnitude | 052,326
+random | relaxed magnitude | 053,326
+random | relaxed magnitude | 054,326
+random | relaxed magnitude | 055,326
+random | relaxed magnitude | 056,326
+random | relaxed magnitude | 057,326
+random | relaxed magnitude | 058,326
+random | relaxed magnitude | 059,326
+random | relaxed magnitude | 060,326
+random | relaxed magnitude | 061,326
+random | relaxed magnitude | 062,326
+random | relaxed magnitude | 063,326
+random | relaxed magnitude | 064,326
+random | relaxed magnitude | 065,326
+random | relaxed magnitude | 066,326
+random | relaxed magnitude | 067,326
+random | relaxed magnitude | 068,326
+random | relaxed magnitude | 069,326
+random | relaxed magnitude | 070,326
+random | relaxed magnitude | 071,326
+random | relaxed magnitude | 072,326
+random | relaxed magnitude | 073,326
+random | relaxed magnitude | 074,326
+random | relaxed magnitude | 075,326
+random | relaxed magnitude | 076,326
+random | relaxed magnitude | 077,326
+random | relaxed magnitude | 078,326
+random | relaxed magnitude | 079,326
+random | relaxed magnitude | 080,326
+random | relaxed magnitude | 081,326
+random | relaxed magnitude | 082,326
+random | relaxed magnitude | 083,326
+random | relaxed magnitude | 084,326
+random | relaxed magnitude | 085,326
+random | relaxed magnitude | 086,326
+random | relaxed magnitude | 087,326
+random | relaxed magnitude | 088,326
+random | relaxed magnitude | 089,326
+random | relaxed magnitude | 090,326
+random | relaxed magnitude | 091,326
+random | relaxed magnitude | 092,326
+random | relaxed magnitude | 093,326
+random | relaxed magnitude | 094,326
+random | relaxed magnitude | 095,326
+random | relaxed magnitude | 096,326
+random | relaxed magnitude | 097,326
+random | relaxed magnitude | 098,326
+random | relaxed magnitude | 099,326
