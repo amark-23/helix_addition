@@ -1,5 +1,5 @@
 import pytest
-from helixadd.readout import outcome, parse_answer
+from helixadd.readout import outcome, parse_answer, parse_answer_strict
 
 
 @pytest.mark.parametrize("text, expected", [
@@ -35,3 +35,10 @@ def test_parse_answer(text, expected):
 ])
 def test_outcome(pred, correct, expected):
     assert outcome(pred, correct) == expected
+
+
+@pytest.mark.parametrize("text, expected", [
+    ("95\ncalc:", 95), ("95", 95), (" 95\ncalc", 95), ("95+3", None), ("9 5", None), ("abc", None), ("", None),
+])
+def test_parse_answer_strict(text, expected):
+    assert parse_answer_strict(text) == expected

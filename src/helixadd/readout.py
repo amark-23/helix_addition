@@ -29,3 +29,15 @@ def outcome(pred, correct):
     if upper_changed:
         return "M"
     return "N"
+
+
+def parse_answer_strict(text):
+    """Sensitivity rule (preregistration section 5): like parse_answer, but the
+    number must be followed by a newline or the end of the output, otherwise None."""
+    pred = parse_answer(text)
+    if pred is None:
+        return None
+    t = text.lstrip()
+    n_digits = len(t) - len(t.lstrip("0123456789"))      # the digits parse_answer read (leading zeros too)
+    rest = t[n_digits:]
+    return pred if rest == "" or rest.startswith("\n") else None
