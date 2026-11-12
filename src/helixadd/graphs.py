@@ -15,7 +15,6 @@ Node order in a circuit-tracer graph: [features, errors (layer x position),
 token embeddings, logits]; rows are targets, columns are sources.
 """
 import pandas as pd
-import torch
 
 EQ = 43
 GROUPS = ["last digit", "magnitude", "mod 100", "comparison", "mixed family"]
@@ -46,6 +45,7 @@ def exact_kinds(path="results/exact_kinds/data.csv"):
 
 def summarize(graph, categories, exact=None):
     """One row of descriptive numbers for one graph. `exact`: optional output of exact_kinds()."""
+    import torch
     from circuit_tracer.graph import compute_graph_scores, compute_node_influence, normalize_matrix
 
     A = graph.adjacency_matrix.float()

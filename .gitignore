@@ -3,3 +3,6 @@ __pycache__/
 .vscode/
 *.egg-info/
 
+
+# viewer files for notebook 05 (70 MB each; notebook 05 rebuilds them)
+results/path_diagram/viewer/

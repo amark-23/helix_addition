@@ -87,6 +87,28 @@ later (42 of 98 in L14; last digit is spread over L11-L14, 11 in L15). Layer
 order can explain part of the asymmetry, but not all: the 23 magnitude
 features in L12-L13 could feed last-digit features in L14-L15 and barely do.
 
+## Path diagram (illustration)
+
+`figures/path_diagram.png` (`scripts/path_diagram.py`, `helixadd/diagram.py`,
+`notebooks/05_path_diagram.ipynb`): 36+59=95 (carry) and 36+53=89 (no carry),
+each from one pruned attribution graph (nodes with 80% of the influence,
+about 2,300). Nodes are grouped into boxes; an arrow is the share of the
+target box's positive direct input from the source box.
+
+- Both operands feed last digit and comparison directly (13-29%).
+- Comparison is the main input to magnitude (44% in both prompts).
+- Magnitude (41%, 33%) and comparison (35%, 37%) supply most of the input to
+  the sum mod 100 features; last digit adds 9% and 5%.
+- Switched off on these prompts: last digit 95 -> 91, 89 -> 85; magnitude
+  95 -> 85, 89 -> 79; comparison 115, 59; mod 100 and mixed family no change.
+- The answer's direct input is 61% (65%) unlabeled: for 36+59, mostly active
+  37%, unclear 14%, error 10%.
+- The carry does not show: last digit -> magnitude appears only in the
+  no-carry prompt (6%).
+- Sum mod 100 sits before the answer but switching it off changes nothing.
+
+One prompt each: an illustration of the results above, not evidence.
+
 ## Limits
 
 - The claim is about the labeled features, not Llama's complete pathways.

@@ -1,0 +1,16 @@
+{
+ "pairs": [
+  [
+   36,
+   59
+  ],
+  [
+   36,
+   53
+  ]
+ ],
+ "node_threshold": 0.8,
+ "edge_threshold": 0.98,
+ "batch_size": 64,
+ "circuit_tracer": "v0.5.3"
+}

@@ -1,0 +1,101 @@
+source box,target box,weight,share,a,b
+a,answer,0.2335,0.0106,36,59
+a,b,8.1248,0.2035,36,59
+a,comparison,8.2473,0.2503,36,59
+a,last digit,8.4454,0.1535,36,59
+a,magnitude,0.9135,0.0205,36,59
+a,mod 100,2.1554,0.0185,36,59
+b,answer,0.7078,0.032,36,59
+b,comparison,8.8664,0.2691,36,59
+b,last digit,10.836,0.1969,36,59
+b,magnitude,3.6033,0.0809,36,59
+b,mod 100,-1.7205,-0.0148,36,59
+comparison,answer,0.6358,0.0288,36,59
+comparison,last digit,1.9939,0.0362,36,59
+comparison,magnitude,19.4744,0.4373,36,59
+comparison,mod 100,40.2354,0.3454,36,59
+last digit,answer,0.9801,0.0443,36,59
+last digit,comparison,1.2205,0.037,36,59
+last digit,magnitude,0.6433,0.0144,36,59
+last digit,mod 100,10.8736,0.0933,36,59
+magnitude,answer,1.7291,0.0782,36,59
+magnitude,comparison,0.0526,0.0016,36,59
+magnitude,last digit,0.4776,0.0087,36,59
+magnitude,mod 100,48.1513,0.4133,36,59
+mixed family,answer,1.0274,0.0465,36,59
+mixed family,comparison,0.4408,0.0134,36,59
+mixed family,last digit,-0.2898,-0.0053,36,59
+mixed family,magnitude,0.0344,0.0008,36,59
+mixed family,mod 100,-14.608,-0.1254,36,59
+mod 100,answer,1.3464,0.0609,36,59
+other positions,a,8.0437,0.6608,36,59
+other positions,answer,1.0856,0.0491,36,59
+other positions,b,19.3067,0.4835,36,59
+other positions,comparison,2.9185,0.0886,36,59
+other positions,last digit,3.5718,0.0649,36,59
+other positions,magnitude,1.6917,0.038,36,59
+other positions,mod 100,2.4252,0.0208,36,59
+other tokens,a,-27.0239,-2.2201,36,59
+other tokens,answer,0.8605,0.0389,36,59
+other tokens,b,-44.9393,-1.1253,36,59
+other tokens,comparison,-11.2487,-0.3414,36,59
+other tokens,last digit,-22.3744,-0.4066,36,59
+other tokens,magnitude,-12.6557,-0.2842,36,59
+other tokens,mod 100,-20.4368,-0.1754,36,59
+unlabeled,a,4.1285,0.3392,36,59
+unlabeled,answer,13.4927,0.6106,36,59
+unlabeled,b,12.5022,0.3131,36,59
+unlabeled,comparison,11.201,0.34,36,59
+unlabeled,last digit,29.6967,0.5397,36,59
+unlabeled,magnitude,18.1733,0.4081,36,59
+unlabeled,mod 100,12.6569,0.1086,36,59
+a,answer,0.3497,0.0167,36,53
+a,b,8.9915,0.2067,36,53
+a,comparison,7.4558,0.2249,36,53
+a,last digit,6.4835,0.1339,36,53
+a,magnitude,2.1417,0.0556,36,53
+a,mod 100,1.5688,0.0117,36,53
+b,answer,0.883,0.0421,36,53
+b,comparison,9.6144,0.29,36,53
+b,last digit,7.6274,0.1575,36,53
+b,magnitude,4.508,0.1171,36,53
+b,mod 100,-5.0088,-0.0372,36,53
+comparison,answer,0.8216,0.0392,36,53
+comparison,last digit,2.8813,0.0595,36,53
+comparison,magnitude,16.9998,0.4417,36,53
+comparison,mod 100,49.6501,0.3688,36,53
+last digit,answer,1.5931,0.0759,36,53
+last digit,comparison,2.0295,0.0612,36,53
+last digit,magnitude,2.4432,0.0635,36,53
+last digit,mod 100,7.1134,0.0528,36,53
+magnitude,answer,1.161,0.0553,36,53
+magnitude,comparison,-0.0217,-0.0007,36,53
+magnitude,last digit,-0.29,-0.006,36,53
+magnitude,mod 100,44.1552,0.328,36,53
+mixed family,answer,0.1438,0.0069,36,53
+mixed family,comparison,0.6567,0.0198,36,53
+mixed family,last digit,1.0026,0.0207,36,53
+mixed family,magnitude,0.77,0.02,36,53
+mixed family,mod 100,-34.5751,-0.2568,36,53
+mod 100,answer,-0.0807,-0.0038,36,53
+other positions,a,7.9906,0.6655,36,53
+other positions,answer,1.3293,0.0634,36,53
+other positions,b,21.2138,0.4876,36,53
+other positions,comparison,2.8411,0.0857,36,53
+other positions,last digit,3.0975,0.064,36,53
+other positions,magnitude,1.6757,0.0435,36,53
+other positions,mod 100,1.2929,0.0096,36,53
+other tokens,a,-26.7801,-2.2305,36,53
+other tokens,answer,1.0578,0.0504,36,53
+other tokens,b,-47.6608,-1.0955,36,53
+other tokens,comparison,-11.404,-0.344,36,53
+other tokens,last digit,-15.2582,-0.3151,36,53
+other tokens,magnitude,-11.8835,-0.3088,36,53
+other tokens,mod 100,-24.0494,-0.1786,36,53
+unlabeled,a,4.0157,0.3345,36,53
+unlabeled,answer,13.6373,0.6501,36,53
+unlabeled,b,13.3023,0.3057,36,53
+unlabeled,comparison,10.5504,0.3183,36,53
+unlabeled,last digit,27.3363,0.5645,36,53
+unlabeled,magnitude,9.9471,0.2585,36,53
+unlabeled,mod 100,30.8525,0.2292,36,53

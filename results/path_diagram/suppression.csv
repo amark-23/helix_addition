@@ -1,0 +1,25 @@
+a,b,switched off,output
+36,59,none,"95
+calc:"
+36,53,none,"89
+calc:"
+36,59,last digit,"91
+calc:"
+36,53,last digit,"85
+calc:"
+36,59,magnitude,"85
+calc:"
+36,53,magnitude,"79
+calc:"
+36,59,mod 100,"95
+calc:"
+36,53,mod 100,"89
+calc:"
+36,59,comparison,"115
+calc:"
+36,53,comparison,"59
+calc:"
+36,59,mixed family,"95
+calc:"
+36,53,mixed family,"89
+calc:"
