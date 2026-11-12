@@ -1,234 +1,53 @@
 # Progress
 
-## 2026-11-06
+## Status (2026-11-12)
 
-Done:
-- preregistration.md: Q1 design mostly fixed (prompts, labels, suppression,
-  readout, decision rules). Q2 not started.
-- src/helixadd/prompts.py: PREFIX, make_prompt, is_carry, all_pairs,
-  sample_pairs. Checked by hand (9992 pairs, 5/10 carry).
-- scripts/explore_tokens.py: tokenization verified (results in
-  preregistration section 2).
-- Local setup: .venv with transformers, HF login, .gitignore.
+Q1 is complete: `notes/q1_results.md`. Open leads: `notes/leads.md`.
+Next: design Q2 (which helix components each pathway reads).
 
-Next:
-1. Turn the tokenization facts into a test (tests/test_prompts.py, pytest).
-2. Remaining Q1 decisions: label thresholds, number of random groups,
-   internal-test measure, accuracy threshold, graph subset size.
-3. model.py: load the model, measure clean accuracy on all prompts.
+## Log
 
-## 2026-11-08
+**2026-11-06.** Q1 design drafted in `preregistration.md`. `prompts.py`
+(prefix, make_prompt, is_carry, pairs); tokenization checked by hand
+(9,992 pairs, half with carry).
 
-Done:
-- tests/test_prompts.py (tokenization facts), pyproject.toml (package installable).
-- src/helixadd/readout.py + tests/test_readout.py (lenient rule, raw text saved).
-- src/helixadd/model.py: load_model (fp16), tokenize, generate (greedy, 4 tokens).
+**2026-11-08.** Tests for tokenization and readout. `model.py` (fp16,
+greedy, 4 tokens). Clean accuracy on a T4: few-shot 99.75% (all 25 errors
+are exactly +10), zero-shot 99.77%.
 
-Notes:
-- Kaggle offers 2 T4s (16 GB each, separate). The model must fit on one.
-  The second GPU can run a parallel copy if something is slow (likely graphs).
+**2026-11-09.** Template comparison: the few-shot prefix does not change how
+many prompts fail, only the kind of error (clean +10 magnitude errors), so it
+stays the main template. Feature activations at "=" for all prompts
+(about 755 active features per prompt, most in L12-L14); `data.npz` is kept
+out of git.
 
-Clean accuracy (Kaggle T4, fp16, circuit-tracer v0.5.3):
-- Few-shot: 99.75%, 25 wrong. All 25 are exactly +10 (units right, upper +1),
-  true sums 127-143. Two prefix answers (138, 141) are in that range.
-- Zero-shot: 99.77%, 23 wrong. Only 1 pair wrong in both runs (74+58).
-  Errors cluster by operand (b = 64, b = 70), not by sum range.
-- Hypothesis (unchecked): the prefix decides which prompts fail.
-  To check: pred and diff for the zero-shot wrong rows.
+**2026-11-10.** Feature labels (`scoring.py`, `labels.py`): 5,043 features
+fire on at least 20 prompts; each is scored by R^2 against a library of
+variables, with precision-first thresholds. No Anthropic-style periodic add
+function ("add 9") at "="; max/min mod 10 features look like Llama's version.
+Taxonomy and codebook for the blind check (`notes/taxonomy.md`,
+`figures/taxonomy/taxonomy.pdf`).
 
-Next:
-1. Check zero-shot diffs (locally, from the saved CSV).
-2. Remaining Q1 decisions: label thresholds, number of random groups,
-   internal-test measure, graph subset size.
-3. Then: feature labels (operand plots).
+**2026-11-11.** Blind checks: round 1 agreement 77% on role, round 2 73% on a
+harder sample. Fixes: mostly active at 90%, tens (a, b) must lead by 0.2.
+Two manual reviews (`notes/manual_review.md`): tens lookups 53 keep / 92 drop,
+add functions 15 keep / 26 drop. Final labels in `results/feature_labels/`.
+Q1 preregistration frozen. Batched suppression (`intervene.py`, checked
+against circuit-tracer: deviation 8.1), random groups (`groups.py`), relaxed
+labels (deviation 8.3), runner (`q1.py`, 610 runs).
 
-## 2026-11-09
+**2026-11-12.** All 610 suppression runs and 200 attribution graphs done.
+Results and their reading: `notes/q1_results.md`. Exact-value unclear features
+(`scripts/exact_kinds.py`) and other leads: `notes/leads.md`.
 
-Template comparison (scripts/compare_templates.py):
-- Few-shot: all 25 errors are +10.
-- Zero-shot: 15 of 23 are +-10 (both directions); the other 8 are copying an
-  operand (24+7 -> 24), dropping the hundreds (95+94 -> 89), and a few odd
-  ones. 5 zero-shot outputs start with a space (handled by parse_answer).
-- Conclusion: the prefix does not change how many prompts fail, it changes the
-  kind of error. Few-shot errors are clean magnitude errors, which supports it
-  as the main template.
+## Practical notes
 
-Design change: look at Llama's features before fixing the label groups
-(preregistration section 3). Next: collect activations at "=" for all prompts.
-
-Feature activations at "=" (notebooks/02_feature_activations.ipynb):
-- activations.eq_activations (one prompt) and activations.collect (all
-  prompts, sparse, saved as data.npz + params.json).
-- Full run done: 9,992 prompts, 7,546,419 entries, about 755 active features
-  per prompt (828 for 36+59; layers 12-14 have the most).
-- data.npz stays out of git (.gitignore). Copies: Kaggle notebook output
-  (attach with Add Input) and a local download in results/eq_activations/.
-  Only params.json is committed.
-- Notebook workflow: no editable install on Kaggle (sys.path), update() pulls
-  and reloads modules without a restart. Import modules, not functions.
-
-Next:
-1. Count distinct features that fire at "=" and how often (laptop).
-2. Operand plots for a sample of frequent features: which kinds exist?
-3. Then fix the label groups and rule (preregistration section 3).
-
-## 2026-11-10
-
-Feature labels (src/helixadd/labels.py, scripts/score_features.py):
-- 5,043 features fire at "=" on >= 20 prompts (of 10,839 that fire at all).
-- Each is scored (R^2) on a library of variables, on its values and on its
-  on/off pattern; nested and interaction rules; two labels: role (Anthropic's
-  add function / sum / lookup table, plus comparison) and family (last digit /
-  magnitude / mod 100 / comparison); mostly_active is a separate flag.
-- Thresholds favor precision (best R^2 >= 0.6, lead >= 0.15). 634 features
-  get a clear role; 274 mixed; 4,135 unclear.
-- The unclear pile (figures/unclear_gallery.png) holds clear shapes just under
-  the bar, two-condition features, dense textures and sparse specks; no clear
-  misclassifications seen.
-- Results: results/feature_scores/ (older versions deleted).
-- Blind check prepared (scripts/blind_check.py, notes/blind_check_guide.md),
-  not yet done.
-
-- Dense features (active on > 50% of prompts) now get the role "mostly active";
-  add function dropped to 19 features, almost all "b is a single digit".
-- Codebook for the blind check: notes/taxonomy.md and figures/taxonomy/
-  (examples outside the blind set; 11 non-textbook candidates removed by hand,
-  most of them lookup tables). Practice round: figures/taxonomy/practice.png,
-  results/practice/.
-
-- No Anthropic-style add function features ("add 9": a or b ends in 9, full
-  lines) at "=": the method detects a synthetic one (additive R^2 0.95), no
-  real feature has it. Hypothesis: max/min mod 10 features (nested squares)
-  are Llama's version, the same lines cut off at a = b. To check later.
-- Taxonomy reference as a PDF: figures/taxonomy/taxonomy.pdf.
-
-Next:
-1. Read notes/taxonomy.md, do the practice round
-   (python scripts/blind_compare.py practice), then the blind round
-   (python scripts/blind_compare.py).
-2. Write the label method into preregistration section 3; settle the
-   remaining Q1 entries (random groups, internal-test measure, graph subset,
-   strict + relaxed threshold check). Freeze Q1.
-3. Suppression code (interventions) for Q1.
-
-## 2026-11-11
-
-Blind check, round 1 (75 features, results/blind_check/):
-- Role agreement 77% (58/75). Per automatic label: comparison 15/15,
-  add function 14/15, sum 14/15, lookup table 8/15, mostly active 7/15.
-- Family agreement 81% (55/68, mostly active left out). last digit 15/15,
-  mod 100 11/12, magnitude 22/31.
-- Lookup via units (a, b): 4/4 agree. Lookup via tens (a, b): 4/11.
-  tens (a, b) is the best variable in 12 of the 17 role disagreements.
-- Mostly active disagreements are features firing on 50-75% of prompts with a
-  clear shape (a < b at 50.4%, max mod 10 at 62%, sum >= 100). Features firing
-  on >= 96% of prompts were all agreed on.
-
-Fixes after round 1 (scripts/score_features.py):
-- mostly active: share 0.5 -> 0.9.
-- tens (a, b) must beat every other variable by 0.2 (DELTA_FLEX).
-- New labels in results/feature_scores/; round-1 labels kept in
-  results/feature_scores_round1/ (they are what round 1 measured).
-- Round 2 prepared (scripts/blind_check_2.py): 30 new features, 10 lookup,
-  10 mostly active, 10 whose role changed. Taxonomy PDF and notes updated to
-  the 90% rule.
-
-Blind check, round 2 (30 new features, results/blind_check_2/):
-- Role agreement 73% (22/30); sample weighted toward the hard categories.
-- Features whose role changed because of the fixes: 7/10 agree now; their
-  round-1 labels would have agreed on 1/10. The fixes helped.
-- mostly active (90% rule): 8/10. comparison 5/5, sum 2/2.
-- Lookup via tens (a, b) still weak: 7/13 (rounds 1+2: 11/24). The
-  disagreements are mostly comparison shapes restricted to a range
-  ("equality for numbers > 50", "for numbers < 50"). Lookup via
-  units (a, b): 2/2 (rounds 1+2: 6/6).
-- Magnitude family 5/11.
-
-Manual review of tens (a, b) lookups: 53 keep, 92 drop
-(results/manual_review/tens_lookups.csv, with notes). Final labels:
-results/feature_labels/ (scripts/final_labels.py).
-
-To check later (exploratory, after Q1):
-- L7 #13477 (spotted during the manual review): union of exact-value lines, b = 78 (41
-  prompts), b = 86, a = 63, a = 52. Anthropic's add-function form with exact
-  values instead of last digits, each line only partly lit. Labeled unclear
-  (R^2 0.06): the library has no exact-value variables. Idea: ranges of
-  width 1.
-
-Preregistration, Q1 complete (2026-11-11): section 3 (label method and
-checks), 4.1-4.3 (supernodes = families; robustness variants; predictions),
-6 (layer-matched random groups, 100 per size, 1,000 prompts, compute rule),
-7.2 (internal measure), 7.3 (200 graphs, influence share), 7.5 (scope).
-Next: freeze Q1 (commit), then the suppression code.
-
-Cleanup (2026-11-11): labeling code split into helixadd/scoring.py (R^2 math)
-and helixadd/labels.py (library, rules, score_features); recomputation gives
-identical labels. One-off exploration scripts removed (they remain in git
-history); checks moved to scripts/checks/. Page images of the checks removed
-(scripts/checks/ can redraw them). README added.
-
-Manual review 2, add function (results/manual_review/add_functions.csv): 15
-keep, 26 drop; all 19 dense ones (50-90% of prompts) dropped, 6 of them for
-"add function mixed with a = b". Final labels rebuilt from both reviews;
-magnitude supernode 124 -> 98. Preregistration updated (3.5, 3.6, 4.1, 4.2, 7.5).
-
-Suppression code (src/helixadd/intervene.py): batched version of
-circuit-tracer's intervention, checked against the library (32/32, 32/32,
-31/32 same answer; the one difference is a float16 tie). Recorded as
-deviation 8.1 in the preregistration. Next: timing of the batched version,
-layer-matched random groups, outcome categories, then the runs.
-
-Q1 runner (2026-11-11): src/helixadd/groups.py (supernodes, layer-matched
-random groups; tests), readout.outcome (N/U/M/B/X; tests), relaxed labels
-(scripts/relaxed_labels.py; deviation 8.3), src/helixadd/q1.py (plan: 610
-runs on 998 evaluation prompts; one CSV per run, resumable; watched sums for
-the internal test), notebooks/03_q1_runs.ipynb. Next: commit, push, run 03 as
-Save & Run All (about 8 GPU hours).
-
-## 2026-11-12: Q1 results (scripts/q1_analysis.py, results/q1_analysis/)
-
-All 610 runs complete (998 prompts each). No X outcomes anywhere; lenient and
-strict readout give identical decisions.
-
-- 7.1 primary: PASS.
-  last digit (no-carry): U 48.0% [43.6, 52.4] vs random p95 0.2%; M 0.0% vs p95 5.6%.
-  magnitude (all): M 25.9% [23.4, 28.6] vs random p95 2.0%; U 0.0% vs p95 3.6%.
-- 7.2 internal: FAIL (marginal). last digit off changes the magnitude sum by
-  12.05% vs random p95 11.98% (random median 4.4%). magnitude off changes the
-  last-digit sum by 3.4% vs p95 5.7% (passes).
-- 7.5 claim: "the supernodes affect different digits, and interact internally".
-- 7.4 carry: B with last digit off 26.6% (carry) vs 14.5% (no-carry); difference
-  95% CI [6.9, 17.3] pp. Supported, but 14.5% B on no-carry prompts is not small.
-- Variants: last digit without max/min mod 10: U 9.4% (passes, much weaker).
-  magnitude without hand lookups: M 0.2% vs p95 1.9% (fails). Relaxed groups
-  (no manual review): pass, last digit U 47.8%, magnitude M 45.8%.
-- Secondary groups: mod 100 almost no effect (N 99.2%; prediction "mostly B"
-  not supported); comparison M 40.6%; mixed family M 36.3%.
-- Still to do: 7.3 (200 attribution graphs: influence share per group).
-
-7.3 prepared: src/helixadd/graphs.py (influence share per group, edges
-between the primary groups, replacement and completeness scores per graph),
-notebooks/04_graphs.ipynb (200 prompts, resumable).
-
-To check later (exploratory), found while looking at the label examples:
-- L11 #64992: "one operand is zero" (a = 0: 98 prompts, b = 0: 73), unclear
-  (a range [0, 5) only 0.17). Same gap as L7 #13477: exact-value variables.
-- Period-2 (parity) features at "=": L14 #76111 and #103718 "sum is odd"
-  (sum / last digit), L14 #3767 and L12 #112333 "a and b both even", L14
-  #24399 "both odd" (lookup / last digit). Relevant for Q2 (T = 2).
-- L12 #11335 and similar: "max(a, b) about X" (single L-shapes): the
-  magnitude counterpart of "max ends in d"; both sit where Haiku has add
-  function features.
-- Three kinds among the unclear features (figures/unclear_kinds.png; found by
-  where each unclear feature fires most):
-  1. Exact operand value, as a union of a horizontal and a vertical line:
-     "a or b is 10" (L12 #81936), 0 (L8 #32661), 1 (L7 #103572), 4 (L11
-     #76127), 2 (L12 #57761). These are Anthropic-style add function features
-     for exact small values; the claim "no Anthropic-style add function at '='"
-     holds only for periodic ones like "add 9".
-  2. Exact sum, layer 15: "the answer is 100" (L15 #57869, #75421), 90, 105,
-     84. Single diagonal lines, partly lit.
-  3. a = b exactly (layers 6-10): identical operands ("doubling"), some only
-     for large numbers (L9 #109796, #439).
-  All are rare (one value = at most 2% of prompts) and partly lit, so R^2 stays
-  low; the library has no exact-value variables.
+- Kaggle T4: about 14.6 GB usable per GPU; model plus transcoders take about
+  12.3 GB. Two GPUs do not add memory; a second one can only run a parallel
+  copy.
+- circuit-tracer `attribute` needs `batch_size=64` on a T4 (512 runs out of
+  memory) and `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` set before
+  torch loads.
+- Long runs: Save Version, Save & Run All. All runners are resumable.
+- Kaggle imports: sys.path, not an editable install; import modules, not
+  functions, so `update()` can reload them.

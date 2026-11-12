@@ -86,3 +86,50 @@ def summarize(graph, categories, exact=None):
             row[f"edges {src} -> {tgt}"] = float(N[idx[tgt]][:, idx[src]].sum(dim=1).mean()) if ok else float("nan")
     row.update({f"n {g}": len(idx[g]) for g in PRIMARY})
     return row
+
+
+def save_pruned(graph, folder, node_threshold=0.8, edge_threshold=0.98):
+    """Prune one graph (circuit-tracer's prune_graph) and save what is left as two small CSVs.
+
+    nodes.csv: index, kind (feature / error / token / logit), layer, pos,
+    feature, token, activation, influence (cumulative, as in the viewer).
+    edges.csv: target, source, weight (raw adjacency entry; rows are targets).
+    The full adjacency matrix (about 3 GB) is not saved.
+    """
+    from pathlib import Path
+
+    from circuit_tracer.graph import prune_graph
+
+    folder = Path(folder)
+    folder.mkdir(parents=True, exist_ok=True)
+    node_mask, edge_mask, cumulative = (t.cpu() for t in prune_graph(graph, node_threshold, edge_threshold))
+
+    n_feat = len(graph.selected_features)
+    n_err = graph.cfg.n_layers * graph.n_pos
+    n_tok = graph.n_pos
+    rows = []
+    for i in node_mask.nonzero().flatten().tolist():
+        r = {"index": i, "kind": None, "layer": -1, "pos": -1, "feature": -1, "token": -1,
+             "activation": float("nan"), "influence": float(cumulative[i])}
+        if i < n_feat:
+            sel = int(graph.selected_features[i])
+            layer, pos, feature = graph.active_features[sel].tolist()
+            r.update(kind="feature", layer=layer, pos=pos, feature=feature,
+                     activation=float(graph.activation_values[sel]))
+        elif i < n_feat + n_err:
+            layer, pos = divmod(i - n_feat, graph.n_pos)
+            r.update(kind="error", layer=layer, pos=pos)
+        elif i < n_feat + n_err + n_tok:
+            pos = i - n_feat - n_err
+            r.update(kind="token", pos=pos, token=int(graph.input_tokens[pos]))
+        else:
+            r.update(kind="logit", token=int(graph.logit_targets[i - n_feat - n_err - n_tok].vocab_idx),
+                     activation=float(graph.logit_probabilities[i - n_feat - n_err - n_tok]))
+        rows.append(r)
+    pd.DataFrame(rows).to_csv(folder / "nodes.csv", index=False)
+
+    tgt, src = edge_mask.nonzero(as_tuple=True)
+    weight = graph.adjacency_matrix.cpu()[tgt, src].float()
+    pd.DataFrame({"target": tgt.numpy(), "source": src.numpy(), "weight": weight.numpy()}).to_csv(
+        folder / "edges.csv", index=False)
+    return len(rows), len(tgt)

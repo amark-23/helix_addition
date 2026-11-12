@@ -27,10 +27,14 @@ scripts/             steps run on the saved results
   score_features.py      score and label every feature at "="
   final_labels.py        automatic labels + manual review -> final labels
   label_examples.py      figure: a sample of each label
+  relaxed_labels.py      looser labels for the robustness variant
+  q1_analysis.py         Q1 suppression results (decision rules)
+  q1_graphs_analysis.py  Q1 attribution graph summary
+  exact_kinds.py         exploratory: exact-value unclear features
   checks/                blind checks, manual review, taxonomy PDF
 results/             saved results, each with params.json (data.npz files are not in git)
-figures/             label_examples.png, taxonomy/taxonomy.pdf
-notes/               progress log, conventions, taxonomy, review criteria
+figures/             label examples, taxonomy/taxonomy.pdf, exploratory plots
+notes/               progress log, Q1 results, open leads, conventions, taxonomy, review criteria
 ```
 
 ## Order
@@ -38,7 +42,9 @@ notes/               progress log, conventions, taxonomy, review criteria
 1. `notebooks/` on Kaggle: clean accuracy, then activations at "=".
 2. `scripts/score_features.py`, the checks in `scripts/checks/`, then
    `scripts/final_labels.py`.
-3. Suppression (Q1), after the preregistration is frozen.
+3. `notebooks/03_q1_runs.ipynb` (suppression) and `notebooks/04_graphs.ipynb`
+   (attribution graphs) on Kaggle, then `scripts/q1_analysis.py` and
+   `scripts/q1_graphs_analysis.py`. Results: `notes/q1_results.md`.
 
 Tests: `pytest` (the tokenization tests need the Llama tokenizer and a
 Hugging Face login).
