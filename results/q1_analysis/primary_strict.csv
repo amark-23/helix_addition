@@ -1,0 +1,7 @@
+group,prompts,n_prompts,effect (U),effect CI,random p95 (U),other (M),other CI,random p95 (M),effect passes,other passes,passes,effect (M),other (U)
+last digit,no-carry,498,0.4799196787148594,"(np.float64(0.436), np.float64(0.524))",0.002008032128514056,0.0,"(np.float64(0.0), np.float64(0.0))",0.05562248995983928,True,True,True,,
+last digit without max-min mod 10,no-carry,498,0.09437751004016064,"(np.float64(0.07), np.float64(0.12))",0.0,0.002008032128514056,"(np.float64(0.0), np.float64(0.006))",0.04638554216867469,True,True,True,,
+relaxed last digit,no-carry,498,0.4779116465863454,"(np.float64(0.436), np.float64(0.524))",0.0,0.0,"(np.float64(0.0), np.float64(0.0))",0.27329317269076303,True,True,True,,
+magnitude,all,998,,"(np.float64(0.234), np.float64(0.286))",0.020090180360721438,,"(np.float64(0.0), np.float64(0.0))",0.03612224448897795,True,True,True,0.25851703406813625,0.0
+magnitude without hand lookups,all,998,,"(np.float64(0.0), np.float64(0.005))",0.001002004008016032,,"(np.float64(0.0), np.float64(0.0))",0.01903807615230461,False,True,False,0.002004008016032064,0.0
+relaxed magnitude,all,998,,"(np.float64(0.43), np.float64(0.49))",0.028056112224448898,,"(np.float64(0.0), np.float64(0.0))",0.09854709418837673,True,True,True,0.45791583166332667,0.0

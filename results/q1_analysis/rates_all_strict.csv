@@ -1,0 +1,11 @@
+run,N,U,M,B,X
+clean,1.0,0.0,0.0,0.0,0.0
+last digit,0.252,0.543,0.0,0.205,0.0
+magnitude,0.741,0.0,0.259,0.0,0.0
+last digit without max-min mod 10,0.743,0.19,0.001,0.065,0.0
+magnitude without hand lookups,0.998,0.0,0.002,0.0,0.0
+relaxed last digit,0.283,0.549,0.0,0.168,0.0
+relaxed magnitude,0.542,0.0,0.458,0.0,0.0
+mod 100,0.993,0.0,0.007,0.0,0.0
+comparison,0.599,0.0,0.398,0.003,0.0
+mixed family,0.641,0.0,0.359,0.0,0.0

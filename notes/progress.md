@@ -184,3 +184,24 @@ random groups; tests), readout.outcome (N/U/M/B/X; tests), relaxed labels
 runs on 998 evaluation prompts; one CSV per run, resumable; watched sums for
 the internal test), notebooks/03_q1_runs.ipynb. Next: commit, push, run 03 as
 Save & Run All (about 8 GPU hours).
+
+## 2026-11-12: Q1 results (scripts/q1_analysis.py, results/q1_analysis/)
+
+All 610 runs complete (998 prompts each). No X outcomes anywhere; lenient and
+strict readout give identical decisions.
+
+- 7.1 primary: PASS.
+  last digit (no-carry): U 48.0% [43.6, 52.4] vs random p95 0.2%; M 0.0% vs p95 5.6%.
+  magnitude (all): M 25.9% [23.4, 28.6] vs random p95 2.0%; U 0.0% vs p95 3.6%.
+- 7.2 internal: FAIL (marginal). last digit off changes the magnitude sum by
+  12.05% vs random p95 11.98% (random median 4.4%). magnitude off changes the
+  last-digit sum by 3.4% vs p95 5.7% (passes).
+- 7.5 claim: "the supernodes affect different digits, and interact internally".
+- 7.4 carry: B with last digit off 26.6% (carry) vs 14.5% (no-carry); difference
+  95% CI [6.9, 17.3] pp. Supported, but 14.5% B on no-carry prompts is not small.
+- Variants: last digit without max/min mod 10: U 9.4% (passes, much weaker).
+  magnitude without hand lookups: M 0.2% vs p95 1.9% (fails). Relaxed groups
+  (no manual review): pass, last digit U 47.8%, magnitude M 45.8%.
+- Secondary groups: mod 100 almost no effect (N 99.2%; prediction "mostly B"
+  not supported); comparison M 40.6%; mixed family M 36.3%.
+- Still to do: 7.3 (200 attribution graphs: influence share per group).
