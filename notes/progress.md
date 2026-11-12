@@ -205,3 +205,7 @@ strict readout give identical decisions.
 - Secondary groups: mod 100 almost no effect (N 99.2%; prediction "mostly B"
   not supported); comparison M 40.6%; mixed family M 36.3%.
 - Still to do: 7.3 (200 attribution graphs: influence share per group).
+
+7.3 prepared: src/helixadd/graphs.py (influence share per group, edges
+between the primary groups, replacement and completeness scores per graph),
+notebooks/04_graphs.ipynb (200 prompts, resumable).
