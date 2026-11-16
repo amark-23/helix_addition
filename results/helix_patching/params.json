@@ -1,0 +1,20 @@
+{
+  "activations": "results/number_acts",
+  "periods": [
+    2,
+    5,
+    10,
+    100
+  ],
+  "methods": [
+    "mean",
+    "helix",
+    "line only",
+    "circles only",
+    "pca 9"
+  ],
+  "n_test": 20,
+  "n_partners": 10,
+  "seed": 0,
+  "replaced": "the operand's vector at one point, on its own token"
+}

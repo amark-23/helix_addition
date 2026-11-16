@@ -109,11 +109,12 @@ def point_name(i):
     return "blocks.0.hook_resid_pre" if i == 0 else f"blocks.{i - 1}.hook_resid_post"
 
 
-def patch_logits(model, pairs, point, pos, vectors):
+def patch_logits(model, pairs, point, pos, vectors, answers=None):
     """Logit of the correct answer, with the vector at `pos` replaced at `point`.
 
     pairs: [(a, b), ...]; vectors: (len(pairs), d), the replacement for each prompt,
-    or None for the normal run.
+    or None for the normal run. answers: the answer whose logit is read for each
+    prompt (default a + b; the corrupted runs read the clean answer instead).
     """
     import torch
 
@@ -130,7 +131,9 @@ def patch_logits(model, pairs, point, pos, vectors):
     hooks = [] if vectors is None else [(point_name(point), replace)]
     with torch.no_grad():
         logits = model.run_with_hooks(tokens, fwd_hooks=hooks)[:, -1, :]
-    ids = [model.tokenizer.convert_tokens_to_ids(str(a + b)) for a, b in pairs]
+    if answers is None:
+        answers = [a + b for a, b in pairs]
+    ids = [model.tokenizer.convert_tokens_to_ids(str(x)) for x in answers]
     return logits[torch.arange(len(pairs)), ids].float().cpu().numpy()    # gap 3
 
 
@@ -217,6 +220,77 @@ def run_patching(model, data, folder="results/helix_patching", seed=0, batch=100
                 vecs = replacement(method, X, train, test)
                 rows.append({"position": position, "point": point, "method": method,
                              "logit": logits(point, vecs).mean(), "n": len(pairs)})
+            print(position, point, "done")
+    df = pd.DataFrame(rows)
+    save(folder, params, df)
+    return df
+
+
+# ---- the paper's version: patch into a run with a different number ----
+
+CORRUPT_METHODS = ["layer patch", "helix", "circles only", "line only", "pca 9"]
+
+
+def corrupted_triples(position, test, seed=0):
+    """(clean pair, corrupted pair) for one position: the operand at `position` is
+    a test number in the clean pair and a different random number in the corrupted one."""
+    from helixadd.prompts import EXCLUDED
+
+    rng = np.random.default_rng(seed + 2)
+    out = []
+    for x in test:
+        for y in rng.choice(100, N_PARTNERS, replace=False):
+            other = int(rng.choice([v for v in range(100) if v != x]))
+            clean = (int(x), int(y)) if position == "a" else (int(y), int(x))
+            corrupt = (other, int(y)) if position == "a" else (int(y), other)
+            if not any(p in EXCLUDED or p[::-1] in EXCLUDED for p in (clean, corrupt)):
+                out.append((clean, corrupt))
+    return out
+
+
+def run_corrupted(model, data, folder="results/helix_patching_corrupted", seed=0, batch=100):
+    """Kantamneni-style patching: run a' + b (or a + b'), put a vector for the clean
+    operand on its token at one point, read the clean answer's logit.
+
+    logit difference = patched logit - corrupted logit (both for the clean answer).
+    layer patch uses the collected vector of the clean operand (for b: the mean
+    over 20 a's, so it is close to, not equal to, the clean run's own vector).
+    """
+    import pandas as pd
+
+    from helixadd.results import load_if_exists, save
+
+    params = {"activations": "results/number_acts", "periods": PERIODS, "methods": CORRUPT_METHODS,
+              "n_test": N_TEST, "n_partners": N_PARTNERS, "seed": seed,
+              "setup": "corrupted run a'+b (a+b'), clean operand's vector patched on its token, clean answer's logit"}
+    df = load_if_exists(folder, params)
+    if df is not None:
+        return df
+
+    train, test = split(seed)
+    row_of = {int(x): i for i, x in enumerate(test)}
+    rows = []
+    for position, pos in [("a", A_POS), ("b", B_POS)]:
+        triples = corrupted_triples(position, test, seed)
+        corrupt = [c for _, c in triples]
+        answers = [a + b for (a, b), _ in triples]
+        which = [row_of[a if position == "a" else b] for (a, b), _ in triples]
+
+        def logits(point, vectors):
+            out = []
+            for i in range(0, len(triples), batch):
+                v = None if vectors is None else vectors[which[i:i + batch]]
+                out.append(patch_logits(model, corrupt[i:i + batch], point, pos, v, answers[i:i + batch]))
+            return np.concatenate(out)
+
+        base = logits(0, None)
+        rows.append({"position": position, "point": -1, "method": "corrupted", "logit difference": 0.0, "n": len(triples)})
+        for point in range(17):
+            X = data[position][point]
+            for method in CORRUPT_METHODS:
+                vecs = X[test] if method == "layer patch" else replacement(method, X, train, test)
+                rows.append({"position": position, "point": point, "method": method,
+                             "logit difference": float((logits(point, vecs) - base).mean()), "n": len(triples)})
             print(position, point, "done")
     df = pd.DataFrame(rows)
     save(folder, params, df)
