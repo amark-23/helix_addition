@@ -3,7 +3,8 @@
 ## Status (2026-11-12)
 
 Q1 is complete: `notes/q1_results.md`. Open leads: `notes/leads.md`.
-Next: design Q2 (which helix components each pathway reads).
+Q2 step 1 (exploratory, before the Q2 preregistration): number representations
+collected and their spectrum checked. Next: fit the helix per layer, then patch.
 
 ## Log
 
@@ -39,6 +40,17 @@ labels (deviation 8.3), runner (`q1.py`, 610 runs).
 **2026-11-12.** All 610 suppression runs and 200 attribution graphs done.
 Results and their reading: `notes/q1_results.md`. Exact-value unclear features
 (`scripts/exact_kinds.py`) and other leads: `notes/leads.md`.
+
+**2026-11-16.** Q2 step 1. Residual stream on the number tokens at 17 points
+(`helix.collect_numbers`, `notebooks/06_number_acts.ipynb`,
+`results/number_acts/`); for b, the mean over 20 a's. Spectrum
+(`helix.spectrum`, `scripts/number_spectrum.py`, `figures/number_spectrum.png`,
+`figures/number_spectrum_L10.png`), straight line removed first: the same
+periods as in Kantamneni's models stand out (T = 2, 5, 10, 100, plus 50).
+The line and T = 100 are the largest single source of difference between
+numbers at layers 3-5; T = 10 and T = 5 grow to a similar size at layers 9-12;
+T = 2 is present from layer 0 on. Shares of variance only, not use. Slow
+non-line structure (k = 3-6) remains: suspect the 0-9 vs 10-99 token split.
 
 ## Practical notes
 

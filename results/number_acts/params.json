@@ -1,0 +1,15 @@
+{
+  "model": "meta-llama/Llama-3.2-1B",
+  "dtype": "float16",
+  "prefix": "calc: 31+45=76\ncalc: 17+29=46\ncalc: 52+86=138\ncalc: 63+78=141\n",
+  "points": "blocks.0.hook_resid_pre, then blocks.L.hook_resid_post for L = 0..15",
+  "a": "a = 0..99 with b = 50",
+  "b": "mean over 20 random a per b, seed 0",
+  "positions": [
+    40,
+    42
+  ],
+  "transformer_lens": "3.2.1",
+  "circuit_tracer": "0.5.3",
+  "torch": "2.11.0+cu130"
+}
