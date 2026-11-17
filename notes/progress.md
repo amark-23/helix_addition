@@ -52,6 +52,22 @@ numbers at layers 3-5; T = 10 and T = 5 grow to a similar size at layers 9-12;
 T = 2 is present from layer 0 on. Shares of variance only, not use. Slow
 non-line structure (k = 3-6) remains: suspect the 0-9 vs 10-99 token split.
 
+Helix fit and patching (`helix.basis`, `fit`, `predict`, `patch_logits`,
+`run_patching`, `run_corrupted`; `notebooks/07_helix_patching.ipynb`;
+`results/helix_patching/`, `results/helix_patching_corrupted/`). Fit on 80
+numbers, patched only on prompts with the other 20.
+- After layer 10 the operand token no longer matters: replacing it changes
+  nothing. Only the embedding to after L10 can be tested.
+- Replacement (0 = average vector, 1 = clean): helix 0.50-0.64, circles only
+  slightly higher, line only below 0, PCA 9 (sees the test vector) similar.
+- Paper's setup (run a' + b, patch the clean a; share of the full-vector
+  patch): helix 0.69-0.74, circles only 0.70-0.76, line only 0.15-0.38,
+  PCA 9 0.61-0.89. Kantamneni's GPT-J table gives about 0.86 for the helix
+  (computed from their Table 1). Same jump from the embedding (0.69) to after
+  L0 (0.74) as their layer 0 vs layer 1.
+- About 80% of the top-9 PCA variance lies inside the 8 helix directions
+  (random directions: 0.5%).
+
 ## Practical notes
 
 - Kaggle T4: about 14.6 GB usable per GPU; model plus transcoders take about

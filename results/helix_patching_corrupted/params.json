@@ -1,0 +1,20 @@
+{
+  "activations": "results/number_acts",
+  "periods": [
+    2,
+    5,
+    10,
+    100
+  ],
+  "methods": [
+    "layer patch",
+    "helix",
+    "circles only",
+    "line only",
+    "pca 9"
+  ],
+  "n_test": 20,
+  "n_partners": 10,
+  "seed": 0,
+  "setup": "corrupted run a'+b (a+b'), clean operand's vector patched on its token, clean answer's logit"
+}
