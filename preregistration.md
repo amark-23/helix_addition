@@ -1,6 +1,6 @@
 # Preregistration
 
-Status: Q1 frozen 11-11-26. Q2 drafted in section 9, not frozen.
+Status: Q1 frozen 11-11-26. Q2 frozen 18-11-26 (section 9).
 Q1 freeze: the commit that sets this line to "Q1 frozen on <date>".
 Any change to Q1 after the freeze goes in "Deviations" at the bottom, with the reason.
 
@@ -21,7 +21,7 @@ answer when it is suppressed.
 
 ### Q2: Is each pathway fed by its own part of the helix?
 
-Design: section 9 (draft). Split into:
+Design: section 9. Split into:
 - Q2a: which part of the operand representation each pathway reads;
 - Q2b: whether that part is a Fourier code specifically.
 
@@ -445,7 +445,7 @@ unreviewed tens (a, b) lookups and add function features).
 
 ---
 
-## 9. Q2 (draft, not frozen)
+## 9. Q2
 
 Q2a: which parts of the operand helix each Q1 supernode depends on.
 
