@@ -295,3 +295,34 @@ def run_corrupted(model, data, folder="results/helix_patching_corrupted", seed=0
     df = pd.DataFrame(rows)
     save(folder, params, df)
     return df
+
+Q2_PERIODS = [100, 50, 10, 5, 10 / 3, 2.5, 2]
+
+
+def circle_directions(C, kept, periods=Q2_PERIODS):
+    """Orthonormal directions (k, d) of the periods in `kept`, from a fit's C."""
+    rows = []
+    for T in kept:
+        j = periods.index(T)
+        rows += [1 + 2*j,2 + 2*j]                  # gap 1: the cos and sin rows of C for period j
+    U, S, Vt = np.linalg.svd(C[rows], full_matrices=False)
+    return Vt[S > 1e-6 * S[0]]                # orthonormal; drops the zero row (sin of T = 2)
+
+
+def replace_along(x, source, D):
+    """x with its part along the directions D taken from `source`
+    (for the swap: the vector of a' at the same point)."""
+    return x - np.dot(np.dot(x - source, D.T), D)
+
+
+def shift(s_swap, s_clean, s_target):
+    """Per prompt: how far s_swap moved from s_clean towards s_target (0 = not, 1 = all the way).
+    Each argument: (n_prompts, n_features)."""
+    moved = s_swap - s_clean                        # gap 1: the move caused by the swap
+    wanted = s_target - s_clean                     # gap 2: the move to the target
+    return (moved * wanted).sum(axis=1) / (wanted * wanted).sum(axis=1)    # gap 3: |wanted|^2, per prompt
+
+
+def change(s_swap, s_clean):
+    """Per prompt: |s_swap - s_clean| / |s_clean| (as in 7.2)."""
+    return np.linalg.norm(s_swap - s_clean, axis=1) / np.linalg.norm(s_clean, axis=1)

@@ -68,6 +68,15 @@ numbers, patched only on prompts with the other 20.
 - About 80% of the top-9 PCA variance lies inside the 8 helix directions
   (random directions: 0.5%).
 
+**2026-11-18.** Q2 design drafted (preregistration section 9): swap a circle
+group (digit: T = 10, 5, 3.3, 2.5; slow: T = 100, 50) from a' into a + b, at
+every point from the embedding to after L10, and measure how far each Q1
+supernode moves towards the real a' + b run. Floor: random number directions;
+ceiling: whole-vector swap. Circle directions are fitted per point: they
+rotate across layers (embedding vs after L0 share about 20%, later
+neighbours 50-80%). Digit and slow directions barely overlap (max squared
+cosine under 0.09, except 0.107 after L6, where slow is orthogonalized).
+
 ## Practical notes
 
 - Kaggle T4: about 14.6 GB usable per GPU; model plus transcoders take about

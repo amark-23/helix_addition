@@ -1,6 +1,6 @@
 # Preregistration
 
-Status: Q1 frozen 11-11-26. Q2 not designed yet (section 1 is a draft).
+Status: Q1 frozen 11-11-26. Q2 drafted in section 9, not frozen.
 Q1 freeze: the commit that sets this line to "Q1 frozen on <date>".
 Any change to Q1 after the freeze goes in "Deviations" at the bottom, with the reason.
 
@@ -21,8 +21,8 @@ answer when it is suppressed.
 
 ### Q2: Is each pathway fed by its own part of the helix?
 
-Draft, not yet worked through. To be split into:
-- Q2a: which part of the operand embedding each pathway reads;
+Design: section 9 (draft). Split into:
+- Q2a: which part of the operand representation each pathway reads;
 - Q2b: whether that part is a Fourier code specifically.
 
 Current wording: if the pathways exist, we ask whether the last-digit pathway
@@ -442,3 +442,166 @@ counts). Code: scripts/relaxed_labels.py, results/feature_labels_relaxed/.
 Every strict supernode feature is also in the relaxed one. Sizes: last digit
 145 (strict 108), magnitude 326 (strict 98; most of the difference is the
 unreviewed tens (a, b) lookups and add function features).
+
+---
+
+## 9. Q2 (draft, not frozen)
+
+Q2a: which parts of the operand helix each Q1 supernode depends on.
+
+### 9.1 What step 1 found (exploratory, before this section)
+
+Done before writing this section, on the residual stream at the two operand
+tokens (positions 40 and 42; for b the mean over 20 a's), at 17 points
+(embedding, after each layer). Code: `helixadd.helix`, notebooks 06 and 07,
+`notes/progress.md` (2026-11-16).
+
+- Spectrum (straight line removed): clear peaks at T = 100, 50, 10, 5, 3.3,
+  2.5 and 2. Nothing else stands out.
+- After layer 10 the operand token no longer matters: replacing its vector
+  with the average leaves the answer's logit unchanged.
+- A helix (line + T = 2, 5, 10, 100), fitted on 80 numbers and patched in for
+  the other 20 (a' + b runs, as in Kantamneni and Tegmark), recovers about
+  70-74% of the full vector's effect; circles alone the same; PCA with 9
+  dimensions 61-89%.
+
+These results set the periods and the points below.
+
+### 9.2 Circles
+
+- Periods: T = 100, 50, 10, 5, 3.3, 2.5, 2 (the spectrum peaks of 9.1).
+- At each point and for each operand: fit the line and all 7 periods on all
+  100 numbers (`helix.fit`). The directions of period T are its cos and sin
+  rows of C, orthonormalized (`helix.circle_directions`). For T = 2 only the
+  cos row is non-zero, so that circle is 1 direction.
+- Groups:
+  - digit circles: T = 10, 5, 3.3, 2.5 (8 directions);
+  - slow circles: T = 100, 50 (4 directions).
+- Overlap check, before the freeze: the angles between the digit and slow
+  directions at each point. If any squared cosine is above 0.1, the slow
+  directions are made orthogonal to the digit directions before use, and
+  this is recorded here.
+  Done 2026-11-18 (operand a): largest squared cosine 0.017-0.087 at every
+  point except after layer 6 (0.107). So at that point the slow directions
+  are made orthogonal to the digit directions; everywhere else they are used
+  as fitted. The same check is run for b before the freeze.
+- The directions are fitted per point because the helix rotates across
+  layers: between the embedding and after layer 0 the circles share about
+  20% of their directions, between later neighbouring points 50-80%, and by
+  layer 3 almost none with the embedding.
+
+### 9.3 Intervention: swap a circle
+
+- Clean prompt a + b. On a's token, the part of the vector along a circle's
+  directions D is set to that of another number a':
+  x <- x - ((x - x') D^T) D, where x' is the collected vector of a' at the
+  same point (`results/number_acts/`). Everything outside D stays as it was.
+- Digit swap (digit circles): a' has the same tens digit as a, a different
+  units digit, and a' + b has the same carry status as a + b. Predicted
+  answer: a' + b (units change, tens stay).
+- Slow swap (slow circles): a' has the same units digit as a and a different
+  tens digit. Predicted answer: a' + b (tens change, units stay).
+- a' is drawn once per prompt (seed 0) among the numbers that qualify.
+- Points: every point from the embedding to after layer 10 at once (12
+  points), so later layers cannot rebuild the circle.
+- The same for b (b' on b's token, b's directions and vectors), as a separate
+  run. Results are reported per operand.
+
+### 9.4 Prompts
+
+The 998 evaluation prompts of Q1. Each also needs the real a' + b run (and
+a + b'), which gives the target activations in 9.5.
+
+### 9.5 Measures
+
+For a Q1 supernode S (last digit, magnitude) and one prompt, s is the vector
+of S's feature activations at "=" (first generated position):
+s_clean in a + b, s_target in the real a' + b, s_swap after the swap.
+
+- Shift (towards the target): (s_swap - s_clean) . (s_target - s_clean)
+  / |s_target - s_clean|^2. 0 = unchanged, 1 = like the real a' + b run.
+  Used for the supernode whose digit the swap should change: last digit
+  for the digit swap, magnitude for the slow swap.
+- Change: |s_swap - s_clean| / |s_clean|, as in 7.2. Used for the other
+  supernode, whose target barely differs from the clean run (so a shift
+  towards it is not defined well).
+- Both averaged over prompts.
+
+Context (no decision): outcome categories of section 5 and the share of
+prompts that give exactly the predicted answer a' + b.
+
+### 9.6 Reference points
+
+- Ceiling: swap the whole vector (x <- x') at the same points. Shows how far
+  a swap on the operand token can move things at all; information about a
+  already copied to later positions before layer 10 is not swapped.
+- Floor: swap along random directions of the same number (8 for digit, 4
+  for slow), drawn at each point from the space the 100 number vectors span,
+  after removing the digit and slow directions from it. 100 random sets per
+  size. Drawing from the whole residual stream would mostly hit directions
+  that carry nothing about numbers and make the comparison too easy (the
+  same reason as section 6).
+- "p95": the 95th percentile of a measure across the random sets.
+- Uncertainty: bootstrap over prompts, as in section 6.
+
+### 9.7 Decision rules
+
+Primary: each supernode depends on its circles (per operand).
+- Digit swap: shift of the last-digit supernode above the p95.
+- Slow swap: shift of the magnitude supernode above the p95.
+- Passes if both pass.
+
+Secondary: separation (per operand).
+- Digit swap: change of the magnitude supernode no higher than the p95.
+- Slow swap: change of the last-digit supernode no higher than the p95.
+
+| Primary | Digit swap moves magnitude | Slow swap moves last digit | Claim |
+|---------|----------------------------|----------------------------|-------|
+| pass    | no                         | no                         | each supernode depends on its own circles |
+| pass    | yes                        | no                         | the digit circles feed both supernodes; the slow circles only magnitude |
+| pass    | no                         | yes                        | the slow circles feed both supernodes; the digit circles only last digit |
+| pass    | yes                        | yes                        | both supernodes depend on both groups; no split along the helix |
+| fail    | any                        | any                        | no evidence that the supernodes depend on these circles |
+
+Expected: the digit swap may move the magnitude supernode (Q1: the last-digit
+group feeds the magnitude group). This test cannot tell whether that is
+direct or through the last-digit supernode (see 9.8).
+
+Scope, as in 7.5: the claim is about the labeled supernodes. A fail is
+ambiguous: the model may use the same information in directions the helix
+fit misses (about a quarter of the full vector's effect in 9.1).
+
+### 9.8 Descriptive (no pass/fail)
+
+- Each of the 7 periods swapped alone (a' chosen to differ in that period's
+  position): shift and change of both supernodes, and outcomes.
+- The 2 groups, one point at a time (12 points): where each supernode depends
+  on each group. Floor for the 2 groups only, 20 random sets per point, on
+  200 of the prompts.
+- Sub-helix patching (Kantamneni-style): into a' + b, the whole vector of a
+  replaced by the fit of a built from one group or one period only; outcome
+  and shift of both supernodes.
+- If the digit swap moves the magnitude supernode: the same swap with the
+  last-digit supernode held at its clean activations. If magnitude still
+  moves, the dependence is direct.
+
+### 9.9 Q2b: is it a Fourier code?
+
+Not tested separately. Reported from step 1: how close the helix comes to the
+full vector and to PCA in patching, and the overlap between the helix
+directions and the top PCA directions (about 80%; random directions 0.5%).
+
+### 9.10 Before the freeze
+
+- Overlap check (9.2).
+- Pilot, declared and not counted: the digit and slow swaps, the ceiling and
+  5 random sets, on 50 prompts not reused in the main run if it changes the
+  design (otherwise the main run uses all 998). Purpose: check the code and
+  that the ceiling moves the supernodes at all.
+- Timing run; compute rule of section 6 if the plan does not fit.
+
+### 9.11 Compute (estimate)
+
+Per operand: 2 swaps + ceiling + 200 random sets, 998 prompts each, plus the
+real a' + b runs: about 5 GPU hours for both operands at the Q1 speed.
+Descriptive runs: about 2 more hours.
