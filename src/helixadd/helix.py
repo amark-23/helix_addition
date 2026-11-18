@@ -326,3 +326,16 @@ def shift(s_swap, s_clean, s_target):
 def change(s_swap, s_clean):
     """Per prompt: |s_swap - s_clean| / |s_clean| (as in 7.2)."""
     return np.linalg.norm(s_swap - s_clean, axis=1) / np.linalg.norm(s_clean, axis=1)
+
+
+def off_target(s_swap, s_clean, s_target):
+    """Per prompt: the movement not towards the target, |moved - shift * wanted| / |s_clean|.
+
+    Movement that matches the real a' + b run does not count. If the target equals
+    the clean run (shift undefined), all movement counts.
+    """
+    moved = s_swap - s_clean
+    wanted = s_target - s_clean
+    with np.errstate(divide="ignore", invalid="ignore"):
+        k = np.nan_to_num(shift(s_swap, s_clean, s_target), nan=0.0, posinf=0.0, neginf=0.0)
+    return np.linalg.norm(moved - k[:, None] * wanted, axis=1) / np.linalg.norm(s_clean, axis=1)

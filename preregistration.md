@@ -522,9 +522,14 @@ s_clean in a + b, s_target in the real a' + b, s_swap after the swap.
   / |s_target - s_clean|^2. 0 = unchanged, 1 = like the real a' + b run.
   Used for the supernode whose digit the swap should change: last digit
   for the digit swap, magnitude for the slow swap.
-- Change: |s_swap - s_clean| / |s_clean|, as in 7.2. Used for the other
-  supernode, whose target barely differs from the clean run (so a shift
-  towards it is not defined well).
+- Off-target change: |(s_swap - s_clean) - shift x (s_target - s_clean)|
+  / |s_clean|: the movement that is not towards the real a' + b run. Used
+  for the other supernode (magnitude for the digit swap, last digit for the
+  slow swap). Movement that matches the real target is allowed: e.g. the
+  last-digit supernode holds max/min mod 10 features, whose values change
+  with the tens. If the target equals the clean run, all movement counts.
+- Change: |s_swap - s_clean| / |s_clean|, as in 7.2. Reported, not used in
+  a rule.
 - Both averaged over prompts.
 
 Context (no decision): outcome categories of section 5 and the share of
@@ -552,8 +557,10 @@ Primary: each supernode depends on its circles (per operand).
 - Passes if both pass.
 
 Secondary: separation (per operand).
-- Digit swap: change of the magnitude supernode no higher than the p95.
-- Slow swap: change of the last-digit supernode no higher than the p95.
+- Digit swap: off-target change of the magnitude supernode no higher than
+  the p95.
+- Slow swap: off-target change of the last-digit supernode no higher than
+  the p95.
 
 | Primary | Digit swap moves magnitude | Slow swap moves last digit | Claim |
 |---------|----------------------------|----------------------------|-------|
@@ -599,6 +606,14 @@ directions and the top PCA directions (about 80%; random directions 0.5%).
   design (otherwise the main run uses all 998). Purpose: check the code and
   that the ceiling moves the supernodes at all.
 - Timing run; compute rule of section 6 if the plan does not fit.
+
+Pilot 1 (2026-11-18, the last 50 evaluation prompts, 5 random sets): the code
+runs, the ceiling gives the predicted answer on 98-100% of prompts, 58 s for
+28 runs (main run about 4.5 GPU hours). It showed one flaw in the design: the
+secondary rule used the plain change of the other supernode, which counts
+movement towards the real a' + b run as a failure of separation. Replaced by
+the off-target change (9.5, 9.7). No other change; the pilot numbers are not
+results. A second pilot checks the new measure before the freeze.
 
 ### 9.11 Compute (estimate)
 

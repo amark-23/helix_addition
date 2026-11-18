@@ -176,7 +176,7 @@ def reference(model, quads, watch, batch=64):
 
 def run_one(model, quads, position, dirs, directions, ref, watch, batch=64):
     """One run: swap on every prompt; one row per prompt with outcomes, shift and change."""
-    from helixadd.helix import change, shift
+    from helixadd.helix import change, off_target, shift
 
     rows, acts = [], {}
     pos = POS[position]
@@ -198,6 +198,7 @@ def run_one(model, quads, position, dirs, directions, ref, watch, batch=64):
         with np.errstate(divide="ignore", invalid="ignore"):
             df[f"shift {name}"] = shift(s_swap, ref["clean"][name], ref["target"][name])
         df[f"change {name}"] = change(s_swap, ref["clean"][name])
+        df[f"off-target {name}"] = off_target(s_swap, ref["clean"][name], ref["target"][name])
     return df
 
 
@@ -258,7 +259,7 @@ def summary(folder=FOLDER):
     for f in sorted((Path(folder) / "runs").glob("*.csv")):
         df = pd.read_csv(f)
         row = {"run": f.stem.replace("_", " "), "n": len(df), "predicted": df["predicted"].mean()}
-        row.update({c: df[c].mean() for c in df.columns if c.startswith(("shift", "change"))})
+        row.update({c: df[c].mean() for c in df.columns if c.startswith(("shift", "change", "off-target"))})
         row.update({f"rate {o}": (df["outcome"] == o).mean() for o in "NUMBX"})
         rows.append(row)
     return pd.DataFrame(rows)
