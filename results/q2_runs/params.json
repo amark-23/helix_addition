@@ -1,0 +1,43 @@
+{
+  "points": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "groups": {
+    "digit": [
+      10,
+      5,
+      3.3333333333333335,
+      2.5
+    ],
+    "slow": [
+      100,
+      50
+    ]
+  },
+  "periods": [
+    100,
+    50,
+    10,
+    5,
+    3.3333333333333335,
+    2.5,
+    2
+  ],
+  "n_random": 100,
+  "seed": 0,
+  "n_prompts": 998,
+  "max_overlap": 0.1,
+  "prompts": "q1.eval_pairs()",
+  "activations": "results/number_acts"
+}
