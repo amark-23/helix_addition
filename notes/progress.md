@@ -3,8 +3,9 @@
 ## Status (2026-11-12)
 
 Q1 is complete: `notes/q1_results.md`. Open leads: `notes/leads.md`.
-Q2 step 1 (exploratory, before the Q2 preregistration): number representations
-collected and their spectrum checked. Next: fit the helix per layer, then patch.
+Q2 frozen 18-11-26 (preregistration section 9); main run done 19-11-26
+(`results/q2_runs/`, `scripts/q2_analysis.py`, `results/q2_analysis/`).
+Next: the descriptive runs of 9.8 (see the 2026-11-19 entry).
 
 ## Log
 
@@ -76,6 +77,24 @@ ceiling: whole-vector swap. Circle directions are fitted per point: they
 rotate across layers (embedding vs after L0 share about 20%, later
 neighbours 50-80%). Digit and slow directions barely overlap (max squared
 cosine under 0.09, except 0.107 after L6, where slow is orthogonalized).
+
+**2026-11-19.** Q2 main run (998 prompts, 100 random sets per swap).
+- Primary passes for a and b. Slow swap -> magnitude shift 0.96/0.95 (random
+  p95 0.04-0.05), exact a' + b answer on 95-96%. Digit swap -> last-digit
+  shift 0.64/0.63 (p95 0.32), exact answer on 40% (p95 16%).
+- Secondary (off-target change of the other supernode vs random p95):
+  a digit 0.163 vs 0.160, a slow 0.127 vs 0.121, b digit 0.155 vs 0.177,
+  b slow 0.148 vs 0.128. Claims (9.7): a "both supernodes depend on both
+  groups"; b "the slow circles feed both supernodes". Excess over random is
+  0.01-0.03, against own-supernode effects of 0.37 and 0.92 above random.
+- In plain terms: magnitude reads the slow circles almost entirely; last digit
+  reads the digit circles for about 2/3, the rest comes from outside the helix.
+- Q1's last digit -> magnitude link is not tested here: the digit swap keeps
+  the carry status fixed by design.
+Next, descriptive (9.8): the clamp test (required, digit swap moved magnitude
+on a), each period alone, one point at a time, sub-helix patching. Additions:
+watch the comparison supernode too; a digit swap that flips the carry.
+To delete by hand: results/q2_results.zip (already unpacked).
 
 ## Practical notes
 

@@ -620,3 +620,19 @@ results. A second pilot checks the new measure before the freeze.
 Per operand: 2 swaps + ceiling + 200 random sets, 998 prompts each, plus the
 real a' + b runs: about 5 GPU hours for both operands at the Q1 speed.
 Descriptive runs: about 2 more hours.
+
+### 9.12 Additions to the descriptive runs (2026-11-20, after the main run)
+
+Descriptive only, decided after seeing the main result, so not part of any
+claim in 9.7:
+- The comparison supernode is watched in every descriptive run (shift,
+  change, off-target).
+- A digit swap that flips the carry status (same tens, other units): tests
+  whether the last-digit -> magnitude link of Q1 carries the carry, which the
+  main digit swap holds fixed by design.
+- Pair sets for "each period alone": fast periods use a' with the same tens
+  and a units difference that is odd and not 5 (so T = 2, 5, 2.5 all differ);
+  slow periods use a' with the same units and a tens difference other than 5
+  (so T = 50 differs). The two groups are rerun on the same pair sets so the
+  periods can be compared with them.
+- Sub-helix vectors are fitted on all 100 numbers (circles only, no line).

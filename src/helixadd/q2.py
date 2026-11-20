@@ -119,13 +119,14 @@ def make_read_hooks(model, watch, store):
     return hooks
 
 
-def make_swap_hooks(model, pos, sources, directions):
+def make_swap_hooks(model, pos, sources, directions, points=None):
     """Hooks that swap at every point: sources[i] (batch, d) is a''s vector at point i,
-    directions[i] (k, d) the directions to swap there, or None for the whole vector."""
+    directions[i] (k, d) the directions to swap there, or None for the whole vector.
+    points: the points to swap at (default: all of POINTS, as in the main run)."""
     import torch
 
     hooks = []
-    for i in POINTS:
+    for i in (POINTS if points is None else points):
         src = torch.tensor(sources[i], dtype=torch.float32, device=model.cfg.device)
         D = None if directions is None else torch.tensor(directions[i], dtype=torch.float32, device=model.cfg.device)
 
@@ -136,6 +137,30 @@ def make_swap_hooks(model, pos, sources, directions):
             return act
 
         hooks.append((point_name(i), swap))
+    return hooks
+
+
+def make_clamp_hooks(model, group, clean, store):
+    """Hold the group's features at "=" at their clean values (as Q1's suppression, with the
+    clean value in place of 0). group: {layer: feature ids}; clean: {layer: (batch, k)}."""
+    from helixadd.intervene import EQ
+
+    hooks = []
+    for layer, feats in group.items():
+        W_dec = model.transcoders._get_decoder_vectors(layer, feats).to(model.cfg.device)
+        feats = feats.to(model.cfg.device)
+
+        def read_input(x, hook, layer=layer, feats=feats):
+            store[layer] = model.transcoders.encode_layer(x[:, EQ, :], layer)[:, feats]
+            return x
+
+        def fix_output(out, hook, layer=layer, W_dec=W_dec):
+            # (clean - current) x decoder: the feature's output becomes its clean value
+            out[:, EQ, :] += ((clean[layer].to(W_dec.dtype) - store[layer]) @ W_dec).to(out.dtype)
+            return out
+
+        hooks.append((f"blocks.{layer}.{model.feature_input_hook}", read_input))
+        hooks.append((f"blocks.{layer}.{model.feature_output_hook}", fix_output))
     return hooks
 
 
@@ -174,17 +199,36 @@ def reference(model, quads, watch, batch=64):
     return out
 
 
-def run_one(model, quads, position, dirs, directions, ref, watch, batch=64):
-    """One run: swap on every prompt; one row per prompt with outcomes, shift and change."""
+def run_one(model, quads, position, dirs, directions, ref, watch, batch=64,
+            points=None, source_X=None, clamp=None):
+    """One run: swap on every prompt; one row per prompt with outcomes, shift and change.
+
+    Descriptive options (9.8; the defaults give the main run):
+    points: swap only at these points; source_X: per point, (100, d) vectors to
+    take the partner's vector from (default: the collected vectors); clamp:
+    (group, clean) to hold a supernode at its clean values, clean being its
+    (n_prompts, n_features) activations in the clean run.
+    """
+    import torch
+
     from helixadd.helix import change, off_target, shift
 
     rows, acts = [], {}
     pos = POS[position]
+    Xs = [d["X"] for d in dirs] if source_X is None else source_X
     for i in range(0, len(quads), batch):
         chunk = quads[i:i + batch]
         partner = [q[2] if position == "a" else q[3] for q in chunk]
-        sources = [dirs[p]["X"][partner] for p in range(len(POINTS))]
-        hooks = make_swap_hooks(model, pos, sources, directions)
+        sources = [Xs[p][partner] for p in range(len(POINTS))]
+        hooks = make_swap_hooks(model, pos, sources, directions, points)
+        if clamp is not None:
+            group, clean = clamp
+            values, start = {}, 0
+            for layer in sorted(group):                      # same order as make_read_hooks
+                k = len(group[layer])
+                values[layer] = torch.tensor(clean[i:i + batch, start:start + k], device=model.cfg.device)
+                start += k
+            hooks += make_clamp_hooks(model, group, values, {})
         texts, s = generate(model, [make_prompt(a, b) for a, b, _, _ in chunk], hooks, watch)
         for name, v in s.items():
             acts.setdefault(name, []).append(v)
@@ -263,3 +307,160 @@ def summary(folder=FOLDER):
         row.update({f"rate {o}": (df["outcome"] == o).mean() for o in "NUMBX"})
         rows.append(row)
     return pd.DataFrame(rows)
+
+
+# ---- descriptive runs (preregistration 9.8, plus two additions) ----
+
+DESC_FOLDER = Path("results/q2_descriptive")
+FAST = [10, 5, 10 / 3, 2.5, 2]
+SLOW = [100, 50]
+N_POINT_PROMPTS = 200          # one-point runs: first 200 evaluation prompts (9.8)
+N_POINT_RANDOM = 20            # floor per point for the two groups (9.8)
+
+
+def pair_set(name, position, pairs, seed=0):
+    """(a, b, a2, b2) per prompt for the descriptive swaps.
+
+    fast: same tens, units differ by an odd amount other than 5, same carry status
+      (so every fast period, 2 and 5 included, sits at a different angle for a');
+    slow: same units, tens differ by anything but 5 (so T = 50 differs too);
+    carry flip: same tens, other units, carry status flipped (addition).
+    """
+    rng = np.random.default_rng(seed)
+    out = []
+    for a, b in pairs:
+        x = a if position == "a" else b
+        options = []
+        for y in range(100):
+            if y == x:
+                continue
+            a2, b2 = (y, b) if position == "a" else (a, y)
+            if (a2, b2) in EXCLUDED or (b2, a2) in EXCLUDED:
+                continue
+            du, dt = y % 10 - x % 10, y // 10 - x // 10
+            if name == "fast":
+                ok = dt == 0 and du % 2 != 0 and abs(du) != 5 and is_carry(a2, b2) == is_carry(a, b)
+            elif name == "slow":
+                ok = du == 0 and abs(dt) != 5
+            elif name == "carry flip":
+                ok = dt == 0 and is_carry(a2, b2) != is_carry(a, b)
+            else:
+                raise ValueError(name)
+            if ok:
+                options.append((a2, b2))
+        if options:
+            a2, b2 = options[rng.integers(len(options))]
+            out.append((a, b, a2, b2))
+    return out
+
+
+def sub_helix(data, position, kept):
+    """Per point, (100, d): every number's vector rebuilt from the mean and the circles of
+    `kept` only (refitted with just those columns, on all 100 numbers)."""
+    from helixadd.helix import basis
+
+    cols = [c for T in kept for c in (1 + 2 * Q2_PERIODS.index(T), 2 + 2 * Q2_PERIODS.index(T))]
+    out = []
+    for i in POINTS:
+        X = data[position][i]
+        mean = X.mean(axis=0)
+        B = basis(np.arange(100), Q2_PERIODS)[:, cols]
+        C = np.linalg.lstsq(B, X - mean, rcond=None)[0]
+        out.append(mean + B @ C)
+    return out
+
+
+def descriptive_plan():
+    """(name, position, pair set, kind of run, detail)."""
+    runs = []
+    for p in ["a", "b"]:
+        # clamp test (9.8): digit swap with the last-digit supernode held at its clean values
+        runs.append((f"{p} digit swap clamped", p, "digit", "clamp", None))
+        # each period alone, plus the two groups on the same pair sets (9.8)
+        for T in Q2_PERIODS:
+            runs.append((f"{p} period {T:g} swap", p, "fast" if T in FAST else "slow", "period", T))
+        runs.append((f"{p} fast group swap", p, "fast", "group", "digit"))
+        runs.append((f"{p} slow group swap", p, "slow", "group", "slow"))
+        # carry flip (addition): digit swap that changes the carry
+        runs.append((f"{p} digit swap carry flip", p, "carry flip", "group", "digit"))
+        # sub-helix patching into a' + b (9.8): whole vector of a from one group or one period
+        for kept, ps in [(GROUPS["digit"], "fast"), (GROUPS["slow"], "slow")] + [([T], "fast" if T in FAST else "slow") for T in Q2_PERIODS]:
+            label = "digit group" if kept == GROUPS["digit"] else "slow group" if kept == GROUPS["slow"] else f"period {kept[0]:g}"
+            runs.append((f"{p} sub-helix {label}", p, ps, "sub-helix", kept))
+        # one point at a time (9.8), first N_POINT_PROMPTS prompts
+        for g in ["digit", "slow"]:
+            for i in POINTS:
+                runs.append((f"{p} {g} point {i:02d} swap", p, g, "point", (g, i, None)))
+                runs += [(f"{p} {g} point {i:02d} random {r:02d}", p, g, "point", (g, i, r)) for r in range(N_POINT_RANDOM)]
+    return runs
+
+
+def run_descriptive(model, data, pairs, seed=0, folder=DESC_FOLDER):
+    """Every run of descriptive_plan(), skipping the ones already saved. Watches the
+    comparison supernode too (addition)."""
+    import json
+
+    from helixadd.helix import circle_directions, fit
+
+    folder = Path(folder)
+    (folder / "runs").mkdir(parents=True, exist_ok=True)
+    (folder / "reference").mkdir(parents=True, exist_ok=True)
+    (folder / "params.json").write_text(json.dumps({
+        "points": POINTS, "groups": GROUPS, "periods": Q2_PERIODS, "seed": seed, "n_prompts": len(pairs),
+        "n_point_prompts": N_POINT_PROMPTS, "n_point_random": N_POINT_RANDOM,
+        "watched": ["last digit", "magnitude", "comparison"], "prompts": "q1.eval_pairs()"}, indent=2))
+    watch = supernode_groups()
+    from helixadd.groups import load_labels, supernode
+    from helixadd.intervene import by_layer
+    comp = supernode(load_labels(), "comparison")
+    watch["comparison"] = by_layer(comp["layer"], comp["feature"])
+    dirs = {p: point_directions(data, p) for p in ["a", "b"]}
+    fits = {p: [fit(np.arange(100), data[p][i], Q2_PERIODS)[1] for i in POINTS] for p in ["a", "b"]}
+
+    def quads_for(pos, ps, kind):
+        sub = pairs[:N_POINT_PROMPTS] if kind == "point" else pairs
+        if ps in ("digit", "slow"):
+            q = swap_pairs(ps, pos, sub, seed)
+        else:
+            q = pair_set(ps, pos, sub, seed)
+        if kind == "sub-helix":                               # run a' + b, put a back
+            q = [(a2, b2, a, b) for a, b, a2, b2 in q]
+        return q
+
+    def ref_for(name_key, quads):
+        f = folder / "reference" / f"{name_key}.npz"
+        if f.exists():
+            z = np.load(f)
+            return {w: {n: z[f"{w}|{n}"] for n in watch} for w in ["clean", "target"]}
+        ref = reference(model, quads, watch)
+        np.savez_compressed(f, **{f"{w}|{n}": v for w, d in ref.items() for n, v in d.items()})
+        return ref
+
+    for name, pos, ps, kind, detail in descriptive_plan():
+        f = folder / "runs" / f"{name.replace(' ', '_')}.csv"
+        if f.exists():
+            continue
+        quads = quads_for(pos, ps, kind)
+        ref = ref_for(f"{pos}_{ps}_{kind if kind in ('sub-helix', 'point') else 'swap'}", quads)
+        d = dirs[pos]
+        kw = {}
+        if kind == "clamp":
+            directions = [x["digit"] for x in d]
+            kw["clamp"] = (watch["last digit"], ref["clean"]["last digit"])
+        elif kind == "period":
+            directions = [circle_directions(C, [detail]) for C in fits[pos]]
+        elif kind == "group":
+            directions = [x[detail] for x in d]
+        elif kind == "sub-helix":
+            directions = None
+            kw["source_X"] = sub_helix(data, pos, detail)
+        else:                                                  # one point at a time
+            g, i, r = detail
+            kw["points"] = [i]
+            if r is None:
+                directions = [x[g] for x in d]
+            else:
+                rng = np.random.default_rng(10_000 + 1000 * (pos == "b") + 100 * (g == "slow") + 20 * i + r)
+                directions = [random_directions(x["rest"], len(x[g]), rng) for x in d]
+        run_one(model, quads, pos, d, directions, ref, watch, **kw).to_csv(f, index=False)
+        print(name, "saved")
