@@ -636,3 +636,31 @@ claim in 9.7:
   (so T = 50 differs). The two groups are rerun on the same pair sets so the
   periods can be compared with them.
 - Sub-helix vectors are fitted on all 100 numbers (circles only, no line).
+
+### 9.13 Post hoc runs (2026-11-20, after the descriptive runs)
+
+Not part of any claim in 9.7. In the descriptive runs, T = 2 swapped alone
+moved the last-digit supernode as far as the whole digit group (shift 0.69
+vs 0.64 in the main run). T = 2 is the k = 50 harmonic of period 10, like
+3.3 and 2.5, and should have been in the digit group (9.2); it was listed
+separately as parity. Sub-helix patching (9.8) turned out uninformative:
+vectors made of part of the helix do not look like numbers, and the model
+breaks on both digits. Extra runs (`helixadd.q2.run_posthoc`, notebook 10),
+all with the logits of the clean and the target answer:
+- digit group + T = 2 (9 directions) swapped on the main digit pairs and the
+  odd-difference pairs; floor: 20 random sets of 9 directions on the main
+  pairs, drawn outside every circle and the line;
+- the same group in the carry-flip swap;
+- a grid on the main digit pairs: fast part (T = 10, 5, 2, or digit group +
+  T = 2) x slow additions (none, T = 100, T = 50, both); the last cell is
+  all circles, compared with the whole-vector ceiling;
+- all circles and the line alone, swapped on the slow pairs;
+- removal: each period, digit + T = 2, and slow set to the average over
+  numbers on the clean prompts; floor: 5 random removals of 9 and of 4
+  directions.
+- comparison with Kantamneni and Tegmark: in a' + b runs, a's vector is
+  replaced by the fit of the clean a built from part of the helix (the
+  average plus those circles: digit + T = 2, slow, each period, all
+  circles), with the clean answer's logit; the unpatched run and the real
+  vector give the 0 and 100% points. The exact-answer version of 9.8 was
+  uninformative; this graded version is their measure.

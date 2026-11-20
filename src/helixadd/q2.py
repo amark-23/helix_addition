@@ -164,9 +164,10 @@ def make_clamp_hooks(model, group, clean, store):
     return hooks
 
 
-def generate(model, prompts, hooks, watch, max_new_tokens=4):
+def generate(model, prompts, hooks, watch, max_new_tokens=4, return_logits=False):
     """Greedy generation with the hooks; returns the texts and each supernode's activations
-    at "=" during the first step ({name: (batch, n_features)} as numpy)."""
+    at "=" during the first step ({name: (batch, n_features)} as numpy); with
+    return_logits, also the first step's logits (batch, vocab) as a CPU tensor."""
     import torch
 
     from helixadd.model import tokenize
@@ -181,8 +182,11 @@ def generate(model, prompts, hooks, watch, max_new_tokens=4):
             logits = model(tokens)[:, -1, :]
             if step == 0:
                 first = {name: torch.cat(v, dim=1).cpu().numpy() for name, v in store.items()}
+                first_logits = logits.float().cpu()
             tokens = torch.cat([tokens, logits.argmax(dim=-1)[:, None]], dim=1)
     texts = [model.tokenizer.decode(row) for row in tokens[:, n_prompt:]]
+    if return_logits:
+        return texts, first, first_logits
     return texts, first
 
 
@@ -200,7 +204,7 @@ def reference(model, quads, watch, batch=64):
 
 
 def run_one(model, quads, position, dirs, directions, ref, watch, batch=64,
-            points=None, source_X=None, clamp=None):
+            points=None, source_X=None, clamp=None, save_logits=False):
     """One run: swap on every prompt; one row per prompt with outcomes, shift and change.
 
     Descriptive options (9.8; the defaults give the main run):
@@ -229,13 +233,19 @@ def run_one(model, quads, position, dirs, directions, ref, watch, batch=64,
                 values[layer] = torch.tensor(clean[i:i + batch, start:start + k], device=model.cfg.device)
                 start += k
             hooks += make_clamp_hooks(model, group, values, {})
-        texts, s = generate(model, [make_prompt(a, b) for a, b, _, _ in chunk], hooks, watch)
+        out = generate(model, [make_prompt(a, b) for a, b, _, _ in chunk], hooks, watch, return_logits=save_logits)
+        texts, s = out[0], out[1]
         for name, v in s.items():
             acts.setdefault(name, []).append(v)
         for j, (a, b, a2, b2) in enumerate(chunk):
             pred = parse_answer(texts[j])
-            rows.append({"a": a, "b": b, "a2": a2, "b2": b2, "carry": is_carry(a, b), "raw": texts[j],
-                         "pred": pred, "outcome": outcome(pred, a + b), "predicted": pred == a2 + b2})
+            row = {"a": a, "b": b, "a2": a2, "b2": b2, "carry": is_carry(a, b), "raw": texts[j],
+                   "pred": pred, "outcome": outcome(pred, a + b), "predicted": pred == a2 + b2}
+            if save_logits:
+                ids = model.tokenizer.convert_tokens_to_ids([str(a + b), str(a2 + b2)])
+                row["logit clean answer"] = float(out[2][j, ids[0]])
+                row["logit target answer"] = float(out[2][j, ids[1]])
+            rows.append(row)
     df = pd.DataFrame(rows)
     for name in watch:
         s_swap = np.concatenate(acts[name])
@@ -463,4 +473,124 @@ def run_descriptive(model, data, pairs, seed=0, folder=DESC_FOLDER):
                 rng = np.random.default_rng(10_000 + 1000 * (pos == "b") + 100 * (g == "slow") + 20 * i + r)
                 directions = [random_directions(x["rest"], len(x[g]), rng) for x in d]
         run_one(model, quads, pos, d, directions, ref, watch, **kw).to_csv(f, index=False)
+        print(name, "saved")
+
+
+# ---- post hoc (decided after the descriptive runs; not part of any preregistered claim) ----
+
+POSTHOC_FOLDER = Path("results/q2_posthoc")
+DIGIT_WITH_2 = [10, 5, 10 / 3, 2.5, 2]      # the digit group with T = 2, the k = 50 harmonic of period 10
+CORE_FAST = [10, 5, 2]
+N_POSTHOC_RANDOM = 20
+N_REMOVAL_RANDOM = 5
+REMOVALS = {**{f"period {T:g}": [T] for T in Q2_PERIODS}, "digit+2": DIGIT_WITH_2, "slow": [100, 50]}
+
+
+def posthoc_plan():
+    """(name, operand, pair set, kind, detail)."""
+    runs = []
+    for p in ["a", "b"]:
+        runs.append((f"{p} digit+2 swap main pairs", p, "digit", "swap", DIGIT_WITH_2))
+        runs.append((f"{p} digit+2 swap odd pairs", p, "fast", "swap", DIGIT_WITH_2))
+        runs += [(f"{p} digit+2 random {r:02d} main pairs", p, "digit", "random", r) for r in range(N_POSTHOC_RANDOM)]
+        runs.append((f"{p} digit+2 swap carry flip", p, "carry flip", "swap", DIGIT_WITH_2))
+        # the grid: fast part x slow additions, on the main digit pairs
+        for fname, fast in [("10,5,2", CORE_FAST), ("digit+2", DIGIT_WITH_2)]:
+            for sname, slow in [("", []), ("+100", [100]), ("+50", [50]), ("+100+50", [100, 50])]:
+                runs.append((f"{p} grid {fname}{sname} main pairs", p, "digit", "swap", fast + slow))
+        runs.append((f"{p} ceiling main pairs", p, "digit", "ceiling", None))
+        runs.append((f"{p} all circles slow pairs", p, "slow", "swap", Q2_PERIODS))
+        runs.append((f"{p} line slow pairs", p, "slow", "line", None))
+        # removal: the part set to the average over numbers, on the clean prompts
+        runs.append((f"{p} nothing removed", p, "digit", "clean", None))
+        runs += [(f"{p} remove {k}", p, "digit", "remove", v) for k, v in REMOVALS.items()]
+        runs += [(f"{p} remove random{k} {r:02d}", p, "digit", "remove random", (k, r))
+                 for k in (9, 4) for r in range(N_REMOVAL_RANDOM)]
+        # comparison with Kantamneni: run a' + b, patch the fit of the clean a built from part of
+        # the helix (average + those circles), read the clean answer's logit; on both pair sets the
+        # unpatched run (0) and the real vector (100%) give the scale
+        for ps in ["fast", "slow"]:
+            runs.append((f"{p} kantamneni {ps} unpatched", p, ps, "k unpatched", None))
+            runs.append((f"{p} kantamneni {ps} real vector", p, ps, "k real", None))
+            runs.append((f"{p} kantamneni {ps} all circles", p, ps, "k fit", Q2_PERIODS))
+        parts = [("digit+2", DIGIT_WITH_2, "fast"), ("slow", [100, 50], "slow")]
+        parts += [(f"period {T:g}", [T], "slow" if T in (100, 50) else "fast") for T in Q2_PERIODS]
+        runs += [(f"{p} kantamneni {ps} {label}", p, ps, "k fit", kept) for label, kept, ps in parts]
+    return runs
+
+
+def run_posthoc(model, data, pairs, seed=0, folder=POSTHOC_FOLDER):
+    """Every run of posthoc_plan(), skipping the ones already saved. Logits of the clean and
+    the target answer are saved in every run."""
+    import json
+
+    from helixadd.groups import load_labels, supernode
+    from helixadd.helix import basis, circle_directions, fit
+    from helixadd.intervene import by_layer
+
+    folder = Path(folder)
+    (folder / "runs").mkdir(parents=True, exist_ok=True)
+    (folder / "reference").mkdir(parents=True, exist_ok=True)
+    (folder / "params.json").write_text(json.dumps({
+        "points": POINTS, "periods": Q2_PERIODS, "seed": seed, "n_prompts": len(pairs),
+        "n_random": N_POSTHOC_RANDOM, "n_removal_random": N_REMOVAL_RANDOM,
+        "note": "post hoc, after the descriptive runs (preregistration 9.13)"}, indent=2))
+    watch = supernode_groups()
+    comp = supernode(load_labels(), "comparison")
+    watch["comparison"] = by_layer(comp["layer"], comp["feature"])
+
+    cache = {}
+    for name, pos, ps, kind, detail in posthoc_plan():
+        f = folder / "runs" / f"{name.replace(' ', '_')}.csv"
+        if f.exists():
+            continue
+        if pos not in cache:
+            dirs = point_directions(data, pos)
+            fits = [fit(np.arange(100), data[pos][i], Q2_PERIODS)[1] for i in POINTS]
+            rest13 = []                                   # number space minus every circle and the line
+            for i, C in zip(POINTS, fits):
+                helix = orthonormal(C)
+                rest13.append(orthonormal(dirs[i]["rest"] - dirs[i]["rest"] @ helix.T @ helix))
+            means = [np.tile(data[pos][i].mean(axis=0), (100, 1)) for i in POINTS]
+            cache[pos] = (dirs, fits, rest13, means)
+        dirs, fits, rest13, means = cache[pos]
+        quads = swap_pairs(ps, pos, pairs, seed) if ps in ("digit", "slow") else pair_set(ps, pos, pairs, seed)
+        reverse = kind.startswith("k ")
+        if reverse:                                            # run a' + b, put a back
+            quads = [(a2, b2, a, b) for a, b, a2, b2 in quads]
+        ref_file = folder / "reference" / f"{pos}_{ps}{'_reversed' if reverse else ''}.npz"
+        if ref_file.exists():
+            z = np.load(ref_file)
+            ref = {w: {n: z[f"{w}|{n}"] for n in watch} for w in ["clean", "target"]}
+        else:
+            ref = reference(model, quads, watch)
+            np.savez_compressed(ref_file, **{f"{w}|{n}": v for w, d in ref.items() for n, v in d.items()})
+        kw = {"save_logits": True}
+        if kind == "swap":
+            directions = [circle_directions(C, detail) for C in fits]
+        elif kind == "random":
+            rng = np.random.default_rng(50_000 + 1000 * (pos == "b") + detail)
+            directions = [random_directions(x, 9, rng) for x in rest13]
+        elif kind == "ceiling":
+            directions = None
+        elif kind == "line":
+            directions = [orthonormal(C[:1]) for C in fits]
+        elif kind == "clean":
+            directions = [np.zeros((0, data[pos].shape[-1]))] * len(POINTS)
+        elif kind == "remove":
+            directions = [circle_directions(C, detail) for C in fits]
+            kw["source_X"] = means
+        elif kind == "k unpatched":
+            directions = [np.zeros((0, data[pos].shape[-1]))] * len(POINTS)
+        elif kind == "k real":
+            directions = None
+        elif kind == "k fit":
+            directions = None
+            kw["source_X"] = sub_helix(data, pos, detail)
+        else:                                                    # remove random
+            k, r = detail
+            rng = np.random.default_rng(60_000 + 1000 * (pos == "b") + 100 * k + r)
+            directions = [random_directions(x, k, rng) for x in rest13]
+            kw["source_X"] = means
+        run_one(model, quads, pos, dirs, directions, ref, watch, **kw).to_csv(f, index=False)
         print(name, "saved")

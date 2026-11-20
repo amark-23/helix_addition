@@ -38,3 +38,18 @@ Idea: ranges of width 1 as variables. Causal check of L11 #64992 ("+0").
   input-to-answer influence. Run on about 20 prompts.
 - Edge asymmetry vs layer order: compare edges only between features in the
   same layer ranges.
+
+## After Q2
+
+- Role x family supernodes (as Anthropic: "add _6", "sum ends in 5",
+  "magnitude lookups"): the stages inside each pathway (add function ->
+  lookup table -> sum). No new code: new groups for the Q1 suppression runner
+  and new boxes for the path diagram. The Q1 variants already hint at it
+  (last digit without max/min mod 10: U 48% -> 9%; magnitude without the hand
+  lookups: M 26% -> 0.2%).
+- Unsupervised check of the supernodes: cluster the features at "=" by their
+  activation patterns (or graph connections) without labels; do last digit
+  and magnitude emerge, and what do the unclear features form?
+- The answer's helix at "=": does "=" hold a helix for the sum, and do the
+  supernodes build it?
+- Robustness: key Q1 and Q2 tests on the zero-shot template.
