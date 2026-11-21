@@ -664,3 +664,6 @@ all with the logits of the clean and the target answer:
   circles), with the clean answer's logit; the unpatched run and the real
   vector give the 0 and 100% points. The exact-answer version of 9.8 was
   uninformative; this graded version is their measure.
+- Note (2026-11-21): the sub-helix fits use all 100 numbers, so the patched
+  numbers are in the fit (in-sample); the step-1 helix patching (9.1) was
+  out-of-sample. The two are not directly comparable.

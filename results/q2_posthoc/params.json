@@ -1,0 +1,30 @@
+{
+  "points": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "periods": [
+    100,
+    50,
+    10,
+    5,
+    3.3333333333333335,
+    2.5,
+    2
+  ],
+  "seed": 0,
+  "n_prompts": 998,
+  "n_random": 20,
+  "n_removal_random": 5,
+  "note": "post hoc, after the descriptive runs (preregistration 9.13)"
+}

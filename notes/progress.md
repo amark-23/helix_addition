@@ -96,6 +96,35 @@ on a), each period alone, one point at a time, sub-helix patching. Additions:
 watch the comparison supernode too; a digit swap that flips the carry.
 To delete by hand: results/q2_results.zip (already unpacked).
 
+**2026-11-20/21.** Q2 descriptive (notebook 09) and post hoc (notebook 10)
+runs; preregistration 9.12-9.13; tables in `results/q2_analysis/`.
+- T = 2 (k = 50 harmonic of period 10) had been left out of the digit group.
+  With it, the fast swap moves the last-digit supernode 0.99 of the way
+  (exact a' + b 87-89%; random 9 directions 0.01). 3.3 and 2.5 add almost
+  nothing (10, 5, 2 gives 0.97).
+- Grid on the digit pairs: adding T = 50 to the fast swap takes the exact
+  answer from 87% to 99% (the remaining errors were in the tens). All
+  circles 99%, whole-vector ceiling 100%.
+- Removal (one part set to the average): fast periods cover for each other
+  (each alone 9-20% answers changed, all fast 83%, units only); slow less so
+  (T = 50 alone 56%, both 86%, tens only); 3.3 and 2.5 and random: nothing.
+- Clamp: holding the last-digit supernode fixed removes the swap's effect on
+  the units (exact answer 40% -> 5%). Magnitude's small off-target movement
+  is unchanged by the clamp and at the random level.
+- Comparison supernode follows the slow circles (shift 0.92).
+- Carry flip (fast + T = 2 swapped): units switch 99.9%, tens follow the new
+  carry only 56-57%. Hypothesis: the tens also read the carry from the slow
+  circles' fine position (they still say the old number). Test: carry-flip
+  swap of all circles (not run).
+- Any single point from the embedding to after L10 gives nearly the full
+  swap effect.
+- Sub-helix patching (Kantamneni-style): with the exact-answer measure
+  uninformative; with logits, all circles 0.98-1.00, fast part 0.36-0.51,
+  slow part 0.41-0.44. Caveat: these fits are in-sample (all 100 numbers);
+  step 1 out-of-sample gave about 0.70.
+Next: figures and the Q2 write-up (notes/q2_results.md); optional carry-flip
+run with all circles.
+
 ## Practical notes
 
 - Kaggle T4: about 14.6 GB usable per GPU; model plus transcoders take about
