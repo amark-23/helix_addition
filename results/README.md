@@ -158,6 +158,28 @@ The diagram is an illustration of one prompt each. About 60% of the answer's
 direct input comes from mostly active and unclear features and from error
 nodes.
 
+**Finer boxes** (`path_diagram/operand_features.csv`,
+`path_diagram/box_interventions.csv`, notebook 12). Features on the operand
+tokens are labeled by the property of the number they track (size or tens,
+units, parity, mod 5; same $R^2$ rule as above). Features at "=" are grouped
+by the variable they track. "off" gives the answer with that box switched off
+on this prompt.
+
+![Path diagram, finer boxes](../figures/path_diagram_fine.png)
+
+- The operand features that track the tens have 8 to 16 times more of their
+  input direction along the slow circles than a random direction; those that
+  track the last digit, 28 to 30 times more along the fast circles. This links
+  the Q2 circles to individual features.
+- On 36 + 59, switching off "smaller ends in 6" gives 92 (units change),
+  "tens of a, b" gives 85 and "smaller in the 30s" gives 65 (tens change).
+  On 36 + 53, "smaller ends in 6" gives 86 and "smaller in the 30s" 59. The
+  other boxes leave the answer unchanged on their own.
+- The main routes run from the operand features through the min/max boxes
+  ("smaller ends in 6", "smaller in the 30s") to the lookups and to
+  "sum mod 100". 70 to 77% of the answer's direct input still comes from
+  unlabeled nodes.
+
 ## 5. Q2 step 1: how the model represents numbers
 
 For each number $n = 0, \dots, 99$, the residual stream on the number's token

@@ -1,0 +1,21 @@
+a,b,box,label,n features,answer
+36,59,"units of a, b","units of a, b: (6, 9)",9,95
+36,59,smaller ends in,smaller ends in 6,14,92
+36,59,larger ends in,larger ends in 9,8,95
+36,59,sum ends in,sum ends in 5,7,95
+36,59,"tens of a, b","tens of a, b: (3, 5)",18,85
+36,59,sum in the,sum in the 90s,9,95
+36,59,smaller in the,smaller in the 30s,22,65
+36,59,larger in the,larger in the 50s,11,95
+36,59,a < b,a < b,6,95
+36,59,sum mod 100,sum = 95 (mod 100),26,95
+36,53,"units of a, b","units of a, b: (6, 3)",3,89
+36,53,smaller ends in,smaller ends in 6,15,86
+36,53,larger ends in,larger ends in 3,4,89
+36,53,sum ends in,sum ends in 9,6,89
+36,53,"tens of a, b","tens of a, b: (3, 5)",19,89
+36,53,sum in the,sum in the 80s,8,89
+36,53,smaller in the,smaller in the 30s,22,59
+36,53,larger in the,larger in the 50s,9,89
+36,53,a < b,a < b,6,89
+36,53,sum mod 100,sum = 89 (mod 100),30,89

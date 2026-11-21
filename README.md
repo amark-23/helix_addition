@@ -69,7 +69,7 @@ figures/               figures used in results/README.md
 | Prompts, clean accuracy | 01 | `compare_templates.py` |
 | Feature activations at "=", labels | 02 | `score_features.py`, `checks/`, `final_labels.py`, `relaxed_labels.py`, `label_examples.py` |
 | Q1 suppression | 03 | `q1_analysis.py`, `q1_figures.py` |
-| Q1 attribution graphs | 04, 05 | `q1_graphs_analysis.py`, `path_diagram.py`, `exact_kinds.py` |
+| Q1 attribution graphs | 04, 05, 12 | `q1_graphs_analysis.py`, `path_diagram.py`, `path_diagram_fine.py`, `exact_kinds.py` |
 | Q2 number representations | 06, 07 | `number_spectrum.py`, `helix_patching_figure.py` |
 | Q2 swaps | 08, 09, 10, 11 | `q2_analysis.py`, `q2_descriptive_analysis.py`, `q2_figures.py` |
 

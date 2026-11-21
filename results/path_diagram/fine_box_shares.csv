@@ -1,0 +1,397 @@
+s,t,weight,share,a,b
+a < b,answer,-0.0233,-0.0011,36,59
+a < b,larger ends in,-0.0014,-0.0003,36,59
+a < b,larger in the,-0.0119,-0.0016,36,59
+a < b,other,3.2792,0.0183,36,59
+a < b,smaller ends in,0.8581,0.0706,36,59
+a < b,smaller in the,0.3704,0.0221,36,59
+a < b,sum ends in,-0.3851,-0.0218,36,59
+a < b,sum in the,-0.0495,-0.0029,36,59
+a < b,sum mod 100,-0.9273,-0.0096,36,59
+a < b,"tens of a, b",0.7778,0.0229,36,59
+a < b,"units of a, b",0.2706,0.0149,36,59
+a tens,a < b,0.0314,0.0147,36,59
+a tens,a units,0.541,0.2183,36,59
+a tens,answer,0.1235,0.0056,36,59
+a tens,b tens,2.6116,0.282,36,59
+a tens,b units,0.0447,0.0113,36,59
+a tens,larger ends in,0.1558,0.0298,36,59
+a tens,larger in the,0.2233,0.0294,36,59
+a tens,other,17.1093,0.0953,36,59
+a tens,smaller ends in,0.5602,0.0461,36,59
+a tens,smaller in the,3.1824,0.1901,36,59
+a tens,sum ends in,0.3485,0.0197,36,59
+a tens,sum in the,0.4029,0.0235,36,59
+a tens,sum mod 100,0.2918,0.003,36,59
+a tens,"tens of a, b",1.1424,0.0337,36,59
+a tens,"units of a, b",0.0205,0.0011,36,59
+a token,a < b,-0.0186,-0.0087,36,59
+a token,a tens,1.5615,0.425,36,59
+a token,a units,1.9379,0.7817,36,59
+a token,answer,-0.0342,-0.0015,36,59
+a token,b tens,0.9167,0.099,36,59
+a token,b units,0.043,0.0109,36,59
+a token,larger ends in,-0.0657,-0.0126,36,59
+a token,larger in the,0.1319,0.0174,36,59
+a token,other,20.865,0.1163,36,59
+a token,smaller ends in,2.0341,0.1674,36,59
+a token,smaller in the,2.5259,0.1509,36,59
+a token,sum ends in,0.4018,0.0227,36,59
+a token,sum in the,0.1997,0.0116,36,59
+a token,sum mod 100,0.3768,0.0039,36,59
+a token,"tens of a, b",0.6672,0.0197,36,59
+a token,"units of a, b",0.3861,0.0212,36,59
+a units,a < b,-0.0307,-0.0143,36,59
+a units,a tens,0.4207,0.1145,36,59
+a units,answer,0.025,0.0011,36,59
+a units,b tens,0.1482,0.016,36,59
+a units,b units,0.0556,0.0141,36,59
+a units,larger ends in,-0.1918,-0.0367,36,59
+a units,larger in the,-0.0058,-0.0008,36,59
+a units,other,0.5511,0.0031,36,59
+a units,smaller ends in,2.5043,0.2062,36,59
+a units,smaller in the,0.1982,0.0118,36,59
+a units,sum ends in,0.1053,0.006,36,59
+a units,sum in the,-0.1268,-0.0074,36,59
+a units,sum mod 100,0.6417,0.0066,36,59
+a units,"tens of a, b",-0.0326,-0.001,36,59
+a units,"units of a, b",0.7935,0.0436,36,59
+b tens,a < b,0.8624,0.4026,36,59
+b tens,answer,0.4736,0.0213,36,59
+b tens,b units,1.5104,0.3821,36,59
+b tens,larger ends in,0.293,0.056,36,59
+b tens,larger in the,2.6165,0.3444,36,59
+b tens,other,32.4215,0.1806,36,59
+b tens,smaller ends in,1.6096,0.1325,36,59
+b tens,smaller in the,2.1485,0.1283,36,59
+b tens,sum ends in,0.5774,0.0327,36,59
+b tens,sum in the,1.8619,0.1084,36,59
+b tens,sum mod 100,-1.0055,-0.0104,36,59
+b tens,"tens of a, b",0.1409,0.0042,36,59
+b tens,"units of a, b",0.0805,0.0044,36,59
+b token,a < b,0.0412,0.0192,36,59
+b token,answer,0.179,0.0081,36,59
+b token,b tens,-1.8931,-0.2044,36,59
+b token,b units,1.6,0.4048,36,59
+b token,larger ends in,1.1895,0.2274,36,59
+b token,larger in the,2.3985,0.3157,36,59
+b token,other,18.4965,0.1031,36,59
+b token,smaller ends in,0.3446,0.0284,36,59
+b token,smaller in the,0.5832,0.0348,36,59
+b token,sum ends in,0.5307,0.03,36,59
+b token,sum in the,0.2621,0.0153,36,59
+b token,sum mod 100,1.7292,0.0178,36,59
+b token,"tens of a, b",0.5229,0.0154,36,59
+b token,"units of a, b",1.0186,0.0559,36,59
+b units,a < b,0.005,0.0023,36,59
+b units,answer,0.0538,0.0024,36,59
+b units,b tens,0.2141,0.0231,36,59
+b units,larger ends in,1.7084,0.3266,36,59
+b units,larger in the,0.0543,0.0071,36,59
+b units,other,6.1235,0.0341,36,59
+b units,smaller ends in,0.0824,0.0068,36,59
+b units,smaller in the,-0.0949,-0.0057,36,59
+b units,sum ends in,0.3873,0.0219,36,59
+b units,sum in the,0.1491,0.0087,36,59
+b units,sum mod 100,0.0631,0.0007,36,59
+b units,"tens of a, b",-0.3081,-0.0091,36,59
+b units,"units of a, b",1.3233,0.0727,36,59
+larger ends in,answer,0.0087,0.0004,36,59
+larger ends in,larger in the,-0.0494,-0.0065,36,59
+larger ends in,other,0.6881,0.0038,36,59
+larger ends in,smaller ends in,-0.4183,-0.0344,36,59
+larger ends in,smaller in the,-0.1321,-0.0079,36,59
+larger ends in,sum ends in,-0.0026,-0.0001,36,59
+larger ends in,sum in the,-0.0259,-0.0015,36,59
+larger ends in,sum mod 100,-2.2905,-0.0236,36,59
+larger ends in,"tens of a, b",-0.9049,-0.0267,36,59
+larger ends in,"units of a, b",0.4418,0.0243,36,59
+larger in the,answer,0.1179,0.0053,36,59
+larger in the,larger ends in,0.1176,0.0225,36,59
+larger in the,other,5.3249,0.0297,36,59
+larger in the,smaller ends in,0.401,0.033,36,59
+larger in the,smaller in the,0.3834,0.0229,36,59
+larger in the,sum ends in,0.4132,0.0234,36,59
+larger in the,sum in the,0.8725,0.0508,36,59
+larger in the,sum mod 100,-1.7316,-0.0178,36,59
+larger in the,"tens of a, b",0.2038,0.006,36,59
+larger in the,"units of a, b",0.0973,0.0053,36,59
+other,a < b,1.1933,0.5571,36,59
+other,a tens,1.6918,0.4605,36,59
+other,a units,-0.3791,-0.1529,36,59
+other,answer,15.5595,0.7009,36,59
+other,b tens,5.3699,0.5799,36,59
+other,b units,0.6991,0.1768,36,59
+other,larger ends in,1.2014,0.2297,36,59
+other,larger in the,1.8909,0.2489,36,59
+other,smaller ends in,2.3401,0.1926,36,59
+other,smaller in the,6.0521,0.3615,36,59
+other,sum ends in,12.35,0.6985,36,59
+other,sum in the,11.6462,0.6783,36,59
+other,sum mod 100,-1.4171,-0.0146,36,59
+other,"tens of a, b",7.8499,0.2313,36,59
+other,"units of a, b",-1.914,-0.1051,36,59
+smaller ends in,answer,-0.044,-0.002,36,59
+smaller ends in,larger ends in,0.5646,0.1079,36,59
+smaller ends in,larger in the,0.2086,0.0274,36,59
+smaller ends in,other,43.2392,0.2409,36,59
+smaller ends in,smaller in the,1.1858,0.0708,36,59
+smaller ends in,sum ends in,0.7429,0.042,36,59
+smaller ends in,sum in the,-0.1175,-0.0068,36,59
+smaller ends in,sum mod 100,1.3455,0.0139,36,59
+smaller ends in,"tens of a, b",1.2638,0.0372,36,59
+smaller ends in,"units of a, b",13.5309,0.7432,36,59
+smaller in the,a < b,-0.0101,-0.0047,36,59
+smaller in the,answer,0.496,0.0223,36,59
+smaller in the,larger ends in,-0.3835,-0.0733,36,59
+smaller in the,larger in the,-0.2322,-0.0306,36,59
+smaller in the,other,20.1197,0.1121,36,59
+smaller in the,smaller ends in,0.8949,0.0737,36,59
+smaller in the,sum ends in,1.5071,0.0852,36,59
+smaller in the,sum in the,-1.2746,-0.0742,36,59
+smaller in the,sum mod 100,44.7837,0.4616,36,59
+smaller in the,"tens of a, b",21.1066,0.6219,36,59
+smaller in the,"units of a, b",-1.6538,-0.0908,36,59
+sum ends in,answer,0.3811,0.0172,36,59
+sum ends in,larger ends in,-0.0606,-0.0116,36,59
+sum ends in,larger in the,0.0429,0.0056,36,59
+sum ends in,other,-2.9296,-0.0163,36,59
+sum ends in,smaller ends in,-0.0475,-0.0039,36,59
+sum ends in,smaller in the,0.0454,0.0027,36,59
+sum ends in,sum in the,0.8711,0.0507,36,59
+sum ends in,sum mod 100,0.1519,0.0016,36,59
+sum ends in,"tens of a, b",0.2622,0.0077,36,59
+sum ends in,"units of a, b",-0.1033,-0.0057,36,59
+sum in the,answer,0.9223,0.0415,36,59
+sum in the,larger ends in,-0.0088,-0.0017,36,59
+sum in the,larger in the,0.0314,0.0041,36,59
+sum in the,other,-0.2793,-0.0016,36,59
+sum in the,smaller ends in,-0.1237,-0.0102,36,59
+sum in the,smaller in the,0.0581,0.0035,36,59
+sum in the,sum ends in,-0.3885,-0.022,36,59
+sum in the,sum mod 100,10.7725,0.111,36,59
+sum in the,"tens of a, b",-0.4059,-0.012,36,59
+sum in the,"units of a, b",-0.0652,-0.0036,36,59
+sum mod 100,answer,1.8997,0.0856,36,59
+sum mod 100,other,0.087,0.0005,36,59
+sum mod 100,smaller ends in,0.0022,0.0002,36,59
+sum mod 100,sum ends in,-0.0513,-0.0029,36,59
+sum mod 100,sum in the,0.5107,0.0297,36,59
+"tens of a, b",a < b,0.0085,0.004,36,59
+"tens of a, b",answer,1.3261,0.0597,36,59
+"tens of a, b",larger ends in,-0.0536,-0.0103,36,59
+"tens of a, b",larger in the,-0.0528,-0.007,36,59
+"tens of a, b",other,5.4357,0.0303,36,59
+"tens of a, b",smaller ends in,0.1764,0.0145,36,59
+"tens of a, b",smaller in the,-0.0057,-0.0003,36,59
+"tens of a, b",sum ends in,0.3158,0.0179,36,59
+"tens of a, b",sum in the,0.3944,0.023,36,59
+"tens of a, b",sum mod 100,23.2855,0.24,36,59
+"tens of a, b","units of a, b",0.2422,0.0133,36,59
+"units of a, b",answer,0.6343,0.0286,36,59
+"units of a, b",larger ends in,-0.1466,-0.028,36,59
+"units of a, b",larger in the,-0.0084,-0.0011,36,59
+"units of a, b",other,5.7366,0.032,36,59
+"units of a, b",smaller ends in,0.3398,0.028,36,59
+"units of a, b",smaller in the,0.0095,0.0006,36,59
+"units of a, b",sum ends in,-0.1094,-0.0062,36,59
+"units of a, b",sum in the,-0.215,-0.0125,36,59
+"units of a, b",sum mod 100,13.5739,0.1399,36,59
+"units of a, b","tens of a, b",-0.1688,-0.005,36,59
+a < b,answer,0.0497,0.0024,36,53
+a < b,larger ends in,-0.0245,-0.0056,36,53
+a < b,larger in the,-0.0119,-0.0017,36,53
+a < b,other,3.1665,0.0197,36,53
+a < b,smaller ends in,0.9652,0.0778,36,53
+a < b,smaller in the,0.3769,0.0209,36,53
+a < b,sum ends in,-0.2113,-0.0133,36,53
+a < b,sum in the,0.0798,0.0059,36,53
+a < b,sum mod 100,-0.8719,-0.0088,36,53
+a < b,"tens of a, b",0.6153,0.0185,36,53
+a < b,"units of a, b",0.2145,0.0494,36,53
+a tens,a < b,0.0302,0.0129,36,53
+a tens,a units,0.532,0.2154,36,53
+a tens,answer,0.1128,0.0054,36,53
+a tens,b tens,3.0423,0.4089,36,53
+a tens,b units,0.0641,0.0189,36,53
+a tens,larger ends in,-0.1833,-0.0416,36,53
+a tens,larger in the,0.2027,0.0289,36,53
+a tens,other,14.1904,0.0881,36,53
+a tens,smaller ends in,0.6182,0.0498,36,53
+a tens,smaller in the,2.9432,0.1635,36,53
+a tens,sum ends in,0.1526,0.0096,36,53
+a tens,sum in the,0.0714,0.0053,36,53
+a tens,sum mod 100,-0.2513,-0.0025,36,53
+a tens,"tens of a, b",1.4102,0.0424,36,53
+a tens,"units of a, b",0.0594,0.0137,36,53
+a token,a < b,-0.0172,-0.0073,36,53
+a token,a tens,1.5479,0.4195,36,53
+a token,a units,1.9379,0.7846,36,53
+a token,answer,0.0769,0.0037,36,53
+a token,b tens,1.1596,0.1559,36,53
+a token,b units,0.0506,0.0149,36,53
+a token,larger ends in,-0.1615,-0.0367,36,53
+a token,larger in the,0.0595,0.0085,36,53
+a token,other,18.4046,0.1143,36,53
+a token,smaller ends in,1.8414,0.1485,36,53
+a token,smaller in the,2.2819,0.1267,36,53
+a token,sum ends in,0.2422,0.0152,36,53
+a token,sum in the,0.1182,0.0087,36,53
+a token,sum mod 100,0.9333,0.0094,36,53
+a token,"tens of a, b",1.0491,0.0315,36,53
+a token,"units of a, b",0.2704,0.0622,36,53
+a units,a < b,-0.0304,-0.0129,36,53
+a units,a tens,0.4035,0.1094,36,53
+a units,answer,0.0111,0.0005,36,53
+a units,b tens,0.1535,0.0206,36,53
+a units,b units,0.0602,0.0178,36,53
+a units,larger ends in,-0.2493,-0.0566,36,53
+a units,larger in the,0.0061,0.0009,36,53
+a units,other,0.081,0.0005,36,53
+a units,smaller ends in,2.3002,0.1855,36,53
+a units,smaller in the,0.2284,0.0127,36,53
+a units,sum ends in,0.0801,0.005,36,53
+a units,sum in the,-0.0406,-0.003,36,53
+a units,sum mod 100,0.552,0.0056,36,53
+a units,"tens of a, b",-0.0688,-0.0021,36,53
+a units,"units of a, b",0.4315,0.0993,36,53
+b tens,a < b,1.0159,0.4333,36,53
+b tens,answer,0.7208,0.0343,36,53
+b tens,b units,1.7753,0.5243,36,53
+b tens,larger ends in,0.1891,0.0429,36,53
+b tens,larger in the,3.0673,0.4374,36,53
+b tens,other,29.563,0.1836,36,53
+b tens,smaller ends in,1.7172,0.1385,36,53
+b tens,smaller in the,2.239,0.1244,36,53
+b tens,sum ends in,0.2223,0.0139,36,53
+b tens,sum in the,1.231,0.0907,36,53
+b tens,sum mod 100,-1.4312,-0.0144,36,53
+b tens,"tens of a, b",1.2726,0.0383,36,53
+b tens,"units of a, b",0.3009,0.0693,36,53
+b token,a < b,0.0174,0.0074,36,53
+b token,answer,0.1636,0.0078,36,53
+b token,b tens,-0.552,-0.0742,36,53
+b token,b units,1.39,0.4105,36,53
+b token,larger ends in,0.8577,0.1948,36,53
+b token,larger in the,2.1072,0.3004,36,53
+b token,other,19.7999,0.123,36,53
+b token,smaller ends in,0.1886,0.0152,36,53
+b token,smaller in the,0.5706,0.0317,36,53
+b token,sum ends in,0.395,0.0248,36,53
+b token,sum in the,0.0453,0.0033,36,53
+b token,sum mod 100,-1.7376,-0.0175,36,53
+b token,"tens of a, b",1.1481,0.0345,36,53
+b token,"units of a, b",0.3588,0.0826,36,53
+b units,a < b,-0.0197,-0.0084,36,53
+b units,answer,-0.0322,-0.0015,36,53
+b units,b tens,0.316,0.0425,36,53
+b units,larger ends in,1.1992,0.2723,36,53
+b units,larger in the,-0.3356,-0.0479,36,53
+b units,other,4.0146,0.0249,36,53
+b units,smaller ends in,0.1658,0.0134,36,53
+b units,smaller in the,-0.188,-0.0104,36,53
+b units,sum ends in,0.5323,0.0334,36,53
+b units,sum in the,-0.2041,-0.015,36,53
+b units,sum mod 100,0.6527,0.0066,36,53
+b units,"tens of a, b",0.1997,0.006,36,53
+b units,"units of a, b",0.2599,0.0598,36,53
+larger ends in,answer,-0.0756,-0.0036,36,53
+larger ends in,larger in the,-0.0825,-0.0118,36,53
+larger ends in,other,1.1322,0.007,36,53
+larger ends in,smaller ends in,-0.4429,-0.0357,36,53
+larger ends in,smaller in the,0.0352,0.002,36,53
+larger ends in,sum ends in,-1.1911,-0.0747,36,53
+larger ends in,sum in the,-0.0736,-0.0054,36,53
+larger ends in,sum mod 100,-0.1947,-0.002,36,53
+larger ends in,"tens of a, b",0.0087,0.0003,36,53
+larger ends in,"units of a, b",0.0976,0.0225,36,53
+larger in the,answer,0.1969,0.0094,36,53
+larger in the,larger ends in,-0.0541,-0.0123,36,53
+larger in the,other,5.8255,0.0362,36,53
+larger in the,smaller ends in,0.5219,0.0421,36,53
+larger in the,smaller in the,1.2088,0.0671,36,53
+larger in the,sum ends in,0.0547,0.0034,36,53
+larger in the,sum in the,0.075,0.0055,36,53
+larger in the,sum mod 100,-2.222,-0.0224,36,53
+larger in the,"tens of a, b",2.2971,0.0691,36,53
+larger in the,"units of a, b",0.0617,0.0142,36,53
+other,a < b,1.2653,0.5396,36,53
+other,a tens,1.738,0.4711,36,53
+other,a units,-0.4626,-0.1873,36,53
+other,answer,16.1993,0.7712,36,53
+other,b tens,2.768,0.3721,36,53
+other,b units,0.0457,0.0135,36,53
+other,larger ends in,2.0638,0.4686,36,53
+other,larger in the,1.0439,0.1488,36,53
+other,smaller ends in,3.0877,0.249,36,53
+other,smaller in the,6.4742,0.3596,36,53
+other,sum ends in,12.2899,0.7708,36,53
+other,sum in the,9.8987,0.7294,36,53
+other,sum mod 100,6.5187,0.0657,36,53
+other,"tens of a, b",3.5734,0.1075,36,53
+other,"units of a, b",0.0452,0.0104,36,53
+smaller ends in,answer,0.467,0.0222,36,53
+smaller ends in,larger ends in,-0.87,-0.1976,36,53
+smaller ends in,larger in the,0.3009,0.0429,36,53
+smaller ends in,other,41.9522,0.2606,36,53
+smaller ends in,smaller in the,1.6004,0.0889,36,53
+smaller ends in,sum ends in,1.2373,0.0776,36,53
+smaller ends in,sum in the,0.1933,0.0142,36,53
+smaller ends in,sum mod 100,1.1479,0.0116,36,53
+smaller ends in,"tens of a, b",1.5533,0.0467,36,53
+smaller ends in,"units of a, b",1.2274,0.2825,36,53
+smaller in the,a < b,-0.0082,-0.0035,36,53
+smaller in the,answer,0.5324,0.0253,36,53
+smaller in the,larger ends in,0.0266,0.006,36,53
+smaller in the,larger in the,0.1024,0.0146,36,53
+smaller in the,other,17.746,0.1102,36,53
+smaller in the,smaller ends in,0.5223,0.0421,36,53
+smaller in the,sum ends in,0.5596,0.0351,36,53
+smaller in the,sum in the,-0.7048,-0.0519,36,53
+smaller in the,sum mod 100,63.9964,0.6449,36,53
+smaller in the,"tens of a, b",18.7906,0.5651,36,53
+smaller in the,"units of a, b",0.9961,0.2292,36,53
+sum ends in,answer,0.8056,0.0384,36,53
+sum ends in,larger in the,0.039,0.0056,36,53
+sum ends in,other,1.0423,0.0065,36,53
+sum ends in,smaller ends in,-0.0039,-0.0003,36,53
+sum ends in,smaller in the,0.0464,0.0026,36,53
+sum ends in,sum in the,0.6053,0.0446,36,53
+sum ends in,sum mod 100,4.1669,0.042,36,53
+sum ends in,"tens of a, b",0.2722,0.0082,36,53
+sum ends in,"units of a, b",-0.0886,-0.0204,36,53
+sum in the,answer,-0.0009,-0.0,36,53
+sum in the,larger ends in,0.0091,0.0021,36,53
+sum in the,larger in the,-0.0066,-0.0009,36,53
+sum in the,other,-0.3432,-0.0021,36,53
+sum in the,smaller ends in,-0.0641,-0.0052,36,53
+sum in the,smaller in the,-0.0005,-0.0,36,53
+sum in the,sum ends in,0.0204,0.0013,36,53
+sum in the,sum mod 100,7.5891,0.0765,36,53
+sum in the,"tens of a, b",-0.0214,-0.0006,36,53
+sum in the,"units of a, b",-0.0125,-0.0029,36,53
+sum mod 100,answer,0.6616,0.0315,36,53
+sum mod 100,other,1.2565,0.0078,36,53
+sum mod 100,smaller ends in,-0.0443,-0.0036,36,53
+sum mod 100,sum in the,0.5573,0.0411,36,53
+"tens of a, b",a < b,0.0161,0.0069,36,53
+"tens of a, b",answer,0.6111,0.0291,36,53
+"tens of a, b",larger ends in,0.0129,0.0029,36,53
+"tens of a, b",larger in the,-0.0378,-0.0054,36,53
+"tens of a, b",other,-2.1031,-0.0131,36,53
+"tens of a, b",smaller ends in,-0.0124,-0.001,36,53
+"tens of a, b",smaller in the,-0.0648,-0.0036,36,53
+"tens of a, b",sum ends in,0.0414,0.0026,36,53
+"tens of a, b",sum in the,-0.3226,-0.0238,36,53
+"tens of a, b",sum mod 100,10.9039,0.1099,36,53
+"tens of a, b","units of a, b",0.0216,0.005,36,53
+"units of a, b",answer,0.3961,0.0189,36,53
+"units of a, b",larger ends in,0.0454,0.0103,36,53
+"units of a, b",larger in the,0.0844,0.012,36,53
+"units of a, b",other,2.8141,0.0175,36,53
+"units of a, b",smaller ends in,0.4738,0.0382,36,53
+"units of a, b",smaller in the,-0.051,-0.0028,36,53
+"units of a, b",sum ends in,0.1161,0.0073,36,53
+"units of a, b",sum in the,0.6956,0.0513,36,53
+"units of a, b",sum mod 100,2.7698,0.0279,36,53
+"units of a, b","tens of a, b",1.0638,0.032,36,53
