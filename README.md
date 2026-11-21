@@ -36,8 +36,7 @@ pip install git+https://github.com/safety-research/circuit-tracer@v0.5.3
 ```
 
 The model runs need a GPU with about 14 GB (a Kaggle T4 was used) and a
-Hugging Face token with access to `meta-llama/Llama-3.2-1B`. The analysis
-scripts run on a laptop from the saved results.
+Hugging Face token with access to `meta-llama/Llama-3.2-1B`. 
 
 ## Layout
 
@@ -65,7 +64,7 @@ figures/               figures used in results/README.md
 
 ## Reproducing
 
-| Step | Notebook (GPU) | Scripts (laptop) |
+| Step | Notebook (GPU) | Scripts |
 |---|---|---|
 | Prompts, clean accuracy | 01 | `compare_templates.py` |
 | Feature activations at "=", labels | 02 | `score_features.py`, `checks/`, `final_labels.py`, `relaxed_labels.py`, `label_examples.py` |
