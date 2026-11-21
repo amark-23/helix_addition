@@ -594,3 +594,44 @@ def run_posthoc(model, data, pairs, seed=0, folder=POSTHOC_FOLDER):
             kw["source_X"] = means
         run_one(model, quads, pos, dirs, directions, ref, watch, **kw).to_csv(f, index=False)
         print(name, "saved")
+
+
+# ---- carry check (post hoc, 2026-11-21) ----
+
+CARRY_FOLDER = Path("results/q2_carry")
+
+
+def run_carry_check(model, data, pairs, seed=0, folder=CARRY_FOLDER):
+    """Carry-flip swaps with growing parts of the helix: fast + T = 2, + T = 50, + T = 100,
+    all circles, and the whole vector. If the tens follow the new carry only once the slow
+    circles are swapped too, the tens read the carry from the slow circles."""
+    import json
+
+    from helixadd.groups import load_labels, supernode
+    from helixadd.helix import circle_directions, fit
+    from helixadd.intervene import by_layer
+
+    folder = Path(folder)
+    (folder / "runs").mkdir(parents=True, exist_ok=True)
+    (folder / "params.json").write_text(json.dumps({
+        "pairs": "pair_set('carry flip')", "points": POINTS, "seed": seed, "n_prompts": len(pairs),
+        "note": "post hoc, 2026-11-21"}, indent=2))
+    watch = supernode_groups()
+    comp = supernode(load_labels(), "comparison")
+    watch["comparison"] = by_layer(comp["layer"], comp["feature"])
+    parts = [("fast+2", DIGIT_WITH_2), ("fast+2+50", DIGIT_WITH_2 + [50]), ("fast+2+100", DIGIT_WITH_2 + [100]),
+             ("all circles", Q2_PERIODS), ("whole vector", None)]
+    for pos in ["a", "b"]:
+        dirs = point_directions(data, pos)
+        fits = [fit(np.arange(100), data[pos][i], Q2_PERIODS)[1] for i in POINTS]
+        quads = pair_set("carry flip", pos, pairs, seed)
+        ref = None
+        for label, kept in parts:
+            f = folder / "runs" / f"{pos}_carry_flip_{label.replace(' ', '_')}.csv"
+            if f.exists():
+                continue
+            if ref is None:
+                ref = reference(model, quads, watch)
+            directions = None if kept is None else [circle_directions(C, kept) for C in fits]
+            run_one(model, quads, pos, dirs, directions, ref, watch, save_logits=True).to_csv(f, index=False)
+            print(pos, label, "saved")
