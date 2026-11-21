@@ -1,4 +1,4 @@
-"""Pages for the manual reviews (criteria: notes/manual_review.md).
+"""Pages for the manual reviews (criteria: results/manual_review/criteria.md).
 
 python scripts/checks/review_sheet.py tens   lookup tables found through tens (a, b)
                                              (blind checks: 11/24 agreement)

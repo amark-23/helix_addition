@@ -4,7 +4,7 @@ Status: Q1 frozen 11-11-26. Q2 frozen 18-11-26 (section 9).
 Q1 freeze: the commit that sets this line to "Q1 frozen on <date>".
 Any change to Q1 after the freeze goes in "Deviations" at the bottom, with the reason.
 
-Learning notes are in `notes/`. This file holds decisions only.
+This file holds decisions only. Results: `results/README.md`.
 
 ---
 
@@ -181,7 +181,7 @@ Ranges: every interval [lo, lo + L) with L in {5, 10, 20, 40}, scored as a
   agreement 73%; of the 10 features the fixes changed, 7 agree (1 with the
   old labels). Lookups via tens (a, b) still 11/24 over both rounds.
 - Manual review: every lookup found through tens (a, b) (145) was reviewed by
-  hand against written criteria (notes/manual_review.md; pages drawn by
+  hand against written criteria (results/manual_review/criteria.md; pages drawn by
   scripts/checks/review_sheet.py):
   53 kept, 92 dropped. Dropped features become "unclear".
 - Manual review 2: every add function feature (41) was reviewed by hand, since
@@ -454,7 +454,7 @@ Q2a: which parts of the operand helix each Q1 supernode depends on.
 Done before writing this section, on the residual stream at the two operand
 tokens (positions 40 and 42; for b the mean over 20 a's), at 17 points
 (embedding, after each layer). Code: `helixadd.helix`, notebooks 06 and 07,
-`notes/progress.md` (2026-11-16).
+`results/README.md`.
 
 - Spectrum (straight line removed): clear peaks at T = 100, 50, 10, 5, 3.3,
   2.5 and 2. Nothing else stands out.
@@ -674,3 +674,5 @@ all with the logits of the clean and the target answer:
   The post-hoc floor excludes every circle and the line (median 0.01 for 9
   directions). The preregistered decisions stand as computed; the main
   run's digit floor was conservative.
+- Carry check (2026-11-21, notebook 11): carry-flip swaps with fast + T = 2,
+  + T = 50, + T = 100, all circles, whole vector.

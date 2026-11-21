@@ -1,5 +1,5 @@
 """Final feature labels: the automatic labels, with two groups replaced by
-manual reviews (criteria: notes/manual_review.md).
+manual reviews (criteria: results/manual_review/criteria.md).
 
 - Lookup tables whose best variable is tens (a, b): results/manual_review/tens_lookups.csv
 - Add function features: results/manual_review/add_functions.csv
