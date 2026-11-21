@@ -667,3 +667,10 @@ all with the logits of the clean and the target answer:
 - Note (2026-11-21): the sub-helix fits use all 100 numbers, so the patched
   numbers are in the fit (in-sample); the step-1 helix patching (9.1) was
   out-of-sample. The two are not directly comparable.
+- Note (2026-11-21): the main run's floor (9.6) drew random directions from
+  the number space minus the digit and slow groups. That space still held
+  the T = 2 direction and the line, so random sets could partly swap T = 2,
+  which moves the last-digit supernode (floor median 0.27 for 8 directions).
+  The post-hoc floor excludes every circle and the line (median 0.01 for 9
+  directions). The preregistered decisions stand as computed; the main
+  run's digit floor was conservative.
