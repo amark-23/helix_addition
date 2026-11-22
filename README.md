@@ -22,8 +22,8 @@ Short answers (details, figures and limits in
   (periods 10, 5 and 2), the magnitude features the slow circles (periods 100
   and 50). Swapping those circles between two numbers moves the magnitude
   group 0.96 of the way to the other number, and the last-digit group 0.99
-  once period 2 is included (a post-hoc addition). The carry reaches the
-  tens through the period-50 circle.
+  once period 2 is included (a post-hoc addition). The tens take the
+  carry both from the units information and from the period-50 circle.
 
 These results hold for the labeled features of one model, on one prompt
 format.

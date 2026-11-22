@@ -24,7 +24,7 @@ ax.set_xlabel("point where the vector is replaced (after layer)")
 ax.set_ylabel("share of the real vector's effect")
 ax.set_title("Fitted vectors patched into a' + b (solid a, dashed b)")
 ax.legend(fontsize=8, ncol=2, loc="lower right")
-fig.text(0.5, 0.01, "Fits on 80 numbers, patched for the other 20. After layer 10 the operand token no longer affects the answer.",
+fig.text(0.5, 0.01, "Fits on 80 numbers, patched for the other 20. After layer 10 the operand token has little effect on the answer.",
          ha="center", fontsize=8, color="#444444")
 fig.tight_layout(rect=(0, 0.04, 1, 1))
 fig.savefig("figures/helix_patching.png", dpi=170)

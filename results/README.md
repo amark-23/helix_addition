@@ -131,7 +131,7 @@ Other results:
 - Without its 53 hand-checked lookups, the magnitude supernode has almost no
   effect (0.2%).
 - With looser labels ($R^2 \ge 0.5$, no manual review) both supernodes pass.
-- Comparison off changes the tens on 41% of prompts, mixed family on 36%,
+- Comparison off changes the tens on 40% of prompts, mixed family on 36%,
   mod 100 on 1%.
 
 ## 4. Q1: attribution graphs
@@ -221,8 +221,10 @@ patched (`helix_patching_corrupted/`).
 The helix (line and $T = 2, 5, 10, 100$) keeps 69 to 74% of the real vector's
 effect; the circles alone the same; the line alone 15 to 38%; 9 PCA
 directions 61 to 89%. About 80% of the top 9 PCA directions lie inside the
-helix directions (random directions: 0.5%). After layer 10, replacing the
-operand's vector has no effect: the number has been moved to "=".
+helix directions (random directions: 0.5%). After layer 10 the operand's
+vector matters little: after layer 11 the real vector's effect is under 8% of
+its earlier size, and about 0 from layer 14. By then the number has been
+copied to "=".
 
 ## 6. Q2: which circles each pathway uses
 
@@ -270,18 +272,20 @@ supernode moves no more than random) is crossed in 3 of 4 cases, by 0.003 to
   fast swap reaches a shift of 0.99 and the exact answer on 87 to 89% of
   prompts; random directions of the same size give 0.01 and 0%.
 - **Grid** (post hoc, panel B): adding $T = 50$ to the fast swap raises the
-  exact answer from 87% to 99%. Swapping all circles gives 99%, the whole
-  vector 100%.
+  exact answer from 87 to 89% to 99%. Swapping all circles gives 99 to 100%,
+  the whole vector 98 to 100%.
 - **Removal** (post hoc, panel C): setting one part to its average breaks the
-  matching digit only. All fast circles: units wrong on 83%. Both slow circles:
-  tens wrong on 86%. Each fast period alone: 9 to 20%. $T = 50$ alone: 56%.
+  matching digit only. All fast circles: units wrong on 80 to 83%. Both slow
+  circles: tens wrong on 80 to 86%. Each fast period alone: 7 to 20%.
+  $T = 50$ alone: 52 to 57%; $T = 100$ alone: 35 to 37%.
   $T = 3.3$, $T = 2.5$ and random directions: about 0.
 - **Clamp**: holding the last-digit supernode at its clean values during the
-  fast swap lowers the exact $a' + b$ answer from 40% to 5%. The units change
+  fast swap lowers the exact $a' + b$ answer from 40% to 5 to 6%. The units change
   passes through that supernode.
 - The **comparison** supernode follows the slow circles (shift 0.92).
 - A swap at **any single point** from the embedding to after layer 10 gives
-  nearly the full effect.
+  most of the effect: shift 0.51 to 0.58 for the fast swap (0.64 at all
+  points) and 0.66 to 0.86 for the slow swap (0.96 at all points).
 - The main run's random floor for the fast swap (0.32) was high because its
   random directions could include $T = 2$ and the line; a floor that excludes
   every circle and the line is 0.01.
@@ -304,17 +308,23 @@ carry flips (for example 36 to 39 in 36 + 52).
 | all circles | 99.9% | 97 to 99% |
 | whole vector | 100% | 99 to 100% |
 
-The tens follow the new carry once $T = 50$ is swapped. The period-50
-circle's position also changes with the units digit, and the magnitude
-pathway appears to read the carry from it. In Q1, switching off the last-digit
-supernode changed the tens more often on carry prompts, so that supernode
-still matters for some carry prompts; its role is not settled.
+With only the fast circles and $T = 2$ swapped, the slow circles still encode
+the old number, and the tens follow the new carry on 56 to 57% of prompts.
+Without any carry information from the fast side this would be near 0%. Once
+$T = 50$ is swapped as well, so that both sides agree, the tens follow on 96 to
+99%. The carry is therefore available from two sources: the units information
+(the fast circles, directly or through the last-digit features) and the fine
+position on the slow circles, mainly $T = 50$, which also changes with the
+units digit. When the two disagree, the tens follow each about half the time.
+This fits Q1, where switching off the last-digit supernode changed both digits
+more often on carry prompts (27% vs 15%). Which of the two routes the model
+relies on when they agree is not tested here.
 
 ## 8. Comparison with Kantamneni and Tegmark
 
 | | This model | Their GPT-J (from their Table 1) |
 |---|---|---|
-| Helix patched into $a' + b$, share of the real vector | about 0.70 to 0.74 (held-out numbers) | about 0.86 |
+| Helix patched into $a' + b$, share of the real vector | about 0.69 to 0.74 (held-out numbers) | about 0.86 |
 | Weakest point | the embedding (0.69) | layer 0's input |
 
 The same periods appear ($T = 2, 5, 10, 100$, here also 50). Patching vectors
@@ -343,8 +353,9 @@ real number, and the model usually gets both digits wrong with it.
   Tegmark's Clock), or by lookup tables over ranges? Testing for a helix of
   the sum at "=" would help separate the two.
 - Do the same groups appear when features are clustered without labels?
-- What does the direct link from last digit to magnitude carry, if not the
-  carry?
+- How much does each carry route contribute on its own? A test: the
+  all-circles carry flip with the last-digit supernode held at its clean
+  values.
 - Finer supernodes (role and family together, as in Anthropic's diagrams)
   would show the stages inside each pathway.
 - The same tests on the zero-shot prompt.
