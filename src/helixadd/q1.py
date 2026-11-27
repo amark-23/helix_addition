@@ -112,3 +112,44 @@ def run_all(model, runs=None, pairs=None, folder=FOLDER):
         run_one(model, runs[name], pairs, watch).to_csv(folder / "runs" / file_name(name), index=False)
         if k % 25 == 0:
             print(k, "of", len(todo), name)
+
+
+# ---- follow-up (2026-11-27, after the main results): the other tens groups ----
+
+TENS_FOLDER = Path("results/q1_tens_runs")
+TENS_GROUPS = ["comparison", "mixed family", "tens combined"]
+
+
+def tens_plan(labels=None, n_random=N_RANDOM):
+    """Comparison, mixed family, and magnitude + comparison + mixed family switched off together,
+    each with n_random layer-matched random groups of its own size."""
+    labels = load_labels() if labels is None else labels
+    mag, comp, mixed = (supernode(labels, f) for f in ["magnitude", "comparison", "mixed"])
+    runs = {"comparison": comp, "mixed family": mixed,
+            "tens combined": pd.concat([mag, comp, mixed]).drop_duplicates().reset_index(drop=True)}
+    for i, name in enumerate(TENS_GROUPS):
+        for k in range(n_random):
+            runs[f"random | {name} | {k:03d}"] = random_group(labels, runs[name], seed=50_000 + 1000 * i + k)
+    return runs
+
+
+def run_tens(model, pairs=None, folder=TENS_FOLDER, n_random=N_RANDOM):
+    """Every run of tens_plan() not saved yet (resumable). Watches the last-digit and magnitude supernodes."""
+    from helixadd import intervene
+
+    labels = load_labels()
+    runs = tens_plan(labels, n_random)
+    pairs = eval_pairs() if pairs is None else pairs
+    (folder / "runs").mkdir(parents=True, exist_ok=True)
+    (folder / "params.json").write_text(json.dumps({
+        "groups": TENS_GROUPS, "n_random": n_random, "n_eval": len(pairs), "position": intervene.EQ, "value": 0.0,
+        "labels": "results/feature_labels", "note": "follow-up, 2026-11-27, after the main Q1 results"}, indent=2))
+    pd.DataFrame([(n, len(g)) for n, g in runs.items()], columns=["run", "n_features"]).to_csv(folder / "plan.csv", index=False)
+    watch = {name: intervene.by_layer(g["layer"], g["feature"])
+             for name, g in [("last digit", supernode(labels, "last digit")), ("magnitude", supernode(labels, "magnitude"))]}
+    todo = [n for n in runs if not (folder / "runs" / file_name(n)).exists()]
+    print(f"{len(runs) - len(todo)} of {len(runs)} runs already saved; {len(todo)} to go")
+    for k, name in enumerate(todo):
+        run_one(model, runs[name], pairs, watch).to_csv(folder / "runs" / file_name(name), index=False)
+        if k % 25 == 0:
+            print(k, "of", len(todo), name)
