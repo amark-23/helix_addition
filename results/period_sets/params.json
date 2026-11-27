@@ -1,0 +1,31 @@
+{
+  "sets": {
+    "4: 100, 10, 5, 2": [
+      100,
+      10,
+      5,
+      2
+    ],
+    "5: 100, 50, 10, 5, 2": [
+      100,
+      50,
+      10,
+      5,
+      2
+    ],
+    "7: all": [
+      100,
+      50,
+      10,
+      5,
+      3.3333333333333335,
+      2.5,
+      2
+    ]
+  },
+  "n_splits": 10,
+  "n_train": 80,
+  "seed": 0,
+  "measure": "share of the test numbers' variance explained by the fit",
+  "source": "results/number_acts/data.npz"
+}

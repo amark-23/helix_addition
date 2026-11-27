@@ -226,6 +226,22 @@ vector matters little: after layer 11 the real vector's effect is under 8% of
 its earlier size, and about 0 from layer 14. By then the number has been
 copied to "=".
 
+**Which periods.** Three period sets were compared by the share of variance
+they explain on held-out numbers: fit on 80 numbers, tested on the other 20,
+10 random splits, mean over the points up to after layer 10
+(`period_sets/`, `scripts/period_sets.py`).
+
+| Periods (with the line) | $a$ | $b$ |
+|---|---|---|
+| $T = 100, 10, 5, 2$ (Kantamneni and Tegmark) | 0.32 | 0.30 |
+| $T = 100, 50, 10, 5, 2$ | 0.44 | 0.41 |
+| all 7 | 0.43 | 0.42 |
+
+Adding $T = 50$ raises the share by about 0.12. Adding $T = 3.3$ and $2.5$ on
+top changes it by less than 0.01. The fit leaves about half of the
+variance unexplained at every point. The swaps in section 6 point the same
+way: $T = 3.3$ and $2.5$ add nothing to the answer.
+
 ## 6. Q2: which circles each pathway uses
 
 **Swap.** On the operand's token, at every point from the embedding to after
