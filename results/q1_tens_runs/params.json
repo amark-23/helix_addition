@@ -1,0 +1,13 @@
+{
+  "groups": [
+    "comparison",
+    "mixed family",
+    "tens combined"
+  ],
+  "n_random": 100,
+  "n_eval": 998,
+  "position": 43,
+  "value": 0.0,
+  "labels": "results/feature_labels",
+  "note": "follow-up, 2026-11-27, after the main Q1 results"
+}

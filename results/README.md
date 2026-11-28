@@ -134,6 +134,25 @@ Other results:
 - Comparison off changes the tens on 40% of prompts, mixed family on 36%,
   mod 100 on 1%.
 
+**Follow-up: the other tens groups** (after the main results; `q1_tens_runs/`,
+`scripts/q1_tens_analysis.py`). Comparison, mixed family, and the three tens
+groups together (magnitude + comparison + mixed family, 319 features), each
+against 100 random groups built the same way, on all prompts.
+
+| Switched off | M | Random p95 | U | Random p95 |
+|---|---|---|---|---|
+| comparison | 39.8% | 0.5% | 0.0% | 27.4% |
+| mixed family | 35.9% | 5.0% | 0.0% | 1.5% |
+| tens combined | 72.3% | 3.3% | 0.1% | 28.1% |
+
+All three change the tens far more than random groups and leave the units
+alone. Together they change the tens on 72% of prompts, against 26 to 40% for
+each group alone. The random p95 for U is high for comparison and for the
+combined group because 8 and 19 of their 100 random groups change the units on
+more than 5% of prompts (up to 38%). These groups are drawn from scored
+features outside the families, so some of those features carry units
+information.
+
 ## 4. Q1: attribution graphs
 
 200 attribution graphs (100 carry, 100 no-carry; `q1_graphs/`). Replacement

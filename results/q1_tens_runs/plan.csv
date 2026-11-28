@@ -1,0 +1,304 @@
+run,n_features
+comparison,89
+mixed family,132
+tens combined,319
+random | comparison | 000,89
+random | comparison | 001,89
+random | comparison | 002,89
+random | comparison | 003,89
+random | comparison | 004,89
+random | comparison | 005,89
+random | comparison | 006,89
+random | comparison | 007,89
+random | comparison | 008,89
+random | comparison | 009,89
+random | comparison | 010,89
+random | comparison | 011,89
+random | comparison | 012,89
+random | comparison | 013,89
+random | comparison | 014,89
+random | comparison | 015,89
+random | comparison | 016,89
+random | comparison | 017,89
+random | comparison | 018,89
+random | comparison | 019,89
+random | comparison | 020,89
+random | comparison | 021,89
+random | comparison | 022,89
+random | comparison | 023,89
+random | comparison | 024,89
+random | comparison | 025,89
+random | comparison | 026,89
+random | comparison | 027,89
+random | comparison | 028,89
+random | comparison | 029,89
+random | comparison | 030,89
+random | comparison | 031,89
+random | comparison | 032,89
+random | comparison | 033,89
+random | comparison | 034,89
+random | comparison | 035,89
+random | comparison | 036,89
+random | comparison | 037,89
+random | comparison | 038,89
+random | comparison | 039,89
+random | comparison | 040,89
+random | comparison | 041,89
+random | comparison | 042,89
+random | comparison | 043,89
+random | comparison | 044,89
+random | comparison | 045,89
+random | comparison | 046,89
+random | comparison | 047,89
+random | comparison | 048,89
+random | comparison | 049,89
+random | comparison | 050,89
+random | comparison | 051,89
+random | comparison | 052,89
+random | comparison | 053,89
+random | comparison | 054,89
+random | comparison | 055,89
+random | comparison | 056,89
+random | comparison | 057,89
+random | comparison | 058,89
+random | comparison | 059,89
+random | comparison | 060,89
+random | comparison | 061,89
+random | comparison | 062,89
+random | comparison | 063,89
+random | comparison | 064,89
+random | comparison | 065,89
+random | comparison | 066,89
+random | comparison | 067,89
+random | comparison | 068,89
+random | comparison | 069,89
+random | comparison | 070,89
+random | comparison | 071,89
+random | comparison | 072,89
+random | comparison | 073,89
+random | comparison | 074,89
+random | comparison | 075,89
+random | comparison | 076,89
+random | comparison | 077,89
+random | comparison | 078,89
+random | comparison | 079,89
+random | comparison | 080,89
+random | comparison | 081,89
+random | comparison | 082,89
+random | comparison | 083,89
+random | comparison | 084,89
+random | comparison | 085,89
+random | comparison | 086,89
+random | comparison | 087,89
+random | comparison | 088,89
+random | comparison | 089,89
+random | comparison | 090,89
+random | comparison | 091,89
+random | comparison | 092,89
+random | comparison | 093,89
+random | comparison | 094,89
+random | comparison | 095,89
+random | comparison | 096,89
+random | comparison | 097,89
+random | comparison | 098,89
+random | comparison | 099,89
+random | mixed family | 000,132
+random | mixed family | 001,132
+random | mixed family | 002,132
+random | mixed family | 003,132
+random | mixed family | 004,132
+random | mixed family | 005,132
+random | mixed family | 006,132
+random | mixed family | 007,132
+random | mixed family | 008,132
+random | mixed family | 009,132
+random | mixed family | 010,132
+random | mixed family | 011,132
+random | mixed family | 012,132
+random | mixed family | 013,132
+random | mixed family | 014,132
+random | mixed family | 015,132
+random | mixed family | 016,132
+random | mixed family | 017,132
+random | mixed family | 018,132
+random | mixed family | 019,132
+random | mixed family | 020,132
+random | mixed family | 021,132
+random | mixed family | 022,132
+random | mixed family | 023,132
+random | mixed family | 024,132
+random | mixed family | 025,132
+random | mixed family | 026,132
+random | mixed family | 027,132
+random | mixed family | 028,132
+random | mixed family | 029,132
+random | mixed family | 030,132
+random | mixed family | 031,132
+random | mixed family | 032,132
+random | mixed family | 033,132
+random | mixed family | 034,132
+random | mixed family | 035,132
+random | mixed family | 036,132
+random | mixed family | 037,132
+random | mixed family | 038,132
+random | mixed family | 039,132
+random | mixed family | 040,132
+random | mixed family | 041,132
+random | mixed family | 042,132
+random | mixed family | 043,132
+random | mixed family | 044,132
+random | mixed family | 045,132
+random | mixed family | 046,132
+random | mixed family | 047,132
+random | mixed family | 048,132
+random | mixed family | 049,132
+random | mixed family | 050,132
+random | mixed family | 051,132
+random | mixed family | 052,132
+random | mixed family | 053,132
+random | mixed family | 054,132
+random | mixed family | 055,132
+random | mixed family | 056,132
+random | mixed family | 057,132
+random | mixed family | 058,132
+random | mixed family | 059,132
+random | mixed family | 060,132
+random | mixed family | 061,132
+random | mixed family | 062,132
+random | mixed family | 063,132
+random | mixed family | 064,132
+random | mixed family | 065,132
+random | mixed family | 066,132
+random | mixed family | 067,132
+random | mixed family | 068,132
+random | mixed family | 069,132
+random | mixed family | 070,132
+random | mixed family | 071,132
+random | mixed family | 072,132
+random | mixed family | 073,132
+random | mixed family | 074,132
+random | mixed family | 075,132
+random | mixed family | 076,132
+random | mixed family | 077,132
+random | mixed family | 078,132
+random | mixed family | 079,132
+random | mixed family | 080,132
+random | mixed family | 081,132
+random | mixed family | 082,132
+random | mixed family | 083,132
+random | mixed family | 084,132
+random | mixed family | 085,132
+random | mixed family | 086,132
+random | mixed family | 087,132
+random | mixed family | 088,132
+random | mixed family | 089,132
+random | mixed family | 090,132
+random | mixed family | 091,132
+random | mixed family | 092,132
+random | mixed family | 093,132
+random | mixed family | 094,132
+random | mixed family | 095,132
+random | mixed family | 096,132
+random | mixed family | 097,132
+random | mixed family | 098,132
+random | mixed family | 099,132
+random | tens combined | 000,319
+random | tens combined | 001,319
+random | tens combined | 002,319
+random | tens combined | 003,319
+random | tens combined | 004,319
+random | tens combined | 005,319
+random | tens combined | 006,319
+random | tens combined | 007,319
+random | tens combined | 008,319
+random | tens combined | 009,319
+random | tens combined | 010,319
+random | tens combined | 011,319
+random | tens combined | 012,319
+random | tens combined | 013,319
+random | tens combined | 014,319
+random | tens combined | 015,319
+random | tens combined | 016,319
+random | tens combined | 017,319
+random | tens combined | 018,319
+random | tens combined | 019,319
+random | tens combined | 020,319
+random | tens combined | 021,319
+random | tens combined | 022,319
+random | tens combined | 023,319
+random | tens combined | 024,319
+random | tens combined | 025,319
+random | tens combined | 026,319
+random | tens combined | 027,319
+random | tens combined | 028,319
+random | tens combined | 029,319
+random | tens combined | 030,319
+random | tens combined | 031,319
+random | tens combined | 032,319
+random | tens combined | 033,319
+random | tens combined | 034,319
+random | tens combined | 035,319
+random | tens combined | 036,319
+random | tens combined | 037,319
+random | tens combined | 038,319
+random | tens combined | 039,319
+random | tens combined | 040,319
+random | tens combined | 041,319
+random | tens combined | 042,319
+random | tens combined | 043,319
+random | tens combined | 044,319
+random | tens combined | 045,319
+random | tens combined | 046,319
+random | tens combined | 047,319
+random | tens combined | 048,319
+random | tens combined | 049,319
+random | tens combined | 050,319
+random | tens combined | 051,319
+random | tens combined | 052,319
+random | tens combined | 053,319
+random | tens combined | 054,319
+random | tens combined | 055,319
+random | tens combined | 056,319
+random | tens combined | 057,319
+random | tens combined | 058,319
+random | tens combined | 059,319
+random | tens combined | 060,319
+random | tens combined | 061,319
+random | tens combined | 062,319
+random | tens combined | 063,319
+random | tens combined | 064,319
+random | tens combined | 065,319
+random | tens combined | 066,319
+random | tens combined | 067,319
+random | tens combined | 068,319
+random | tens combined | 069,319
+random | tens combined | 070,319
+random | tens combined | 071,319
+random | tens combined | 072,319
+random | tens combined | 073,319
+random | tens combined | 074,319
+random | tens combined | 075,319
+random | tens combined | 076,319
+random | tens combined | 077,319
+random | tens combined | 078,319
+random | tens combined | 079,319
+random | tens combined | 080,319
+random | tens combined | 081,319
+random | tens combined | 082,319
+random | tens combined | 083,319
+random | tens combined | 084,319
+random | tens combined | 085,319
+random | tens combined | 086,319
+random | tens combined | 087,319
+random | tens combined | 088,319
+random | tens combined | 089,319
+random | tens combined | 090,319
+random | tens combined | 091,319
+random | tens combined | 092,319
+random | tens combined | 093,319
+random | tens combined | 094,319
+random | tens combined | 095,319
+random | tens combined | 096,319
+random | tens combined | 097,319
+random | tens combined | 098,319
+random | tens combined | 099,319
