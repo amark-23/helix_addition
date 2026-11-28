@@ -147,11 +147,16 @@ against 100 random groups built the same way, on all prompts.
 
 All three change the tens far more than random groups and leave the units
 alone. Together they change the tens on 72% of prompts, against 26 to 40% for
-each group alone. The random p95 for U is high for comparison and for the
-combined group because 8 and 19 of their 100 random groups change the units on
-more than 5% of prompts (up to 38%). These groups are drawn from scored
-features outside the families, so some of those features carry units
-information.
+each group alone.
+
+The random p95 for U is high for comparison and for the combined group. The
+random pool excludes only the group's own features, so it can draw features of
+the other families. One last-digit feature (layer 11, #113488, "units of the
+smaller operand", $R^2 = 0.998$) changes the units on 27 to 38% of prompts
+whenever it is drawn: in 6 of the 100 comparison groups, 11 of the combined
+groups and 2 of the mixed-family groups. Without the groups that contain it,
+the U p95 is 0.7% for comparison, 7.3% for the combined group and 1.3% for
+mixed family. The real groups change the units on 0 to 0.1%.
 
 ## 4. Q1: attribution graphs
 
