@@ -149,7 +149,7 @@ def split(seed=0):
     return np.setdiff1d(np.arange(100), test), test
 
 
-def replacement(method, X, train, test):
+def replacement(method, X, train, test, periods=PERIODS):
     """(len(test), d) replacement vectors for the test numbers, from a fit on the train numbers.
 
     mean: the train average (no information about the number). helix: line and
@@ -164,8 +164,8 @@ def replacement(method, X, train, test):
         V = np.linalg.svd(X[train] - mean, full_matrices=False)[2][:9]
         return mean + (X[test] - mean) @ V.T @ V
     columns = {"helix": slice(None), "line only": slice(0, 1), "circles only": slice(1, None)}[method]
-    C = np.linalg.lstsq(basis(train)[:, columns], X[train] - mean, rcond=None)[0]
-    return mean + basis(test)[:, columns] @ C
+    C = np.linalg.lstsq(basis(train, periods)[:, columns], X[train] - mean, rcond=None)[0]
+    return mean + basis(test, periods)[:, columns] @ C
 
 
 def patching_pairs(position, test, seed=0):
@@ -297,6 +297,59 @@ def run_corrupted(model, data, folder="results/helix_patching_corrupted", seed=0
     return df
 
 Q2_PERIODS = [100, 50, 10, 5, 10 / 3, 2.5, 2]
+
+
+# ---- the same patching test with other period sets ----
+
+PERIOD_SETS = {"4 periods": [2, 5, 10, 100], "5 periods": [2, 5, 10, 50, 100], "7 periods": Q2_PERIODS}
+
+
+def run_corrupted_periods(model, data, folder="results/helix_patching_periods", seed=0, batch=100, points=range(12)):
+    """run_corrupted with the helix fitted on each set in PERIOD_SETS (same split and prompts).
+
+    Only points 0-11 (embedding to after layer 10): later the operand's vector barely matters.
+    """
+    import pandas as pd
+
+    from helixadd.results import load_if_exists, save
+
+    params = {"activations": "results/number_acts", "period_sets": PERIOD_SETS, "n_test": N_TEST,
+              "n_partners": N_PARTNERS, "seed": seed, "points": list(points),
+              "setup": "as helix_patching_corrupted: corrupted run a'+b (a+b'), helix vector of the clean operand "
+                       "patched on its token, clean answer's logit; fit on 80 numbers, the 20 held out are patched"}
+    df = load_if_exists(folder, params)
+    if df is not None:
+        return df
+
+    train, test = split(seed)
+    row_of = {int(x): i for i, x in enumerate(test)}
+    rows = []
+    for position, pos in [("a", A_POS), ("b", B_POS)]:
+        triples = corrupted_triples(position, test, seed)
+        corrupt = [c for _, c in triples]
+        answers = [a + b for (a, b), _ in triples]
+        which = [row_of[a if position == "a" else b] for (a, b), _ in triples]
+
+        def logits(point, vectors):
+            out = []
+            for i in range(0, len(triples), batch):
+                v = None if vectors is None else vectors[which[i:i + batch]]
+                out.append(patch_logits(model, corrupt[i:i + batch], point, pos, v, answers[i:i + batch]))
+            return np.concatenate(out)
+
+        base = logits(0, None)
+        for point in points:
+            X = data[position][point]
+            vectors = {"layer patch": X[test]}
+            for name, periods in PERIOD_SETS.items():
+                vectors[name] = replacement("helix", X, train, test, periods)
+            for method, vecs in vectors.items():
+                rows.append({"position": position, "point": point, "method": method,
+                             "logit difference": float((logits(point, vecs) - base).mean()), "n": len(triples)})
+            print(position, point, "done")
+    df = pd.DataFrame(rows)
+    save(folder, params, df)
+    return df
 
 
 def circle_directions(C, kept, periods=Q2_PERIODS):
